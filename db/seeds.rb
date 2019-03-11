@@ -12,10 +12,14 @@ require 'faker'
 User.delete_all
 Product.delete_all
 FootPrint.delete_all
+Type.delete_all
+Value.delete_all
+
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
-# ActiveRecord::Base.connection.reset_pk_sequence!('footprints')
-
+ActiveRecord::Base.connection.reset_pk_sequence!('footprints')
+ActiveRecord::Base.connection.reset_pk_sequence!('types')
+ActiveRecord::Base.connection.reset_pk_sequence!('values')
 
 5.times do |i|
  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
@@ -23,7 +27,18 @@ end
 puts "Users created"
 
 5.times do |i|
-  Product.create!(title: Faker::Name.first_name, description: "Moi,Moche et Méchant. Allez acheter cette putain de photo !", price: rand(1..30))
+  Value.create!(carbon_print: rand(1..30))
+end
+puts "Value created"
+
+5.times do |i|
+  Type.create!(name: "hola", value_id: Value.all.sample.id )
+end
+puts "Type created"
+
+
+5.times do |i|
+  Product.create!(title: Faker::Name.first_name, description: "Moi,Moche et Méchant. Allez acheter cette putain de photo !", price: rand(1..30), type_id: Type.all.sample.id)
 end
 puts "Products created"
 
