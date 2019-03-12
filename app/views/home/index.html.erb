@@ -27,3 +27,40 @@
 </div>
 
 <p><%=@product.first.brand.ratio.carbon_print_for_brand%></p>
+
+<%# <div id='map'></div> %>
+<%# <script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiY29yc2FpcmUiLCJhIjoiY2p0NWx2NzJ3MDZvNDN5b2N1OHV3NnVtMCJ9.w2Wo9p1K9LtFLVcmLXfpVA';
+var map = L.mapbox.map('map')
+    .setView(France, 8)
+    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+</script> %>
+
+
+
+<div id='map' class='dark'></div>
+<script type='text/javascript'>
+L.mapbox.accessToken = 'pk.eyJ1IjoiY29yc2FpcmUiLCJhIjoiY2p0NWx2NzJ3MDZvNDN5b2N1OHV3NnVtMCJ9.w2Wo9p1K9LtFLVcmLXfpVA';
+
+  // var map = L.mapbox.map('map', 'examples.map-y7l23tes').locate([<%= @product.first.description%>], 9);
+  // var map = L.mapbox.places('map', 'examples.map-y7l23tes').setView([<%= @product.first.description%>], 9);
+
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY29yc2FpcmUiLCJhIjoiY2p0NWx2NzJ3MDZvNDN5b2N1OHV3NnVtMCJ9.w2Wo9p1K9LtFLVcmLXfpVA';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v9',
+center: [-79.4512, 43.6568],
+// center: <%=@product.first.description%>,
+zoom: 13
+});
+ 
+map.addControl(new MapboxGeocoder({
+accessToken: mapboxgl.accessToken
+}));
+
+
+
+
+
+</script>

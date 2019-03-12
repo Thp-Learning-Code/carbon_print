@@ -13,4 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//*= require mapbox-gl
+//= require mapbox.js
+
 //= require_tree .
