@@ -5,10 +5,15 @@ class Product < ApplicationRecord
   belongs_to :brand
   geocoded_by :address#::latitude: :lat, longitude: :lon
 
-  after_validation :geocode 
+  after_validation :geocode , if: :address_changed?
+
   def address
     [city,description].compact.join(",")
   end
-# end
-  # after_validation :geocode,  if: ->(obj){ obj.country.present? and obj.country_changed? }
+  
+  def address_changed?
+    city_changed? || description_changed?
+
+  end
+
 end
