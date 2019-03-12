@@ -41,25 +41,21 @@ var map = L.mapbox.map('map')
 <div id='map' class='dark'></div>
 <%# <script type='text/javascript'> %>
 <%= javascript_tag do %>
+  console.log("ca fonctionne")
+
 L.mapbox.accessToken = 'pk.eyJ1IjoiY29yc2FpcmUiLCJhIjoiY2p0NWx2NzJ3MDZvNDN5b2N1OHV3NnVtMCJ9.w2Wo9p1K9LtFLVcmLXfpVA';
 
-  // var map = L.mapbox.map('map', 'examples.map-y7l23tes').locate([<%= @product.first.description%>], 9);
-  var map = L.mapbox.places('map', 'examples.map-y7l23tes')
-  .setView([lat:<%= @product.first.latitude%>,lng:<%= @product.first.longitude%>], 9);
-  .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
-
-
-// mapboxgl.accessToken = 'pk.eyJ1IjoiY29yc2FpcmUiLCJhIjoiY2p0NWx2NzJ3MDZvNDN5b2N1OHV3NnVtMCJ9.w2Wo9p1K9LtFLVcmLXfpVA';
-// var map = new mapboxgl.Map({
-// container: 'map',
-// style: 'mapbox://styles/mapbox/streets-v9',
-// center: [lat:<%= @product.first.latitude%>,lng:<%=@product.first.longitude%>],
-// // center: <%=@product.first.description%>,
-// zoom: 13
-// });
+var map = L.mapbox.map('map')
+    .setView(<%= escape_javascript @product.first.city%>, 9)
+    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'
+    ));
+<%# var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v9',
+center: [-79.4512, 43.6568],
+zoom: 13
+}); %>
  
-// map.addControl(new MapboxGeocoder({
-// accessToken: mapboxgl.accessToken
-// }));
-<%end%>
+
+<%end %>
 <%# </script> %>

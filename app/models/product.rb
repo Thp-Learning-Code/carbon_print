@@ -3,7 +3,12 @@ class Product < ApplicationRecord
   has_many :users, through: :footprints
   belongs_to :type
   belongs_to :brand
-  geocoded_by :description::latitude: :lat, longitude: :lon
+  geocoded_by :address#::latitude: :lat, longitude: :lon
+
+  after_validation :geocode 
+  def address
+    [city,description].compact.join(",")
+  end
 # end
   # after_validation :geocode,  if: ->(obj){ obj.country.present? and obj.country_changed? }
 end
