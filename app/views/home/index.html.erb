@@ -43,19 +43,64 @@ var map = L.mapbox.map('map')
 <%= javascript_tag do %>
   console.log("ca fonctionne")
 
-L.mapbox.accessToken = 'pk.eyJ1IjoiY29yc2FpcmUiLCJhIjoiY2p0NWx2NzJ3MDZvNDN5b2N1OHV3NnVtMCJ9.w2Wo9p1K9LtFLVcmLXfpVA';
+console.log(<%= @product.find(1).latitude%>)
 
-var map = L.mapbox.map('map')
-    .setView(<%= escape_javascript @product.first.city%>, 9)
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'
-    ));
-<%# var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v9',
-center: [-79.4512, 43.6568],
-zoom: 13
-}); %>
- 
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY29yc2FpcmUiLCJhIjoiY2p0NWx2NzJ3MDZvNDN5b2N1OHV3NnVtMCJ9.w2Wo9p1K9LtFLVcmLXfpVA';
+
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/light-v10',
+  center:      [<%= @product.find(1).longitude %>,<%= @product.find(1).latitude %> ],
+
+  zoom: 5
+});
+
+
+console.log(<%= @product.find(1).latitude%> ,<%= @product.find(1).longitude%>)
+var geojson = {
+  type: 'FeatureCollection',
+  features: [{
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [<%= @product.find(1).longitude %>,<%= @product.find(1).latitude %> ]
+    },
+    properties: {
+      title: 'Mapbox',
+      description: 'Washington, D.C.'
+    }
+  },
+  {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [4.850000, 45.750000]
+    },
+    properties: {
+      title: 'Mapbox',
+      description: 'San Francisco, California'
+    }
+  }]
+};
+
+// add markers to map
+geojson.features.forEach(function(marker) {
+
+  // create a HTML element for each feature
+  var el = document.createElement('div');
+  el.className = 'marker';
+
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .addTo(map);
+});
+
+new mapboxgl.Marker(el)
+  .setLngLat(marker.geometry.coordinates)
+  .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+  .addTo(map);
 
 <%end %>
 <%# </script> %>
