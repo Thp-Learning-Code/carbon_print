@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_151226) do
+ActiveRecord::Schema.define(version: 2019_03_11_210710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.bigint "ratio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ratio_id"], name: "index_brands_on_ratio_id"
+  end
 
   create_table "foot_prints", force: :cascade do |t|
     t.string "delivery_address"
@@ -35,7 +43,15 @@ ActiveRecord::Schema.define(version: 2019_03_11_151226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "type_id"
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"
+  end
+
+  create_table "ratios", force: :cascade do |t|
+    t.decimal "carbon_print_for_brand"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "types", force: :cascade do |t|
@@ -64,5 +80,6 @@ ActiveRecord::Schema.define(version: 2019_03_11_151226) do
 
   add_foreign_key "foot_prints", "products"
   add_foreign_key "foot_prints", "users"
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "types"
 end
