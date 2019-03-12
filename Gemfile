@@ -75,4 +75,4 @@ end
 gem 'mailjet'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'mapbox-gl-rails'
-
+gem 'mapbox-rails'
