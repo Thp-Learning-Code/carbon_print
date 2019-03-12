@@ -36,13 +36,23 @@ puts "Value created"
 end
 puts "Type created"
 
+5.times do |i|
+  Ratio.create!(carbon_print_for_brand: rand(1..30))
+end
+puts "Ratio created"
 
 5.times do |i|
-  Product.create!(title: Faker::Name.first_name, description: "Moi,Moche et Méchant. Allez acheter cette putain de photo !", price: rand(1..30), type_id: Type.all.sample.id)
+  Brand.create!(name: Faker::WorldCup.group, ratio_id: Value.all.sample.id )
+end
+puts "Brand created"
+
+
+5.times do |i|
+  Product.create!(title: Faker::Name.first_name, description: Faker::WorldCup.team, price: rand(1..30), type_id: Type.all.sample.id, brand_id: Brand.all.sample.id)
 end
 puts "Products created"
 
 5.times do |i|
-  FootPrint.create!(delivery_address: "Rue du pont", zip_code: "93000", user_id: User.all.sample.id, product_id: Product.all.sample.id )
+  FootPrint.create!(delivery_address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, user_id: User.all.sample.id, product_id: Product.all.sample.id )
 end
 puts "Footprint created"
