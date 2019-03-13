@@ -47,6 +47,9 @@
 
 <div id='map'></div>
 <%= javascript_tag do %>
+console.log("<%= @foot_print.town %>")
+console.log("<%= @foot_print.product.city %>")
+
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29yc2FpcmUiLCJhIjoiY2p0NWx2NzJ3MDZvNDN5b2N1OHV3NnVtMCJ9.w2Wo9p1K9LtFLVcmLXfpVA';
 
@@ -101,6 +104,20 @@ route.features.forEach(function(marker) {
 });
 
 
+map.addControl(new MapboxDirections({
+accessToken: mapboxgl.accessToken
+}), 'top-left');
+
+
+
+
 <%end %>
 <%= link_to 'Edit', edit_foot_print_path(@foot_print) %> |
 <%= link_to 'Back', foot_prints_path %>
+
+<br>
+
+
+<h1>
+   <%= @foot_print.product.distance_to(@foot_print).round.to_f*1.609%> km
+</h1>
