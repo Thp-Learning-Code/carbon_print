@@ -28,7 +28,7 @@ class FootPrintsController < ApplicationController
     @foot_print.user_id = User.all.sample.id
     @foot_print.product_id = Product.all.sample.id
     @foot_print.geocode
-    @foot_print.result = rand(1..10)
+    @foot_print.result = @foot_print.product.tx_total
 
     respond_to do |format|
       if @foot_print.save
