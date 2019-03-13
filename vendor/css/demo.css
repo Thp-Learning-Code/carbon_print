@@ -616,7 +616,7 @@
 .presentation-page .rellax-text-container .h1-seo,
 .index-page .rellax-text-container .h1-seo {
     font-size: 16.8em;
-    text-transform: uppercase;
+ 
     font-weight: 700;
     font-family: 'Open Sans Condensed', sans-serif;
     z-index: 1;
@@ -682,12 +682,13 @@
 .presentation-page .rellax-header-sky,
 .index-page .rellax-header-sky {
     z-index: 0;
-    height: 50%;
+    height: 80%;
 }
 
 .presentation-page .rellax-header-buildings,
 .index-page .rellax-header-buildings {
     z-index: 2;
+    height:75%;
 }
 
 .presentation-page [data-background-color="dark-red"],
