@@ -23,9 +23,6 @@ end
 puts "Users created"
 
 5.times do |i|
-<<<<<<< HEAD
-  Product.create!(title: Faker::Name.first_name, description: "Moi,Moche et Méchant. Allez acheter cette putain de photo !", price: rand(1..30))
-=======
   Value.create!(carbon_print: rand(1..30))
 end
 puts "Value created"
@@ -48,15 +45,10 @@ puts "Brand created"
 
 5.times do |i|
   Product.create!(title: Faker::Name.first_name, description: Faker::WorldCup.team, price: rand(1..30),city: "Londres", country: "Angleterre", type_id: Type.all.sample.id, brand_id: Brand.all.sample.id)
->>>>>>> 2525cd8faf00964e1946cd7a756c642ef3d792ab
 end
 puts "Products created"
 
 5.times do |i|
-<<<<<<< HEAD
-  FootPrint.create!(delivery_address: "Rue du pont", zip_code: "93000", user_id: User.all.sample.id, product_id: Product.all.sample.id )
-=======
   FootPrint.create!(delivery_address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, town: "Paris", country: "France", user_id: User.all.sample.id, product_id: Product.all.sample.id)
->>>>>>> 2525cd8faf00964e1946cd7a756c642ef3d792ab
 end
 puts "Footprint created"
