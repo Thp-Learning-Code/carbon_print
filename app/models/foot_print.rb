@@ -13,8 +13,4 @@ class FootPrint < ApplicationRecord
     town.changed? || country.changed?
   end
 
-  def calcul_distance(id)
-    Product
-  end
-
 end
