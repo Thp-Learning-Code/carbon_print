@@ -20,7 +20,7 @@
 </head>
 
 <body class="index-page">
-  
+
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
             <div class="page-header-image" data-parallax="true" style="background-image: ;">
@@ -114,7 +114,7 @@
   <input type="link">
 </form>
 </div>
-<%= link_to "Test", new_foot_print_path %>
+
 
 <%= javascript_tag do%>
 function autocomplete(inp, arr) {
@@ -234,4 +234,3 @@ var countries =  <%= @list.inspect.html_safe %>
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), countries);
 <%end%>
-
