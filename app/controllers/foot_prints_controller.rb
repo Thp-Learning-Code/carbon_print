@@ -10,6 +10,7 @@ class FootPrintsController < ApplicationController
   # GET /foot_prints/1
   # GET /foot_prints/1.json
   def show
+      @distance = @foot_print.product.distance_to(@foot_print).round.to_f * 1.609
   end
 
   # GET /foot_prints/new
@@ -28,7 +29,8 @@ class FootPrintsController < ApplicationController
     @foot_print.user_id = User.all.sample.id
     @foot_print.product_id = Product.all.sample.id
     @foot_print.geocode
-    @foot_print.result = @foot_print.product.tx_total
+    @distance = @foot_print.product.distance_to(@foot_print).round.to_f * 1.609
+    @foot_print.result = @foot_print.product.tx_total + @distance * 1.5
 
     respond_to do |format|
       if @foot_print.save
