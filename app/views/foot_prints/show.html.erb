@@ -108,11 +108,19 @@ route.features.forEach(function(marker) {
 });
 
 
-map.addControl(new MapboxDirections({
+var directions = new MapboxDirections({
+  accessToken: ENV['MAPBOX_API'],
+  unit: 'metric',
+  profile: 'mapbox/driving',
+  
+});
+  directions.setOrigin([<%= @foot_print.product.longitude %>,<%= @foot_print.product.latitude %>])
+  directions.addWaypoint(0,[<%= @foot_print.product.longitude + 0.1 %>,<%= @foot_print.product.latitude + 0.02 %>])
+  directions.setDestination([<%= @foot_print.longitude %>,<%= @foot_print.latitude %>])
 
-accessToken: mapboxgl.accessToken
 
-}), 'top-left');
+// add to your mapboxgl map
+map.addControl(directions, 'top-left');
 
 
 
