@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
-
+  it 'should create a user' do 
+    User.create(first_name: 'bob', first_name: 'lenon', zip_code: 75000)
+    expect(User.count).to eq(1)
+  end
 end
