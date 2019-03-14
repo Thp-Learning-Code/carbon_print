@@ -1,0 +1,19 @@
+
+<%= link_to "Tester Un Produit", new_foot_print_path, class:"button d-flex justify-content-center" %>
+<br>
+<br>
+
+<%@product.each do |item|%>
+<div class="card text-center">
+  <div class="card-header">
+    <%= item.title %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= item.description  %></h5>
+    <p class="card-text"><%= item.price %></p>
+    <p class="card-text"><%= item.city %></p>
+    <%=link_to "voir moins", product_path(item),class:"btn btn-info" %>
+  </div>
+  </div>
+</div>
+<%end%>
