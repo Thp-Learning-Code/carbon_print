@@ -48,6 +48,7 @@
 <div id='map'></div>
 <%= javascript_tag do %>
 
+<<<<<<< HEAD
 console.log("<%= @foot_print.town %>")
 console.log("<%= @foot_print.product %>")
 
@@ -56,6 +57,9 @@ var ENV = {
 }
 mapboxgl.accessToken =ENV['MAPBOX_API'] 
 
+=======
+mapboxgl.accessToken = '';
+>>>>>>> master
 
 var map = new mapboxgl.Map({
   container: 'map', // container id
