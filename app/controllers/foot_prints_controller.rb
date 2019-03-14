@@ -26,14 +26,13 @@ class FootPrintsController < ApplicationController
   # POST /foot_prints
   # POST /foot_prints.json
   def create
-    puts @product
     @foot_print = FootPrint.new(foot_print_params)
     @foot_print.user_id = current_user.id
     @foot_print.product_id = Product.all.sample.id
+    # @foot_print.product_id = @product
     @foot_print.geocode
     @distance = @foot_print.product.distance_to(@foot_print).round.to_f * 1.609
     @foot_print.result = @foot_print.product.tx_total + @distance * 1.5
-
     respond_to do |format|
       if @foot_print.save
         format.html { redirect_to @foot_print, notice: 'Foot print was successfully created.' }

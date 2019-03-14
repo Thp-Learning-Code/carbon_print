@@ -6,7 +6,7 @@ class FootPrint < ApplicationRecord
   after_validation :geocode #if: :location_changed?
 
   def location
-    [town, country].compact.join(", ")
+    [delivery_address,zip_code,town, country].compact.join(", ")
   end
 
   def location_changed?
