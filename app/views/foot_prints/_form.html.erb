@@ -10,28 +10,53 @@
       </ul>
     </div>
   <% end %>
+  
+   <div style ="width: 50%">
+     <div class="form-control">
+      <%= form.label :delivery_address %>
+      <input type="text" value="" placeholder="Votre adresse" class="form-control" <%= form.text_field :delivery_address %> 
+    
+        
+        
+        
+      </input>
+    </div>    
+      
 
-  <div class="field">
-    <%= form.label :delivery_address %>
-    <%= form.text_field :delivery_address %>
-  </div>
+    <div class="form-control">
+       <%= form.label :zip_code %>
+      <input type="text" value="" placeholder="Votre code postal" class="form-control" <%= form.number_field :zip_code %>
+    
+      
+        
+      </input>
+    </div>  
 
-  <div class="field">
-    <%= form.label :zip_code %>
-    <%= form.number_field :zip_code %>
-  </div>
 
-  <div class="field">
-    <%= form.label :town %>
-    <%= form.text_field :town %>
-  </div>
+    <div class="form-control">
+      <%= form.label :town %>
+      <input type="text" value="" placeholder="Votre ville" class="form-control" <%= form.text_field :town %>
+    
+        
+        
+      </input>
+    </div>  
 
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
+    <div class="form-control">
+      <%= form.label :country %>
+      <input type="text" value="" placeholder="Pays" class="form-control" <%= form.text_field :country %>
+    
+        
+      </input>
+    </div>  
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+      <button type="form.submit" class="btn btn-primary btn-round" >
+      
+        Let's go 
+      </button>
+      
+      </div>
+
+</div>
+
 <% end %>
