@@ -616,18 +616,20 @@
 .presentation-page .rellax-text-container .h1-seo,
 .index-page .rellax-text-container .h1-seo {
     font-size: 16.8em;
- 
-    font-weight: 700;
-    font-family: 'Open Sans Condensed', sans-serif;
+
+    text-transform: uppercase;
+    font-weight: 200;
+    font-family:  'Trebuchet MS', Helvetica, sans-serif;
     z-index: 1;
     letter-spacing: -10px;
     text-align: center;
-    background: #ffedea;
-    background: -moz-linear-gradient(top, #FFFFFF 35%, #3D5256 100%);
-    background: -webkit-linear-gradient(top, #FFFFFF 35%, #3D5256 100%);
-    background: linear-gradient(to bottom, #FFFFFF 35%, #ff9500 100%);
+    background: #ABFAA9;
+    background: -moz-linear-gradient(top, #FFFFFF 35%, #ABFAA9 100%);
+    background: -webkit-linear-gradient(top, #FFFFFF 35%, #ABFAA9 100%);
+    background: linear-gradient(to bottom, #314760 35%, #5A845A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 
 .presentation-page .rellax-text-container .pro,
