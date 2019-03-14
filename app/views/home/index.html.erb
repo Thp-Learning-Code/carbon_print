@@ -1,42 +1,64 @@
-<<<<<<< HEAD
+<% if user_signed_in? %>
 
-<ul>
-  <li><a href="news.asp">News</a></li>
-  <li><a href="contact.asp">Contact</a></li>
-  <li><a href="default.asp">Conexion</a></li>
-</ul>
+  <%# <%= @tips %> %>
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Condition</th>
+        <th scope="col">Delete</i><th>
+        <th scope="">
+      </tr>
+    </thead>
+    <tbody>
 
-<%= @tips %>
+  <%@product.each do |item|%>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.price %></td>
+        <td><%= item.description %></td>
+      </tr>
+  <%end%>
+      <tr>
+    </tbody>
+  </table>
+  </div>
 
-=======
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%= @tips %>
->>>>>>> 4917ff76a4aa103085ced31976b7d9e0ad0687e4
-<div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Price</th>
-      <th scope="col">Condition</th>
-      <th scope="col">Delete</i><th>
-      <th scope="">
-    </tr>
-  </thead>
-  <tbody>
+  <%= link_to "Test", new_foot_print_path %>
 
-<%@product.each do |item|%>
-    <tr>
-      <td><%= item.title %></td>
-      <td><%= item.price %></td>
-      <td><%= item.description %></td>
-    </tr>
-<%end%>
-    <tr>
-  </tbody>
-</table>
-</div>
 
-<%= link_to "Test", new_foot_print_path %>
+<% else %>
+
+  <%= @tips %>
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Condition</th>
+        <th scope="col">Delete</i><th>
+        <th scope="">
+      </tr>
+    </thead>
+    <tbody>
+
+  <%@product.each do |item|%>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.price %></td>
+        <td><%= item.description %></td>
+      </tr>
+  <%end%>
+      <tr>
+    </tbody>
+  </table>
+  </div>
+
+  <%= link_to "Test", user_session_path %>
+
+<% end %>

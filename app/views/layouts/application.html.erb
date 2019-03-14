@@ -16,6 +16,30 @@
     </head>
 
   <body>
+    <% if user_signed_in? %>
+    <h6 class="dropdown-item" >Bonjour, <%= current_user.first_name %> !</h6>
+
+    <ul>
+      <li><a href="news.asp">News</a></li>
+      <li><a href="contact.asp">Contact</a></li>
+      <li><a href="default.asp">Connexion</a></li>
+      <!-- <li> <%# <%= link_to "Voir le profil",user_path(current_user),class:"card-link"%> </li> -->
+      <li> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete,class: "btn btn-outline-success" %></li>
+    </ul>
+
+
+    <% else %>
+
+    <ul>
+      <li> <%= link_to "Connexion", user_session_path %></li>
+      <li> <a href="/users/sign_up"> S'inscrire</a></li>
+    </ul>
+
+
+      <%= link_to "Test", user_session_path %>
+
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
