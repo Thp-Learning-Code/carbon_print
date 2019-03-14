@@ -48,7 +48,14 @@
 <div id='map'></div>
 <%= javascript_tag do %>
 
-mapboxgl.accessToken = '';
+console.log("<%= @foot_print.town %>")
+console.log("<%= @foot_print.product %>")
+
+var ENV = {
+  MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
+}
+mapboxgl.accessToken =ENV['MAPBOX_API']
+
 
 var map = new mapboxgl.Map({
   container: 'map', // container id
@@ -101,6 +108,32 @@ route.features.forEach(function(marker) {
 });
 
 
+var directions = new MapboxDirections({
+  accessToken: ENV['MAPBOX_API'],
+  unit: 'metric',
+  profile: 'mapbox/driving',
+
+});
+  directions.setOrigin([<%= @foot_print.product.longitude %>,<%= @foot_print.product.latitude %>])
+  directions.addWaypoint(0,[<%= @foot_print.product.longitude + 0.1 %>,<%= @foot_print.product.latitude + 0.02 %>])
+  directions.setDestination([<%= @foot_print.longitude %>,<%= @foot_print.latitude %>])
+
+
+// add to your mapboxgl map
+map.addControl(directions, 'top-left');
+
+
+
+
 <%end %>
 <%= link_to 'Edit', edit_foot_print_path(@foot_print) %> |
 <%= link_to 'Back', foot_prints_path %>
+
+<br>
+
+
+<h1>
+
+   <%= @foot_print.product.distance_to(@foot_print).round.to_f*1.609%> km
+
+</h1>
