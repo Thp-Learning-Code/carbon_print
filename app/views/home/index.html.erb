@@ -1,5 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<ul>
+  <li><a href="news.asp">News</a></li>
+  <li><a href="contact.asp">Contact</a></li>
+  <li><a href="default.asp">Conexion</a></li>
+</ul>
+
+<%= @tips %>
 
 <div class="container">
 <table class="table">
@@ -14,6 +20,7 @@
     </tr>
   </thead>
   <tbody>
+
 <%@product.each do |item|%>
     <tr>
       <td><%= item.title %></td>
