@@ -54,7 +54,7 @@ console.log("<%= @foot_print.product %>")
 var ENV = {
   MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
 }
-mapboxgl.accessToken =ENV['MAPBOX_API'] 
+mapboxgl.accessToken =ENV['MAPBOX_API']
 
 
 var map = new mapboxgl.Map({
@@ -108,11 +108,19 @@ route.features.forEach(function(marker) {
 });
 
 
-map.addControl(new MapboxDirections({
+var directions = new MapboxDirections({
+  accessToken: ENV['MAPBOX_API'],
+  unit: 'metric',
+  profile: 'mapbox/driving',
 
-accessToken: mapboxgl.accessToken
+});
+  directions.setOrigin([<%= @foot_print.product.longitude %>,<%= @foot_print.product.latitude %>])
+  directions.addWaypoint(0,[<%= @foot_print.product.longitude + 0.1 %>,<%= @foot_print.product.latitude + 0.02 %>])
+  directions.setDestination([<%= @foot_print.longitude %>,<%= @foot_print.latitude %>])
 
-}), 'top-left');
+
+// add to your mapboxgl map
+map.addControl(directions, 'top-left');
 
 
 
@@ -126,6 +134,6 @@ accessToken: mapboxgl.accessToken
 
 <h1>
 
-   <%= @foot_print.product.distance_to(@foot_print).round.to_f*1.609%> km
+   <%= @distance%> km
 
 </h1>

@@ -9,4 +9,9 @@ class Product < ApplicationRecord
   def location
     [city, country].compact.join(", ")
   end
+
+  def tx_total
+    brand.ratio.carbon_print_for_brand * type.value.carbon_print
+  end
+
 end
