@@ -1,25 +1,45 @@
 
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title><%= @tips %></title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="./assets/css/demo.css" rel="stylesheet" />
+</head>
+
 <body class="index-page">
-    <!-- End Navbar -->
+  
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
             <div class="page-header-image" data-parallax="true" style="background-image: ;">
             </div>
             <div class="rellax-header rellax-header-sky" data-rellax-speed="-8">
-                <div class="page-header-image" style="background-image: url('./assets/img/presentation-page/nuk-pro-back-sky.jpg')">
+                <div class="page-header-image" style="background-image: url('./assets/img/ciel/ciel11')">
                 </div>
             </div>
             <div class="rellax-header rellax-header-buildings" data-rellax-speed="0">
-                <div class="page-header-image page-header-city" style="background-image: url('./assets/img/presentation-page/nuk-pro-buildings.png')">
+                <div class="page-header-image page-header-city" style="background-image: url('./assets/img/sol/eolienne.png')">
                 </div>
             </div>
             <div class="rellax-text-container">
-                <h1 class="h1-seo rellax-text" data-rellax-speed="-2">Components</h1>
+                <h1 class="h1-seo rellax-text" data-rellax-speed="-2">Carbon print</h1>
             </div>
-            <h3 class="h3-description rellax-text" data-rellax-speed="-1">A beautiful premium Bootstrap 4 UI Kit.</h3>
+            <h3 class="h3-description rellax-text" data-rellax-speed="-1"><%= @tips %></h3>
 
                       <!--     Button search     -->
-            <h6 class="category category-absolute rellax-text" data-rellax-speed="-2">Designed by
+            <h6 class="category category-absolute rellax-text" data-rellax-speed="-2">Recherche ton produit :
 
                 <div style="margin-bottom: 20px">
            <div id="cover">
@@ -41,13 +61,11 @@
 
 
 
-<%= render "template" %>
 
-<%= @tips %>
 
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%= @tips %>
+
+
+
 
 <div class="container">
 <table class="table">
@@ -66,33 +84,37 @@
 <%@product.each do |item|%>
     <tr>
       <td><%= item.title %></td>
-      <td><%= item.price %></td>
       <td><%= item.description %></td>
+      <td><%= item.price %></td>
     </tr>
-<%end%>
     <tr>
   </tbody>
 </table>
 </div>
 
-<%= link_to "Test", new_foot_print_path %>
+
+</body>
 
 
 
+
+<%end%>
 <h2>Autocomplete</h2>
 
 <p>Start typing:</p>
 
 <!--Make sure the form has the autocomplete function switched off:-->
 <div style='margin-bottom: 100px'>
-  <form autocomplete="off" action="/<%=  %>">
+  <form >
+  <%# autocomplete="off" action="product/<%= @product %>
   <div class="autocomplete" style="width:300px;">
     <input id="myInput" type="text" name="myCountry" placeholder="Country">
   </div>
 
-  <input type="submit">
+  <input type="link">
 </form>
 </div>
+<%= link_to "Test", new_foot_print_path %>
 
 <%= javascript_tag do%>
 function autocomplete(inp, arr) {
@@ -212,3 +234,4 @@ var countries =  <%= @list.inspect.html_safe %>
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), countries);
 <%end%>
+
