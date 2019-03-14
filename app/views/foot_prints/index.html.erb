@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Foot Prints</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Delivery address</th>
+      <th>Zip code</th>
+      <th>Town</th>
+      <th>Country</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Result</th>
+      <th>User</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foot_prints.each do |foot_print| %>
+      <tr>
+        <td><%= foot_print.delivery_address %></td>
+        <td><%= foot_print.zip_code %></td>
+        <td><%= foot_print.town %></td>
+        <td><%= foot_print.country %></td>
+        <td><%= foot_print.latitude %></td>
+        <td><%= foot_print.longitude %></td>
+        <td><%= foot_print.result %></td>
+        <td><%= foot_print.user_id %></td>
+        <td><%= foot_print.product_id %></td>
+        <td><%= link_to 'Show', foot_print %></td>
+        <td><%= link_to 'Edit', edit_foot_print_path(foot_print) %></td>
+        <td><%= link_to 'Destroy', foot_print, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Foot Print', new_foot_print_path %>
