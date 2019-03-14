@@ -1,69 +1,3 @@
-<<<<<<< HEAD
-<% if user_signed_in? %>
-
-  <%# <%= @tips %> %>
-  <div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Price</th>
-        <th scope="col">Condition</th>
-        <th scope="col">Delete</i><th>
-        <th scope="">
-      </tr>
-    </thead>
-    <tbody>
-
-  <%@product.each do |item|%>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.price %></td>
-        <td><%= item.description %></td>
-      </tr>
-  <%end%>
-      <tr>
-    </tbody>
-  </table>
-  </div>
-
-  <%= link_to "Test", new_foot_print_path %>
-
-
-<% else %>
-
-  <%= @tips %>
-  <div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Price</th>
-        <th scope="col">Condition</th>
-        <th scope="col">Delete</i><th>
-        <th scope="">
-      </tr>
-    </thead>
-    <tbody>
-
-  <%@product.each do |item|%>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.price %></td>
-        <td><%= item.description %></td>
-      </tr>
-  <%end%>
-      <tr>
-    </tbody>
-  </table>
-  </div>
-
-  <%= link_to "Test", user_session_path %>
-
-<% end %>
-=======
 
 
 
@@ -379,4 +313,3 @@ var countries =  <%= @list.inspect.html_safe %>
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), countries);
 <%end%>
->>>>>>> 68673532d93d97d177d706930a8d0372147e9623
