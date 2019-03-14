@@ -4,7 +4,7 @@
      <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
         <div class="container">
             <div class="navbar-translate">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand " href="/">
                     Carbon print
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,23 +19,15 @@
                     <a class="nav-link "> Bonjour, <%= current_user.first_name %> !</a>
                 </li>
                   
-                    
-    <li class="nav-item ">
-                    
-        <%= link_to "Voir le profil", user_registration_path(current_user),class:"nav-link"%> </li>
-      <li class="nav-item ">
-       <%= link_to "Déconnexion", destroy_user_session_path, method: :delete,class: "nav-link btn btn-outline-success" %>
-           
-       </li>
+                 <li class="nav-item active ">
+                  <%= link_to "Voir le profil", user_registration_path(current_user),class:"nav-link"%> </li>
+                <li class="nav-item ">
+                 <%= link_to "Déconnexion", destroy_user_session_path, method: :delete,class: "nav-link btn btn-outline-success" %></li>
                 </ul>
             </div>
         </div>
     </nav>
     
-
-   
-
-
     <% else %>
 
     <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
@@ -55,21 +47,13 @@
                     <li class="nav-item " >
                      <%= link_to "Test", user_session_path, class:"nav-link"%>
                  </li>
-                     <li class="nav-item "> <%= link_to "Connexion", user_session_path , class:"nav-link"%></li>
+                     <li class="nav-item active"> <%= link_to "Connexion", user_session_path , class:"nav-link"%></li>
 
-                      <li class="nav-item "> <a class="nav-link "href="/users/sign_up"> S'inscrire</a></li>
+                      <li class="nav-item active "> <a class="nav-link "href="/users/sign_up"> S'inscrire</a></li>
                   
                 </ul>
             </div>
         </div>
     </nav>
-
-   
-      
-
-
-     
-
-    <% end %>
-    
+<% end %>
 </body>

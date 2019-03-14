@@ -6378,9 +6378,9 @@ Created using IcoMoon - icomoon.io
   padding: 1.125rem 0;
   text-align: center; }
   .footer.footer-default {
-    background-color: #f2f2f2; }
+    background-color: transparent; }
   .footer.footer-white {
-    background-color: #FFFFFF; }
+    background-color: black; }
   .footer nav {
     display: inline-block;
     float: left; }
