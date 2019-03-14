@@ -1,35 +1,63 @@
 
 
-<div class="wrapper">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title><%= @tips %></title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="./assets/css/demo.css" rel="stylesheet" />
+</head>
+
+<body class="index-page">
+  
+    <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
             <div class="page-header-image" data-parallax="true" style="background-image: ;">
             </div>
             <div class="rellax-header rellax-header-sky" data-rellax-speed="-8">
-                <div class="page-header-image" style="background-image: url('./assets/img/ciel/ciel13.jpg')">
+                <div class="page-header-image" style="background-image: url('./assets/img/ciel/ciel11')">
                 </div>
             </div>
             <div class="rellax-header rellax-header-buildings" data-rellax-speed="0">
-                <div class="page-header-image page-header-city" style="background-image: url('./assets/img/sol/newyork.png')">
+                <div class="page-header-image page-header-city" style="background-image: url('./assets/img/presentation-page/nuk-pro-buildings.png')">
                 </div>
             </div>
             <div class="rellax-text-container">
-                <h1 class="h1-seo rellax-text" data-rellax-speed="-2">Carbon Print</h1>
+                <h1 class="h1-seo rellax-text" data-rellax-speed="-2">Carbon print</h1>
             </div>
             <h3 class="h3-description rellax-text" data-rellax-speed="-1"><%= @tips %></h3>
-            <h6 class="category category-absolute rellax-text" data-rellax-speed="-2">Designed by
-                <a href="http://invisionapp.com/">
-                    <img src="./assets/img/invision-white-slim.png" class="invision-logo" />
-                </a>. Coded by
-                <a href="https://www.creative-tim.com">
-                    <img src="./assets/img/creative-tim-white-slim2.png" class="creative-tim-logo" />
-                </a>.</h6>
-        </div>
-<ul>
-  <li><a href="news.asp">News</a></li>
-  <li><a href="contact.asp">Contact</a></li>
-  <li><a href="default.asp">Conexion</a></li>
-</ul>
 
+                      <!--     Button search     -->
+            <h6 class="category category-absolute rellax-text" data-rellax-speed="-2">Recherche ton produit :
+
+                <div style="margin-bottom: 20px">
+           <div id="cover">
+              <form method="get" action="">
+                  <div class="tb">
+                    <div class="td"><input type="text" placeholder="Votre produit" required></div>
+                       <div class="td" id="s-cover">
+                          <button type="submit">
+                <div id="s-circle"></div>
+                <span></span>
+                          </button>
+                    </div>
+                 </div>
+              </form>
+            </div>
+          </h6>
+        </div>
+        <!--   End Button search     -->
 
 
 
@@ -63,31 +91,143 @@
 </div>
 
 <%= link_to "Test", new_foot_print_path %>
+
 </body>
-<script src="./assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="./assets/js/plugins/moment.min.js"></script>
-<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="./assets/js/plugins/bootstrap-switch.js"></script>
-<!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-<script src="./assets/js/plugins/bootstrap-tagsinput.js"></script>
-<!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-<script src="./assets/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
-<!--  Google Maps Plugin    -->
-<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
-<!--  Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="./assets/js/plugins/jasny-bootstrap.min.js"></script>
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-<script src="./assets/js/plugins/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
-<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        // the body of this function is in assets/js/now-ui-kit.js
-        nowuiKit.initSliders();
-    });
-</script>
+
+
+
+
+<h2>Autocomplete</h2>
+
+<p>Start typing:</p>
+
+<!--Make sure the form has the autocomplete function switched off:-->
+<div style='margin-bottom: 100px'>
+  <form autocomplete="off" action="/<%=  %>">
+  <div class="autocomplete" style="width:300px;">
+    <input id="myInput" type="text" name="myCountry" placeholder="Country">
+  </div>
+
+  <input type="submit">
+</form>
+</div>
+
+<%= javascript_tag do%>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+
+
+
+
+
+ <%@list = []%>
+<% @product.each do |e| %>
+  <% @list << e.title  %>
+<% end %>
+var countries =  <%= @list.inspect.html_safe %>
+<!-- fund by jiad, for display the array of ruby into js -->
+
+
+
+
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), countries);
+<%end%>
 
