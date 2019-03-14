@@ -7,19 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-require 'faker'
+require 'faker'   
 
 User.delete_all
 Product.delete_all
 FootPrint.delete_all
-Type.delete_all
-Value.delete_all
-
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
-ActiveRecord::Base.connection.reset_pk_sequence!('footprints')
-ActiveRecord::Base.connection.reset_pk_sequence!('types')
-ActiveRecord::Base.connection.reset_pk_sequence!('values')
+# ActiveRecord::Base.connection.reset_pk_sequence!('footprints')
+
 
 5.times do |i|
  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
