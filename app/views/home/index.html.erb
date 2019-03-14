@@ -69,30 +69,31 @@
       <td><%= item.description %></td>
       <td><%= item.price %></td>
     </tr>
-<%end%>
     <tr>
   </tbody>
 </table>
 </div>
 
-<%= link_to "Test", new_foot_print_path %>
 
 
 
+<%end%>
 <h2>Autocomplete</h2>
 
 <p>Start typing:</p>
 
 <!--Make sure the form has the autocomplete function switched off:-->
 <div style='margin-bottom: 100px'>
-  <form autocomplete="off" action="/<%=  %>">
+  <form >
+  <%# autocomplete="off" action="product/<%= @product %>
   <div class="autocomplete" style="width:300px;">
     <input id="myInput" type="text" name="myCountry" placeholder="Country">
   </div>
 
-  <input type="submit">
+  <input type="link">
 </form>
 </div>
+<%= link_to "Test", new_foot_print_path %>
 
 <%= javascript_tag do%>
 function autocomplete(inp, arr) {
