@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_210710) do
+ActiveRecord::Schema.define(version: 2019_03_14_054142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 2019_03_11_210710) do
     t.string "delivery_address"
     t.integer "zip_code"
     t.string "town"
+    t.string "country"
+    t.float "latitude"
+    t.float "longitude"
     t.decimal "result"
     t.bigint "user_id"
     t.bigint "product_id"
@@ -44,6 +47,10 @@ ActiveRecord::Schema.define(version: 2019_03_11_210710) do
     t.datetime "updated_at", null: false
     t.bigint "type_id"
     t.bigint "brand_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "city"
+    t.string "country"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"
   end
@@ -70,6 +77,13 @@ ActiveRecord::Schema.define(version: 2019_03_11_210710) do
     t.string "town"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "values", force: :cascade do |t|
