@@ -616,10 +616,9 @@
 .presentation-page .rellax-text-container .h1-seo,
 .index-page .rellax-text-container .h1-seo {
     font-size: 16.8em;
-
     text-transform: uppercase;
-    font-weight: 200;
-    font-family:  'Trebuchet MS', Helvetica, sans-serif;
+    font-weight: bold;
+    font-family:   Times new roman, serif;
     z-index: 1;
     letter-spacing: -10px;
     text-align: center;
@@ -630,6 +629,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
+}
+.index-page .rellax-text-container {
+    top: 20%;
 }
 
 .presentation-page .rellax-text-container .pro,
@@ -663,6 +665,15 @@
 .index-page .h3-description {
     z-index: 3;
     top: 50%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.71);
+}
+.presentation-page .h2-description,
+.index-page .h2-description {
+    z-index: 3;
+    top: 85%;
     position: absolute;
     width: 100%;
     text-align: center;
@@ -706,13 +717,9 @@
     background: #d0aea8;
 }
 
-.index-page .rellax-text-container {
-    top: 22%;
-}
-
 .index-page .rellax-text-container .h1-seo {
     letter-spacing: -3px;
-    font-size: 10.3em;
+    font-size: 9em;
 }
 
 .tim-white-buttons {
