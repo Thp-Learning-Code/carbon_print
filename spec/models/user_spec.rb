@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
     expect(User.count).to eq(0)
   end
   it "should create a user" do
-    User.create(first_name: 'bob', last_name: 'lenon', zip_code: 75000, town: 'Butte chaumont')
+    User.create(first_name: 'bob', last_name: 'lenon', zip_code: 75000, town: 'Butte chaumont', email: "test@gmail.com", password: 123456)
     expect(User.count).to eq(1)
   end
 end
