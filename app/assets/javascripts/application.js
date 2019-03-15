@@ -14,5 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
 //= require js/now-ui-kit.js
 
