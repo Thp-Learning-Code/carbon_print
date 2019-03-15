@@ -1,0 +1,58 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="page-header" filter-color="orange">
+        <div class="page-header-image" style="background-image:url(./assets/img/login.jpg)"></div>
+        <div class="content">
+            <div class="container">
+                <div class="col-md-5 ml-auto mr-auto">
+                    <div class="card card-login card-plain">
+                        <form class="form" method="" action="">
+                            <div class="card-header text-center">
+                                <div class="logo-container">
+                                    <img src="../assets/img/now-logo.png" alt="">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group form-group-no-border input-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
+                                    </div>
+                                      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+                                </div>
+                                <div class="input-group form-group-no-border input-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                                    </div>
+                                     <%= f.password_field :password, autocomplete: "current-password",class:"form-control" %>
+                                </div>
+
+                                <% if devise_mapping.rememberable? %>
+                                  <div class="field">
+                                    <%= f.check_box :remember_me %>
+                                    <%= f.label :remember_me %>
+                                  </div>
+                                <% end %>
+                            
+                            </div>
+                            <div class="card-footer text-center">
+                                <%= f.submit "Log in",class:"btn btn-primary btn-round btn-lg btn-block" %>
+                            </div>
+                            <div class="pull-left">
+                                <h6>
+                                    <a href="#pablo" class="link footer-link"><%= render "devise/shared/links" %>Create Account</a>
+                                </h6>
+                            </div>
+                            <div class="pull-right">
+                                <h6>
+                                    <a href="#pablo" class="link footer-link">Need Help?</a>
+                                </h6>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <% end %>
+
+
+
