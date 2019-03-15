@@ -2820,6 +2820,17 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
       .navbar .navbar-nav > a.btn.btn-behance.btn-neutral:focus,
       .navbar .navbar-nav > a.btn.btn-behance.btn-neutral:active {
         color: #367dff; }
+.btn-secondary {
+  background-color: #52796F;
+  color: #FFFFFF; }
+  .btn-secondary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:focus, .btn-primary.active:hover,
+  .show > .btn-primary.dropdown-toggle,
+  .show > .btn-primary.dropdown-toggle:focus,
+  .show > .btn-primary.dropdown-toggle:hover {
+    background-color: #52796F;
+    color: #FFFFFF;
+    -webkit-box-shadow: none;
+            box-shadow: none; }
 
 .btn-primary {
   background-color: #2F3E46;
