@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'product/index'
-  get 'product/show'
   devise_for :users
-  resources :foot_prints
   root to: 'home#index'
-  resources :product
-
+  resources :foot_prints, only: [:show, :edit]
+  resources :product do
+    resources :foot_prints, only: [:new, :create]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
