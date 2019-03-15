@@ -16,4 +16,13 @@
 //= require_tree .
 
 //= require js/now-ui-kit.js
-
+//= require js/core/bootstrap.min.js
+//= require js/core/popper.min.js
+//= require js/core/jquery.3.2.1.min.js
+//= require js/plugins/rellax.min.js
+//= require js/plugins/bootstrap-selectpicker.js
+//= require js/plugins/bootstrap-switch.js
+//= require js/plugins/bootstrap-tagsinput.js
+//= require js/plugins/jasny-bootstrap.min.js
+//= require js/plugins/moment.min.js
+//= require js/plugins/nouislider.min.js
