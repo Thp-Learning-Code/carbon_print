@@ -1,4 +1,5 @@
-<%= form_with(model: foot_print, local: true) do |form| %>
+<%= form_for [@product , @foot_print] do |form| %>
+
   <% if foot_print.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(foot_print.errors.count, "error") %> prohibited this foot_print from being saved:</h2>
@@ -10,7 +11,8 @@
       </ul>
     </div>
   <% end %>
-  
+    <%= form.hidden_field :product_id, value: @product.id%>
+
    <div style ="width: 50%">
      <div class="form-control">
       <%= form.label :delivery_address %>
