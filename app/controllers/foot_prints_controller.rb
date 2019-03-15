@@ -28,8 +28,11 @@ class FootPrintsController < ApplicationController
   def create
     @foot_print = FootPrint.new(foot_print_params)
     @foot_print.user_id = current_user.id
-    # @foot_print.product_id = Product.all.sample.id
-    @foot_print.product_id = @product
+    puts "="*90
+    puts @foot_print.product_id = product_url.find(params[:url])
+    puts "="*90
+    puts "$$"*45
+    # @foot_print.product_id = @product
     @foot_print.geocode
     @distance = @foot_print.product.distance_to(@foot_print).round.to_f * 1.609
     @foot_print.result = @foot_print.product.tx_total + @distance * 1.5
