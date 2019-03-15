@@ -20,7 +20,7 @@
 </head>
 
 <body class="index-page">
-
+  
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
             <div class="page-header-image" data-parallax="true" style="background-image: ;">
@@ -103,18 +103,20 @@
 
 <p>Start typing:</p>
 
+
+
 <!--Make sure the form has the autocomplete function switched off:-->
 <div style='margin-bottom: 100px'>
-  <form >
-  <%# autocomplete="off" action="product/<%= @product %>
+  <%# <%= p = Product.find_by() %> 
+    <form id="search-form" autocomplete="off" action="product/1">
   <div class="autocomplete" style="width:300px;">
     <input id="myInput" type="text" name="myCountry" placeholder="Country">
   </div>
 
-  <input type="link">
+  <input type="submit">
 </form>
 </div>
-
+<%# <%= link_to "Test", new_product_foot_print_path %> %>
 
 <%= javascript_tag do%>
 function autocomplete(inp, arr) {
@@ -216,21 +218,22 @@ function autocomplete(inp, arr) {
 
 /*An array containing all the country names in the world:*/
 
-
-
-
-
  <%@list = []%>
 <% @product.each do |e| %>
-  <% @list << e.title  %>
+  <% @list << e.title   %>
 <% end %>
 var countries =  <%= @list.inspect.html_safe %>
 <!-- fund by jiad, for display the array of ruby into js -->
 
+var src = document.getElementById("search-form")
 
+
+console.log("hhjhjh")
+console.log(src.action.innerHTML="<%=  %>")
 
 
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), countries);
 <%end%>
+
