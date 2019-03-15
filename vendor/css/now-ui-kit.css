@@ -24,6 +24,11 @@
  * Copyright 2012-2013 Mattia Larentis
  * http://www.apache.org/licenses/LICENSE-2.0
  */
+ .semi-transparent {
+    opacity: 0.9;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+}
  .search-container{
   width: 80%;
   display: block;
@@ -2817,13 +2822,13 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
         color: #367dff; }
 
 .btn-primary {
-  background-color: #f96332;
+  background-color: #2F3E46;
   color: #FFFFFF; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:focus, .btn-primary.active:hover,
   .show > .btn-primary.dropdown-toggle,
   .show > .btn-primary.dropdown-toggle:focus,
   .show > .btn-primary.dropdown-toggle:hover {
-    background-color: #fa7a50;
+    background-color: #52796F;
     color: #FFFFFF;
     -webkit-box-shadow: none;
             box-shadow: none; }
@@ -2852,7 +2857,7 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
     color: #f96332; }
     .btn-primary.btn-link:hover, .btn-primary.btn-link:focus, .btn-primary.btn-link:active {
       background-color: transparent;
-      color: #fa7a50;
+      color: #fff;
       text-decoration: none;
       -webkit-box-shadow: none;
               box-shadow: none; }

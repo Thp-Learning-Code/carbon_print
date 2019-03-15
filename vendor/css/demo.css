@@ -673,7 +673,7 @@
 .presentation-page .h2-description,
 .index-page .h2-description {
     z-index: 3;
-    top: 85%;
+    top: 75%;
     position: absolute;
     width: 100%;
     text-align: center;
