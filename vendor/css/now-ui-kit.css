@@ -4224,7 +4224,10 @@ body {
   background-color: #888888 !important; }
 
 .bg-primary {
-  background-color: #f96332 !important; }
+  background-color: #52796F !important; }
+
+.bg-secondary {
+  background-color: #2F3E46 !important; }
 
 .bg-info {
   background-color: #2CA8FF !important; }
