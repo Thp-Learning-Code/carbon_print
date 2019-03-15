@@ -1,8 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'should create a user' do 
-    User.create(first_name: 'bob', first_name: 'lenon', zip_code: 75000, town: "Butte chaumont")
+  it "shouldn't create a user " do 
+    User.create(first_name: 'bob', zip_code: 75000, town: 'Butte chaumont')
+    expect(User.count).to eq(0)
+  end
+  it "shouldn't create a user " do 
+    User.create(first_name: 'bob', last_name: 'lenon', town: 'Butte chaumont')
+    expect(User.count).to eq(0)
+  end
+  it "shouldn't create a user " do 
+    User.create(last_name: 'lenon', zip_code: 75000, town: 'Butte chaumont')
+    expect(User.count).to eq(0)
+  end
+  it "should create a user" do
+    User.create(first_name: 'bob', last_name: 'lenon', zip_code: 75000, town: 'Butte chaumont')
     expect(User.count).to eq(1)
   end
 end
