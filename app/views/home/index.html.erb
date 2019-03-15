@@ -10,13 +10,8 @@
   
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <!-- CSS Files -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="./assets/css/demo.css" rel="stylesheet" />
+    
+    
 </head>
 
 <body class="index-page">
@@ -102,18 +97,20 @@
 
 <p>Start typing:</p>
 
+
+
 <!--Make sure the form has the autocomplete function switched off:-->
 <div style='margin-bottom: 100px'>
-  <form >
-  <%# autocomplete="off" action="product/<%= @product %>
+  <%# <%= p = Product.find_by() %> 
+    <form id="search-form" autocomplete="off" action="product/1">
   <div class="autocomplete" style="width:300px;">
     <input id="myInput" type="text" name="myCountry" placeholder="Country">
   </div>
 
-  <input type="link">
+  <input type="submit">
 </form>
 </div>
-<%= link_to "Test", new_foot_print_path %>
+<%# <%= link_to "Test", new_product_foot_print_path %> %>
 
 <%= javascript_tag do%>
 function autocomplete(inp, arr) {
@@ -215,18 +212,18 @@ function autocomplete(inp, arr) {
 
 /*An array containing all the country names in the world:*/
 
-
-
-
-
  <%@list = []%>
 <% @product.each do |e| %>
-  <% @list << e.title  %>
+  <% @list << e.title   %>
 <% end %>
 var countries =  <%= @list.inspect.html_safe %>
 <!-- fund by jiad, for display the array of ruby into js -->
 
+var src = document.getElementById("search-form")
 
+
+console.log("hhjhjh")
+console.log(src.action.innerHTML="<%=  %>")
 
 
 
