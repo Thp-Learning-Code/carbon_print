@@ -53,6 +53,7 @@ group :development, :test do
   gem 'table_print'
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -77,4 +78,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'mailjet'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'dotenv-rails'
+
