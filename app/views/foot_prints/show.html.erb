@@ -52,6 +52,7 @@
 
 <div id='map'></div>
 <div id='menu'>
+<%# Switch layer %>
 <input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
 <label for='basic'>basic</label>
 <input id='streets' type='radio' name='rtoggle' value='streets'>
@@ -75,7 +76,7 @@ var ENV = {
 }
 mapboxgl.accessToken =ENV['MAPBOX_API']
 
-
+<%# switch layer: next 2 line %>
 var layerList = document.getElementById('menu');
 var inputs = layerList.getElementsByTagName('input');
 
@@ -146,6 +147,7 @@ var directions = new MapboxDirections({
 map.addControl(directions, 'top-left');
 map.addControl(new mapboxgl.NavigationControl());
 
+//Switch layer until the loop
 function switchLayer(layer) {
 var layerId = layer.target.id;
 map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
