@@ -7,15 +7,15 @@
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  
+
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
-    
-    
+
+
 </head>
 
 <body class="index-page">
-  
+
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
             <div class="page-header-image" data-parallax="true" style="background-image: ;">
@@ -33,7 +33,7 @@
             </div>
 
             <h3 class="h3-description rellax-text" data-rellax-speed="-1">Recherche ton produit :
-            <form class="search-container" method="get" action="">
+            <!--<form class="search-container" method="get" action="">
                   <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Quel objet souhaitez vous analyser ?">
                                     <div class="input-group-append">
@@ -42,7 +42,20 @@
                   </div>     
                            
                 
-              </form>
+              </form>-->
+                                  
+                      <%# <%= p = Product.find_by() %> 
+                        <form id="search-form" autocomplete="off" action="product/1">
+
+
+                      <div class="autocomplete" style="width:800px;">
+                        <input id="myInput" type="text" name="result" placeholder="Quel produit souhaitez vous analyser ?">
+                      </div>
+                      <input type="image" src="monbouton.gif" name=ok>
+
+                      <input type="submit">
+                    </form>
+                    
               
             </h3>
 
@@ -65,7 +78,7 @@
 
 
 
-<!--<div class="container">
+<div class="container">
 <table class="table">
   <thead>
     <tr>
@@ -104,24 +117,15 @@
 
 
 <!--Make sure the form has the autocomplete function switched off:-->
-<!--<div style='margin-bottom: 100px'>
-  <%# <%= p = Product.find_by() %> 
-    <form id="search-form" autocomplete="off" action="product/1">
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="myCountry" placeholder="Country">
-  </div>
 
-  <input type="submit">
-</form>
-</div>
-<%# <%= link_to "Test", new_product_foot_print_path %>
+
 
 <%= javascript_tag do%>
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
-  /*execute a function when someone writes in the text field:*/
+  /execute a function when someone writes in the text field:*/
   inp.addEventListener("input", function(e) {
       var a, b, i, val = this.value;
       /*close any already open lists of autocompleted values*/
@@ -148,10 +152,13 @@ function autocomplete(inp, arr) {
           /*execute a function when someone clicks on the item value (DIV element):*/
           b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
-              inp.value = this.getElementsByTagName("input")[0].value;
+            inp.value = this.getElementsByTagName("input")[0].value;
+            let found = products.indexOf(inp.value)
+            document.getElementById("search-form").action = "/product/" + (found + 1);
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
+
           });
           a.appendChild(b);
         }
@@ -214,24 +221,31 @@ function autocomplete(inp, arr) {
   });
 }
 
-/*An array containing all the country names in the world:*/
+/*An array containing all products:*/
 
- <%@list = []%>
+ <%@name = []%>
 <% @product.each do |e| %>
-  <% @list << e.title   %>
+  <% @name << e.title   %>
 <% end %>
-var countries =  <%= @list.inspect.html_safe %>
+
+var products =  <%= @name.inspect.html_safe %>
 <!-- fund by jiad, for display the array of ruby into js -->
 
-<!var src = document.getElementById("search-form")
 
-
-console.log("hhjhjh")
-console.log(src.action.innerHTML="<%=  %>")
+var src = document.getElementById("search-form")
 
 
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), countries);
+autocomplete(document.getElementById("myInput"), products);
+
+
+console.log(found)
+console.log(products.indexOf("Tula"))
+
+/* Modification  */
+
+
+/* Fin de la modification  */
 <%end%>
 </tr></tbody></th></th></th></tr></thead></table></div></h6></div></div></body></html>
