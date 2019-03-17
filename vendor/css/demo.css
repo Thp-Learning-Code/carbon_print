@@ -1,3 +1,4 @@
+
 .tim-row {
     margin-bottom: 20px;
 }
@@ -695,7 +696,7 @@
 .presentation-page .rellax-header-sky,
 .index-page .rellax-header-sky {
     z-index: 0;
-    height: 85%;
+    height: 90%;
     width:100%;
 
 }

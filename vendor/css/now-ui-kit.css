@@ -24,12 +24,64 @@
  * Copyright 2012-2013 Mattia Larentis
  * http://www.apache.org/licenses/LICENSE-2.0
  */
+
+#myInput::-moz-placeholder {
+  color: #DDDDDD;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+#myInput:-moz-placeholder {
+  color: #DDDDDD;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+#myInput::-webkit-input-placeholder {
+  color: white;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+#myInput:-ms-input-placeholder {
+  color: #DDDDDD;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+#myInput{
+  background-color: #52796F;
+  border: 1px solid #52796F;
+  border-radius: 30px;
+  color: #fff;
+  line-height: normal;
+  font-size: 0.8571em;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+  .has-success #myInput {
+    border-color: #E3E3E3; }
+#myInput:focus {
+  background-color: #fff;
+    border: 3px solid #52796F;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 !important;
+    color: #2c2c2c; }
+ #myInput:focus + .input-group-text,
+    #myInput:focus ~ .input-group-text {
+      border: 1px solid #f96332;
+      border-left: none;
+      background-color: transparent; }
+
  .semi-transparent {
     opacity: 0.9;
     filter:alpha(opacity=50);
     -moz-opacity:0.5;
 }
  .search-container{
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+ #search-form{
   width: 80%;
   display: block;
   margin: 0 auto;
@@ -7079,14 +7131,7 @@ Created using IcoMoon - icomoon.io
     content: ""; }
   .page-header:before {
     background-color: rgba(0, 0, 0, 0.3); }
-  .page-header[filter-color="orange"] {
-    background: rgba(44, 44, 44, 0.2);
-    /* For browsers that do not support gradients */
-    /* For Safari 5.1 to 6.0 */
-    /* For Opera 11.1 to 12.0 */
-    /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(linear, left bottom, left top, from(rgba(44, 44, 44, 0.2)), to(rgba(224, 23, 3, 0.6)));
-    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  
     /* Standard syntax */ }
 
 .clear-filter:after, .clear-filter:before {
@@ -8888,13 +8933,13 @@ Created using IcoMoon - icomoon.io
   .page-header:before {
     background-color: rgba(0, 0, 0, 0.3); }
   .page-header[filter-color="orange"] {
-    background: rgba(44, 44, 44, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     /* For browsers that do not support gradients */
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(linear, left bottom, left top, from(rgba(44, 44, 44, 0.2)), to(rgba(224, 23, 3, 0.6)));
-    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.2)), to(rgba(82, 121, 111, 0.6)));
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(82, 121, 111, 0.6));
     /* Standard syntax */ }
 
 .clear-filter:after, .clear-filter:before {
