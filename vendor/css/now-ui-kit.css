@@ -8996,12 +8996,12 @@ Created using IcoMoon - icomoon.io
     right: 155px;
     z-index: 0; }
 
-.section-nucleo-icons .nucleo-container img {
+/* .section-nucleo-icons .nucleo-container img {
   width: auto;
   left: 0;
   top: 0;
   height: 100%;
-  position: absolute; }
+  position: absolute; } */
 
 .section-nucleo-icons .nucleo-container {
   height: 335px;
