@@ -51,6 +51,21 @@
 
 
 <div id='map'></div>
+<div id='menu'>
+<%# Switch layer %>
+<input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
+<label for='basic'>basic</label>
+<input id='streets' type='radio' name='rtoggle' value='streets'>
+<label for='streets'>streets</label>
+<input id='bright' type='radio' name='rtoggle' value='bright'>
+<label for='bright'>bright</label>
+<input id='light' type='radio' name='rtoggle' value='light'>
+<label for='light'>light</label>
+<input id='dark' type='radio' name='rtoggle' value='dark'>
+<label for='dark'>dark</label>
+<input id='satellite' type='radio' name='rtoggle' value='satellite'>
+<label for='satellite'>satellite</label>
+</div>
 <%= javascript_tag do %>
 
 console.log("<%= @foot_print.town %>")
@@ -61,6 +76,9 @@ var ENV = {
 }
 mapboxgl.accessToken =ENV['MAPBOX_API']
 
+<%# switch layer: next 2 line %>
+var layerList = document.getElementById('menu');
+var inputs = layerList.getElementsByTagName('input');
 
 var map = new mapboxgl.Map({
  container: 'map', // container id
@@ -124,8 +142,20 @@ var directions = new MapboxDirections({
  directions.setDestination([<%= @foot_print.longitude %>,<%= @foot_print.latitude %>])
 
 
+
 // add to your mapboxgl map
 map.addControl(directions, 'top-left');
+map.addControl(new mapboxgl.NavigationControl());
+
+//Switch layer until the loop
+function switchLayer(layer) {
+var layerId = layer.target.id;
+map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+}
+ 
+for (var i = 0; i < inputs.length; i++) {
+inputs[i].onclick = switchLayer;
+}
 <%end%>
 
 <h1>
