@@ -7,7 +7,9 @@ class ProductController < ApplicationController
     puts @response.to_json
      @res = JSON.parse(@response).with_indifferent_access
      puts "ù"*90
-     puts @res[:data][:current][:pollution][:ts]
+     puts @res[:data][:current][:pollution][:aqius]
+     puts @res[:data][:current][:pollution][:mainus]
+    #  puts @res
     puts "*"*90
 
   end
