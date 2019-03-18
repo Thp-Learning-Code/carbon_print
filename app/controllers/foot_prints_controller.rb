@@ -33,6 +33,7 @@ class FootPrintsController < ApplicationController
     @foot_print.result = @foot_print.product.tx_total + @distance * 1.5
     respond_to do |format|
       if @foot_print.save
+        format.js
         format.html { redirect_to @foot_print, notice: 'Foot print was successfully created.' }
       else
         format.html { render :new }
