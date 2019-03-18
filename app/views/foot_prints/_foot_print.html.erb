@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -44,12 +45,12 @@
   <strong>Product:</strong>
   <%= foot_print.product_id %>
 </p>
-<%= link_to 'Edit', edit_foot_print_path(foot_print.id) %> |
-<%# <%= link_to 'Back', foot_prints_path %> %>
-
+<%= link_to 'Edit', edit_foot_print_path(foot_print.id) %> 
+<%# <%= link_to 'Back', foot_prints_path %> 
+</div>
 <br>
 
-
+<div class="col-md-8">
 <div id='map'></div>
 <%= javascript_tag do %>
 
@@ -133,3 +134,4 @@ map.addControl(directions, 'top-left');
    <%= foot_print.product.distance_to(foot_print).round.to_f*1.609%> km
 
 </h1>
+</div>

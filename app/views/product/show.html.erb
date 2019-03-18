@@ -8,7 +8,7 @@
         <div class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5" style="margin-top: -10%">
+                    <div class="col-md-4" style="margin-top: -10%">
                         <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000">
                             <ol class="carousel-indicators">
                                 <li data-target="#productCarousel" data-slide-to="0" class="active"></li>
@@ -41,14 +41,11 @@
                                 </button>
                             </a>
                         </div>
-                        <p class="blockquote blockquote-primary">
-                            
-                            "And thank you for turning my personal jean jacket into a couture piece. Wear yours with mirrored sunglasses on vacation."
-                            <br>
-                            <br>
-                            <small>Kanye West</small>
-                        </p>
                     </div>
+                        <div id="new-test" >
+                            <%= link_to "Calculer l'empreinte carbone", new_product_foot_print_path(product_id: @product.id), remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-secondary '%>
+                            </div>
+                    
                     <div class="col-md-6 ml-auto mr-auto">
                         <h2 class="title"> <%= @product.title.capitalize %> </h2>
                         <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
@@ -56,7 +53,7 @@
                         <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
                             <div class="card card-plain">
                                 <div class="card-header" role="tab" id="headingOne">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">
                                         Description
                                         <i class="now-ui-icons arrows-1_minimal-down"></i>
                                     </a>
@@ -68,9 +65,7 @@
                                 </div>
                             </div>
                            
-                        <div id="new-test" >
-                            <%= link_to "Calculer l'empreinte carbone", new_product_foot_print_path(product_id: @product.id), remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-secondary mr-7'%>
-                            </div>
+                      
                                          
                     </div>
                 </div>
