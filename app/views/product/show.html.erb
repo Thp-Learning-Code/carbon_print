@@ -67,8 +67,9 @@
                                 </div>
                             </div>
                            
-                        <div class="row justify-content-end">
-                            <%= link_to "Calculer l'empreinte carbone", new_product_foot_print_path(product_id: @product.id),:style=> 'color:#FFFFFF;', :class => 'btn btn-secondary mr-7'%>
+                            <div id = "new-test">
+                            <%= link_to "Test", new_product_foot_print_path(product_id: @product.id), remote: true %>
+                            </div> 
                             </div>
                                          
                     </div>
