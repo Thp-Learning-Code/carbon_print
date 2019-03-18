@@ -12,13 +12,13 @@ class HomeController < ApplicationController
     # puts "*"*90
     # puts @response.to_json
      @res = JSON.parse(@response).with_indifferent_access
-     puts "ù"*90
-     puts @aqius = @res[:data][:current][:pollution][:aqius]
-     puts @res[:data][:current][:pollution][:mainus]
-     puts @city = @res[:data][:city]
-     puts @country = @res[:data][:country]
-     puts @state = @res[:data][:state]
-    #  puts @res
-    puts "*"*90
-  end
+     if user_signed_in?
+      @aqius = @res[:data][:current][:pollution][:aqius]
+      @res[:data][:current][:pollution][:mainus]
+      @city = @res[:data][:city]
+      @country = @res[:data][:country]
+      @state = @res[:data][:state]
+      puts "*"*90
+    end
+    end
 end
