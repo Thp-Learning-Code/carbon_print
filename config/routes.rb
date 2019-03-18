@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :product do
     resources :foot_prints, only: [:new, :create]
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  require 'open-uri'
+  resources :api, only: [:index]
+  puts response = open('https://api.airvisual.com/v2/city?city=Paris&state=Ile-de-France&country=France&key=QNrwyZP6F7oa3Bxog').read
+
 end

@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  require 'open-uri'
+  require 'json'
+
+
 
  before_action :configure_permitted_parameters, if: :devise_controller?
 	 protected
