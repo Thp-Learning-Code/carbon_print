@@ -8,14 +8,14 @@
         <div class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4" style="margin-top: -10%">
+                    <div class="col-md-4" style="margin-top: -20%">
                         <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="8000">
-                            <ol class="carousel-indicators">
+                           <!-- <ol class="carousel-indicators">
                                 <li data-target="#productCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#productCarousel" data-slide-to="1"></li>
                                 <li data-target="#productCarousel" data-slide-to="2"></li>
                                 <li data-target="#productCarousel" data-slide-to="3"></li>
-                            </ol>
+                            </ol>-->
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
                                     <img class="d-block img-raised" src="https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="First slide">
@@ -41,12 +41,15 @@
                                 </button>
                             </a>
                         </div>
-                    </div>
-                        <div id="new-test" >
-                            <%= link_to "Calculer l'empreinte carbone", new_product_foot_print_path(product_id: @product.id), remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-secondary '%>
+                        <br>
+                        <br>
+                    <div id="new-test" >
+                            <%= link_to "Calculer l'empreinte carbone", new_product_foot_print_path(product_id: @product.id), remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-primary '%>
                             </div>
+                    </div>
+                        
                     
-                    <div class="col-md-6 ml-auto mr-auto">
+                    <div class="col-md-6 ml-auto mr-auto" style="margin-top: -15%">
                         <h2 class="title"> <%= @product.title.capitalize %> </h2>
                         <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
                         <h2 class="main-price"><%= @product.price %> €</h2>
@@ -66,13 +69,13 @@
                             </div>
                            
                       
-                                         
+                                
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
 <!--<div class="card bg-dark text-white">
   <img class="card-img" src="https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image">
 =======
