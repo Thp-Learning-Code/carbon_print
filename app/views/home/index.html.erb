@@ -21,37 +21,45 @@
             <div class="page-header-image" data-parallax="true" style="background-image: ;">
             </div>
             <div class="rellax-header rellax-header-sky" data-rellax-speed="-8">
-                <div class="page-header-image" style="background-image: url('./assets/img/ciel/ciel11')">
+                <div class="page-header-image" style="background-image: url('./assets/img/ciel/ciel5')">
                 </div>
             </div>
             <div class="rellax-header rellax-header-buildings" data-rellax-speed="0">
-                <div class="page-header-image page-header-city" style="background-image: url('./assets/img/sol/eolienne.png')">
+                <div class="page-header-image page-header-city" style="background-image: url('./assets/img/sol/newyork2')">
                 </div>
             </div>
             <div class="rellax-text-container">
                 <h1 class="h1-seo rellax-text" data-rellax-speed="-2">Carbon print</h1>
+                <!--<img class="h1-seo rellax-text" data-rellax-speed="-2" src="./assets/img/logoNom"></img>-->
             </div>
-            <h3 class="h3-description rellax-text" data-rellax-speed="-1"><%= @tips %></h3>
+
+            <h3 class="h3-description rellax-text" data-rellax-speed="-1">Recherche ton produit :
+            <!--<form class="search-container" method="get" action="">
+                  <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Quel objet souhaitez vous analyser ?">
+                                    <div class="input-group-append">
+                                        <a href="/" class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></a>
+                                    </div>
+                  </div>     
+                           
+                
+              </form>-->
+                                  
+                      <%# <%= p = Product.find_by() %> 
+                        <%= render 'home/search' %>
+                    
+              
+            </h3>
 
                       <!--     Button search     -->
-            <h6 class="category category-absolute rellax-text" data-rellax-speed="-2">Recherche ton produit :
+            <h3 class="h2-description rellax-text" style="color:white" class="category category-absolute " data-rellax-speed="-2"><%= @tips %>
 
-                <div style="margin-bottom: 20px">
-           <div id="cover">
-              <form method="get" action="">
-                  <div class="tb">
-                    <div class="td"><input type="text" placeholder="Votre produit" required></div>
-                       <div class="td" id="s-cover">
-                          <button type="submit">
-                <div id="s-circle"></div>
-                <span></span>
-                          </button>
-                    </div>
-                 </div>
-              </form>
-            </div>
-          </h6>
-        </div>
+               
+        
+             
+             
+          </h3>
+        </div></form></h3></div>
         <!--   End Button search     -->
 
 
@@ -62,7 +70,7 @@
 
 
 
-<div class="container">
+<!--<div class="container">
 <table class="table">
   <thead>
     <tr>
@@ -101,16 +109,7 @@
 
 
 <!--Make sure the form has the autocomplete function switched off:-->
-<div style='margin-bottom: 100px'>
-  <%# <%= p = Product.find_by() %>
-    <form id="search-form" autocomplete="off" action="#" >
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="" placeholder="Search">
-  </div>
 
-  <input type="submit">
-</form>
-</div>
 
 <%= javascript_tag do%>
 function autocomplete(inp, arr) {
@@ -222,6 +221,9 @@ function autocomplete(inp, arr) {
 
 var products =  <%= @name.inspect.html_safe %>
 <!-- fund by jiad, for display the array of ruby into js -->
+
+
+var src = document.getElementById("search-form")
 
 
 
