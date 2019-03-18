@@ -237,4 +237,32 @@ console.log(products.indexOf("Tula"))
 
 /* Fin de la modification  */
 <%end%>
-</tr></tbody></th></th></th></tr></thead></table></div></h6></div></div></body></html>
+<%# </tr></tbody></th></th></th></tr></thead></table></div></h6></div></div></body></html> %>
+
+
+
+
+
+
+<br><br><br>
+<h3>Informations of Air Quality</h3>
+<h6><%= "country: #{@country}"%></h6><br>
+<h6><%= "City: #{@city}" %></h6><br>
+<h6><%= "State: #{@state}"%></h6><br>
+<h6><%= "Air Quality Index: #{@aqius} "%></h6>
+
+<div class="progress">
+<% if @aqius <= 50 %>
+  <div class="progress-bar bg-success" style="width:33%">
+    Good
+  </div>
+  <% elsif  @aquis > 51 && @aquis <= 100 %>
+  <div class="progress-bar bg-warning" style="width:33%">
+    Moderate
+  </div>
+  <% elsif  @aquis >70 %>
+  <div class="progress-bar bg-danger" style="width:34%">
+    Unhealthy for Sensitive Groups
+  </div>
+<% end %>
+</div>
