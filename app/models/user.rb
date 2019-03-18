@@ -10,5 +10,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :products, through: :footprints
+  geocoded_by :address
+  after_validation :geocode
+
   
+  def address
+    [town,country].compact.join(', ')
+  end
+  
+
 end
