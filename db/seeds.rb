@@ -24,7 +24,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('types')
 ActiveRecord::Base.connection.reset_pk_sequence!('brands')
 
 5.times do |i|
- User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Bank.account_number)
+ User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Bank.account_number, zip_code: 69000)
 end
 puts "Users created"
 

@@ -1,18 +1,24 @@
 class User < ApplicationRecord
 
-  validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :zip_code, presence: true
+  validates :first_name, presence: true, length: { minimum: 3 }
+  validates :last_name, presence: true, length: { minimum: 3 }
+
+  validates :zip_code, presence: true, length: { is: 5 }
+  validates :email,
+   presence: true,
+   uniqueness: true,
+   format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
+
+  validates :password, length: { in: 6..20 }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :products, through: :footprints
 
   after_create :welcome_send
-
     def welcome_send
       UserMailer.welcome_email(self).deliver_now
     end
