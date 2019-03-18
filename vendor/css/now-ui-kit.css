@@ -30,7 +30,7 @@
     height: 80px;
     border: 4px solid #52796F;
     margin: 10px;
-}
+  } 
 .img-circle:hover{
     border-radius: 50%;
     width: 80px;
@@ -102,7 +102,7 @@
   margin: 0 auto;
 }
 
-input#search-bar{
+/* input#search-bar{
   margin: 0 auto;
   width: 100%;
   height: 50px;
@@ -111,7 +111,7 @@ input#search-bar{
   border-radius: 20px 20px 20px 20px;
   border: 1px solid #D0CFCE;
   outline: none;
-  &:focus{
+    &:focus{
     border: 1px solid #008ABF;
     transition: 0.35s ease;
     color: #008ABF;
@@ -128,7 +128,7 @@ input#search-bar{
      opacity: 0;
      }    
    }
- }
+ } */
 
 .search-icon{
   position: relative;
@@ -7147,7 +7147,7 @@ Created using IcoMoon - icomoon.io
   .page-header:before {
     background-color: rgba(0, 0, 0, 0.3); }
   
-    /* Standard syntax */ }
+    /* Standard syntax */ 
 
 .clear-filter:after, .clear-filter:before {
   display: none; }
@@ -8996,12 +8996,12 @@ Created using IcoMoon - icomoon.io
     right: 155px;
     z-index: 0; }
 
-/* .section-nucleo-icons .nucleo-container img {
+.section-nucleo-icons .nucleo-container img {
   width: auto;
   left: 0;
   top: 0;
   height: 100%;
-  position: absolute; } */
+  position: absolute; }
 
 .section-nucleo-icons .nucleo-container {
   height: 335px;
