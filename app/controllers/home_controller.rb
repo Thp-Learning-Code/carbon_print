@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   require 'nokogiri'
   require 'open-uri'
-  require 'open_http'
   def index
     @product = Product.all
     page = Nokogiri::HTML(open("https://maconscienceecolo.com/knowledge-base/100-gestes-ecolos/"))

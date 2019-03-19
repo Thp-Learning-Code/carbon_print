@@ -247,13 +247,13 @@ console.log(products.indexOf("Tula"))
 
 
 <br><br><br>
+<% if user_signed_in? %>
 <h3>Informations of Air Quality</h3>
 <h6><%= "country: #{@country}"%></h6><br>
 <h6><%= "City: #{@city}" %></h6><br>
 <h6><%= "State: #{@state}"%></h6><br>
 <h6><%= "Air Quality Index: #{@aqius} "%></h6>
 
-<% if user_signed_in? %>
   <div class="progress">
   <% if @aqius <= 50 %>
     <div class="progress-bar bg-success" style="width:33%">
@@ -268,5 +268,8 @@ console.log(products.indexOf("Tula"))
       Unhealthy for Sensitive Groups
     </div>
   <% end %>
+  <% else%>
+
+  <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
   </div>
 <%end%>
