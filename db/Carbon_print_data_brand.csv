@@ -1,1 +1,1 @@
-Brand ;note;Coef brand FAIRPHONE;B;APPLE;B -;DELL;C +;HP;C+;Lenovo;C -;Microsoft;C -;ACER;D+;LG;D +;SONY;D+;Google;D+;HUAWEI;D;ASUS;D;Samsung;D-;Amazon;F;OPPO;F;VIVO;F;XIAOMI;F;
+name;ratio_idFAIRPHONE;1.35APPLE;1.40DELL;1.45HP;1.45Lenovo;1.55Microsoft;1.55ACER;1.65LG;1.65SONY;1.65Google;1.65HUAWEI;1.70ASUS;1.70Samsung;1.75Amazon;1.80OPPO;1.80VIVO;1.80XIAOMI;1.80;brand;ratio
