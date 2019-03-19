@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :footprints
   resources :user, only: [:show]
   devise_for :users
   root to: 'home#index'
-  resources :foot_prints, only: [:show, :edit]
+  resources :footprints, only: [:show, :edit]
   resources :product do
-    resources :foot_prints, only: [:new, :create]
+    resources :footprints, only: [:new, :create]
   end
 
   require 'open-uri'
