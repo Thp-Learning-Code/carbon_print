@@ -68,11 +68,11 @@
                                     </div>
                                 </div>
                             </div>
-                           
+
                         <div id="new-test" class="row justify-content-end">
-                            <%= link_to "Calculer l'empreinte carbone", new_product_foot_print_path(product_id: @product.id), remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-secondary mr-7'%>
+                            <%= link_to "Calculer l'empreinte carbon", new_product_footprint_path(product_id: @product.id), remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-secondary mr-7'%>
                             </div>
-                                         
+
                     </div>
                 </div>
             </div>
@@ -91,11 +91,3 @@
     <h3 class="card-text">Price:  <%= @product.price %></h3>
   </div>
 </div>-->
-
-
-<<<<<<< HEAD
-<div id = "new-test">
-  <%= link_to "Test", new_product_foot_print_path(product_id: @product.id), remote: true %>
-</div>
-=======
->>>>>>> development

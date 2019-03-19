@@ -26,7 +26,7 @@ class FootprintsController < ApplicationController
 
     # GET /footprints/new
     def new
-      @footprint = FootPrint.new
+      @footprint = Footprint.new
       @product = Product.find(params[:product_id])
     end
 
@@ -37,7 +37,7 @@ class FootprintsController < ApplicationController
     # POST /footprints
     # POST /footprints.json
     def create
-      @footprint = FootPrint.new(footprint_params)
+      @footprint = Footprint.new(footprint_params)
       @footprint.user_id = current_user.id
       @footprint.geocode
       @distance = @footprint.product.distance_to(@footprint).round.to_f * 1.609
