@@ -7,6 +7,7 @@ class Admin::FootPrintsController < ApplicationController
     @foot_print = FootPrint.find(params[:id])
   end
 
+
   def destroy
     @foot_print = FootPrint.find(params[:id])
     if @foot_print.destroy
