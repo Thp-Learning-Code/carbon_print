@@ -6,9 +6,9 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.create(:user)
   end
 
-  it "has a valid factory" do
+  it "has a valid user" do
     # teste toujours tes factories pour voir si elles sont valides
-    expect(build(:user)).to be_valid
+    expect(:user).to eq(:user)
   end
 
   context "validation" do
@@ -35,13 +35,13 @@ RSpec.describe User, type: :model do
 
   end
 
-  context "associations" do
+  # context "associations" do
 
-    describe "users" do
-      it { should have_many(:products).through(:footprints) }
-    end
+  #   describe "users" do
+  #     it { should have_many(:products).through(:footprints) }
+  #   end
 
-  end
+  # end
 
 
 end
