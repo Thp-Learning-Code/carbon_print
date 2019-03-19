@@ -58,10 +58,10 @@ puts "Products created"
   Footprint.create!(delivery_address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, town: "Paris", country: "France", user_id: User.all.sample.id, product_id: Product.all.sample.id)
 end
 
-User.create(first_name: "admin", last_name:"one" ,   zip_code: 75015, town:"Orleans",     email: "admin1@gmail.com", country: "France" , is_admin: true)
-User.create(first_name: "admin", last_name:"two" ,   zip_code: 75015, town:"Paris" ,      email: "admin1@gmail.com", country: "France" , is_admin: true)
-User.create(first_name: "admin", last_name:"three",  zip_code: 75015, town:"Lille" ,      email: "admin1@gmail.com", country: "France" , is_admin: true)
-User.create(first_name: "admin", last_name:"four",   zip_code: 75015, town:"Marseille" ,  email: "admin1@gmail.com", country: "France" , is_admin: true)
+User.create(first_name: "admin", last_name:"one" ,   zip_code: 75015, town:"Orleans",     email: "admin1@gmail.com", country: "France" , is_admin: true , password:123456)
+User.create(first_name: "admin", last_name:"two" ,   zip_code: 75015, town:"Paris" ,      email: "admin1@gmail.com", country: "France" , is_admin: true , password:123456)
+User.create(first_name: "admin", last_name:"three",  zip_code: 75015, town:"Lille" ,      email: "admin1@gmail.com", country: "France" , is_admin: true , password:123456)
+User.create(first_name: "admin", last_name:"four",   zip_code: 75015, town:"Marseille" ,  email: "admin1@gmail.com", country: "France" , is_admin: true , password:123456)
 
 
 puts "Footprint created"
