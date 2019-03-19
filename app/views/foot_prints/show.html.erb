@@ -123,12 +123,41 @@
   <strong>Product:</strong>
   <%= @foot_print.product_id %>
 </p>
+
+
+
+
+
 <%= link_to 'Edit', edit_foot_print_path(@foot_print.id) %> |
-<%# <%= link_to 'Back', foot_prints_path %> %>
 
 <br>
+<hr>
+<h3>Information de la ville de produit</h3>
+<h6><%= "country: #{@country_product}"%></h6><br>
+<h6><%= "City: #{@city_product}" %></h6><br>
+<h6><%= "State: #{@state_product}"%></h6><br>
+<h6><%= "Air Quality Index: #{@aqius_product} "%></h6>
 
+<div class="card text-center">
 
+  <div class="progress">
+  <% if @aqius_product <= 50 %>
+    <div class="progress-bar bg-success" style="width:33%">
+      Good
+    </div>
+    <% elsif  @aqius_product > 51 && @aqius_product <= 100 %>
+    <div class="progress-bar bg-warning" style="width:33%">
+      Moderate
+    </div>
+    <% elsif  @aqius_product >101 %>
+    <div class="progress-bar bg-danger" style="width:34%">
+      Unhealthy for Sensitive Groups
+    </div>
+    <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
+  <% end %>
+  </div>
+</div>
+<hr>
 <div id='map'></div>
 <div id='menu'>
 <%# Switch layer %>
@@ -145,6 +174,13 @@
 <input id='satellite' type='radio' name='rtoggle' value='satellite'>
 <label for='satellite'>satellite</label>
 </div>
+
+
+
+
+
+
+
 <%= javascript_tag do %>
 
 console.log("<%= @foot_print.town %>")
@@ -238,10 +274,7 @@ inputs[i].onclick = switchLayer;
 <%end%>
 
 <h1>
-
    <%= @foot_print.product.distance_to(@foot_print).round.to_f*1.609%> km
-
 </h1>
-
 </div>
 </div></div></div></div></div>
