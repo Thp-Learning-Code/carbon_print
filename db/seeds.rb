@@ -11,14 +11,14 @@ require 'faker'
 
 User.delete_all
 Product.delete_all
-# Footprint.delete_all
+Footprint.delete_all
 Value.delete_all
 Type.delete_all
 Ratio.delete_all
 Brand.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
-# ActiveRecord::Base.connection.reset_pk_sequence!('footprints')
+ActiveRecord::Base.connection.reset_pk_sequence!('footprints')
 ActiveRecord::Base.connection.reset_pk_sequence!('values')
 ActiveRecord::Base.connection.reset_pk_sequence!('types')
 ActiveRecord::Base.connection.reset_pk_sequence!('brands')

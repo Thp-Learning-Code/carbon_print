@@ -1,5 +1,4 @@
 class Footprint < ApplicationRecord
-
   belongs_to :user
   belongs_to :product
   geocoded_by :location

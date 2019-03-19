@@ -1,5 +1,4 @@
 class Product < ApplicationRecord
-
   has_many :footprints
   has_many :users, through: :footprints
   belongs_to :type
