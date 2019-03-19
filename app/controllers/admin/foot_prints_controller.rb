@@ -1,4 +1,6 @@
 class Admin::FootPrintsController < ApplicationController
+  before_action :authorize_admin
+
   def index
     @foot_print = Footprint.all
   end
