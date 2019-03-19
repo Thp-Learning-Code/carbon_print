@@ -1,2 +1,36 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Title</th>
+      <th scope="col">type</th>
+      <th scope="col">brand</th>
+      <th scope="col">country</th>
+      <th scope="col">city</th>
+      <th scope="col">more</th>
+      <th scope="col">delete</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <%@product.each do |pro|%>
+    <tr>
+      <td><%= pro.id %></td>
+      <td><%= pro.title %></td>
+      <td><%= pro.type.name%></td>
+      <td><%= pro.brand.name %></td>
+      <td><%= pro.country %></td>
+      <td><%= pro.city %></td>
+      <td><%= link_to "more", admin_product_path(pro.id) %></td>
+      <td><%= link_to "Delete", admin_product_path(pro.id),data: { :confirm => "Are you sure?"}, :method => :delete %></td>
+
+    </tr>
+      <%end%>
+  </tbody>
+</table>

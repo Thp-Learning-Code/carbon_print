@@ -2,6 +2,21 @@
 <br>
 <br>
 <br>
+
+
+
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    All Links
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= link_to "products", admin_products_path %></li>
+    <li class="list-group-item"><%= link_to "Users", admin_users_path %></li>
+    <li class="list-group-item"><%= link_to "Foot_prints", admin_foot_prints_path %></li>
+  </ul>
+</div>
+
+<br>
 <h1 class="text-center">Admin Index</h2>
 <div class="container">
     <table class="table">
@@ -39,6 +54,7 @@
         <tr>
           <th scope="col">Title</th>
           <th scope="col">result</th>
+          <th scope="col">Show</th>
           <th scope="col">Delete</th>
         
 
@@ -54,14 +70,13 @@
         <tr>
           <td> <%= foot.product.title %> </td>
           <td><%= foot.result %></td>
+          <td><%= link_to "more", admin_foot_print_path(foot) %></td>
           <td><%=link_to "Delete", admin_foot_print_path(foot), data: {:confirm => "Are you sure?"}, :method => :delete  %></td>
         </tr>
 <% end %>
         <tr>
       </tbody>
     </table>
-<div id="menu">
-<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"nav-link"%>
 </div>
 
 
