@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :user, only: [:show]
+
+  resources :user, only: [:show]#, :path => "user/:first_name"
   devise_for :users
   root to: 'home#index'
   resources :foot_prints, only: [:show, :edit]
@@ -7,7 +8,13 @@ Rails.application.routes.draw do
     resources :foot_prints, only: [:new, :create]
   end
 
-  require 'open-uri'
-  resources :api, only: [:index]
+  namespace :admin do
+    root :to=> 'admin#index'
+    resources :users , except: [:new , :create, :edit]
+    resources :products 
+    resources :foot_prints , except: [:edit, :new, :update]
+  end
+
+  # get "*path" => redirect("/")# A decommenter vers la fin
 
 end
