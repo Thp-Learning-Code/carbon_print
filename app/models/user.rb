@@ -9,6 +9,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  devise :omniauthable, omniauth_providers: [:facebook]
+
   has_many :footprints
   has_many :products, through: :footprints
   geocoded_by :address
@@ -19,5 +21,17 @@ class User < ApplicationRecord
     [town,country].compact.join(', ')
   end
 
+  def self.from_facebook(auth)
+
+    where(facebook_id: auth.uid).first_or_create do |user|
+      # retreive the uid in database or create a new id
+      user.email = auth.info.email
+      # prefilled this informations which recovered from the facebook method
+      # user.last_name = auth.info.name
+      user.password = Devise.friendly_token[0, 20]
+      # user.skip_confirmation!
+      # don't ask confirmation because it's Facebook.
+    end
+  end
 
 end
