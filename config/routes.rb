@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :footprints
   resources :user, only: [:show]
   devise_for :users
   root to: 'home#index'

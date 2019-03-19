@@ -1,6 +1,7 @@
-class CreateFootPrints < ActiveRecord::Migration[5.2]
+class CreateFootprints < ActiveRecord::Migration[5.2]
   def change
-    create_table :foot_prints do |t|
+    create_table :footprints do |t|
+
       t.string :delivery_address
       t.integer :zip_code
       t.string :town

@@ -81,54 +81,54 @@
 
 <p>
   <strong>Delivery address:</strong>
-  <%= @foot_print.delivery_address %>
+  <%= @footprint.delivery_address %>
 </p>
 
 <p>
   <strong>Zip code:</strong>
-  <%= @foot_print.zip_code %>
+  <%= @footprint.zip_code %>
 </p>
 
 <p>
   <strong>Town:</strong>
-  <%= @foot_print.town %>
+  <%= @footprint.town %>
 </p>
 
 <p>
   <strong>Country:</strong>
-  <%= @foot_print.country %>
+  <%= @footprint.country %>
 </p>
 
 <p>
   <strong>Latitude:</strong>
-  <%= @foot_print.latitude %>
+  <%= @footprint.latitude %>
 </p>
 
 <p>
   <strong>Longitude:</strong>
-  <%= @foot_print.longitude %>
+  <%= @footprint.longitude %>
 </p>
 
 <p>
   <strong>Result:</strong>
-  <%= @foot_print.result %>
+  <%= @footprint.result %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @foot_print.user_id %>
+  <%= @footprint.user_id %>
 </p>
 
 <p>
   <strong>Product:</strong>
-  <%= @foot_print.product_id %>
+  <%= @footprint.product_id %>
 </p>
 
 
 
 
 
-<%= link_to 'Edit', edit_foot_print_path(@foot_print.id) %> |
+<%= link_to 'Edit', edit_footprint_path(@footprint.id) %> |
 
 <br>
 <hr>
@@ -183,8 +183,8 @@
 
 <%= javascript_tag do %>
 
-console.log("<%= @foot_print.town %>")
-console.log("<%= @foot_print.product %>")
+console.log("<%= @footprint.town %>")
+console.log("<%= @footprint.product %>")
 
 var ENV = {
  MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
@@ -208,22 +208,22 @@ var route = {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= @foot_print.product.longitude %>,<%= @foot_print.product.latitude %>]
+     coordinates: [<%= @footprint.product.longitude %>,<%= @footprint.product.latitude %>]
    },
    properties: {
-     title: '<%= @foot_print.product.title %>',
-     description: '<%= @foot_print.product.city %>,<%= @foot_print.product.country %>'
+     title: '<%= @footprint.product.title %>',
+     description: '<%= @footprint.product.city %>,<%= @footprint.product.country %>'
    }
  },
  {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= @foot_print.longitude %>,<%= @foot_print.latitude %>]
+     coordinates: [<%= @footprint.longitude %>,<%= @footprint.latitude %>]
    },
    properties: {
-     title: '<%= @foot_print.user.first_name %>',
-     description: '<%= @foot_print.town %>,<%= @foot_print.country %>'
+     title: '<%= @footprint.user.first_name %>',
+     description: '<%= @footprint.town %>,<%= @footprint.country %>'
    }
  }]
 };
@@ -252,9 +252,9 @@ var directions = new MapboxDirections({
  profile: 'mapbox/driving',
 
 });
- directions.setOrigin([<%= @foot_print.product.longitude %>,<%= @foot_print.product.latitude %>])
- directions.addWaypoint(0,[<%= @foot_print.product.longitude + 0.1 %>,<%= @foot_print.product.latitude + 0.02 %>])
- directions.setDestination([<%= @foot_print.longitude %>,<%= @foot_print.latitude %>])
+ directions.setOrigin([<%= @footprint.product.longitude %>,<%= @footprint.product.latitude %>])
+ directions.addWaypoint(0,[<%= @footprint.product.longitude + 0.1 %>,<%= @footprint.product.latitude + 0.02 %>])
+ directions.setDestination([<%= @footprint.longitude %>,<%= @footprint.latitude %>])
 
 
 
@@ -267,14 +267,14 @@ function switchLayer(layer) {
 var layerId = layer.target.id;
 map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
 }
- 
+
 for (var i = 0; i < inputs.length; i++) {
 inputs[i].onclick = switchLayer;
 }
 <%end%>
 
 <h1>
-   <%= @foot_print.product.distance_to(@foot_print).round.to_f*1.609%> km
+   <%= @footprint.product.distance_to(@footprint).round.to_f*1.609%> km
 </h1>
 </div>
 </div></div></div></div></div>
