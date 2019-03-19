@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_03_19_123409) do
+=======
+ActiveRecord::Schema.define(version: 2019_03_19_135130) do
+>>>>>>> development
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_123409) do
     t.index ["ratio_id"], name: "index_brands_on_ratio_id"
   end
 
-  create_table "foot_prints", force: :cascade do |t|
+  create_table "footprints", force: :cascade do |t|
     t.string "delivery_address"
     t.integer "zip_code"
     t.string "town"
@@ -35,8 +39,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_123409) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_foot_prints_on_product_id"
-    t.index ["user_id"], name: "index_foot_prints_on_user_id"
+    t.index ["product_id"], name: "index_footprints_on_product_id"
+    t.index ["user_id"], name: "index_footprints_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -96,8 +100,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_123409) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "foot_prints", "products"
-  add_foreign_key "foot_prints", "users"
+  add_foreign_key "footprints", "products"
+  add_foreign_key "footprints", "users"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "types"
 end

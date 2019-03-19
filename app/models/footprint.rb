@@ -1,4 +1,4 @@
-class FootPrint < ApplicationRecord
+class Footprint < ApplicationRecord
 
   belongs_to :user
   belongs_to :product
@@ -12,5 +12,5 @@ class FootPrint < ApplicationRecord
   def location_changed?
     town.changed? || country.changed?
   end
-
+  
 end

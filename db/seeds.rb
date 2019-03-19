@@ -11,7 +11,7 @@ require 'faker'
 
 User.delete_all
 Product.delete_all
-FootPrint.delete_all
+Footprint.delete_all
 Value.delete_all
 Type.delete_all
 Ratio.delete_all
@@ -55,6 +55,6 @@ end
 puts "Products created"
 
 5.times do |i|
-  FootPrint.create!(delivery_address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, town: "Paris", country: "France", user_id: User.all.sample.id, product_id: Product.all.sample.id)
+  Footprint.create!(delivery_address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, town: "Paris", country: "France", user_id: User.all.sample.id, product_id: Product.all.sample.id)
 end
 puts "Footprint created"

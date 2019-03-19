@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   resources :user, only: [:show]#, :path => "user/:first_name"
   devise_for :users
   root to: 'home#index'
-  resources :foot_prints, only: [:show, :edit]
+  
+  resources :footprints, only: [:show, :edit]
   resources :product do
-    resources :foot_prints, only: [:new, :create]
+    resources :footprints, only: [:new, :create]
   end
 
   namespace :admin do

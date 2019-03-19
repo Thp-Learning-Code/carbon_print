@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe FootPrintsController, type: :controller do
+RSpec.describe FootprintsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # FootPrint. As you add validations to FootPrint, be sure to
+  # Footprint. As you add validations to Footprint, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe FootPrintsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # FootPrintsController. Be sure to keep this updated too.
+  # FootprintsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      FootPrint.create! valid_attributes
+      Footprint.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -51,8 +51,8 @@ RSpec.describe FootPrintsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      foot_print = FootPrint.create! valid_attributes
-      get :show, params: {id: foot_print.to_param}, session: valid_session
+      footprint = Footprint.create! valid_attributes
+      get :show, params: {id: footprint.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -66,29 +66,29 @@ RSpec.describe FootPrintsController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      foot_print = FootPrint.create! valid_attributes
-      get :edit, params: {id: foot_print.to_param}, session: valid_session
+      footprint = Footprint.create! valid_attributes
+      get :edit, params: {id: footprint.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new FootPrint" do
+      it "creates a new Footprint" do
         expect {
-          post :create, params: {foot_print: valid_attributes}, session: valid_session
-        }.to change(FootPrint, :count).by(1)
+          post :create, params: {footprint: valid_attributes}, session: valid_session
+        }.to change(Footprint, :count).by(1)
       end
 
-      it "redirects to the created foot_print" do
-        post :create, params: {foot_print: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(FootPrint.last)
+      it "redirects to the created footprint" do
+        post :create, params: {footprint: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(Footprint.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {foot_print: invalid_attributes}, session: valid_session
+        post :create, params: {footprint: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -100,41 +100,41 @@ RSpec.describe FootPrintsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested foot_print" do
-        foot_print = FootPrint.create! valid_attributes
-        put :update, params: {id: foot_print.to_param, foot_print: new_attributes}, session: valid_session
-        foot_print.reload
+      it "updates the requested footprint" do
+        footprint = Footprint.create! valid_attributes
+        put :update, params: {id: footprint.to_param, footprint: new_attributes}, session: valid_session
+        footprint.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the foot_print" do
-        foot_print = FootPrint.create! valid_attributes
-        put :update, params: {id: foot_print.to_param, foot_print: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(foot_print)
+      it "redirects to the footprint" do
+        footprint = Footprint.create! valid_attributes
+        put :update, params: {id: footprint.to_param, footprint: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(footprint)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        foot_print = FootPrint.create! valid_attributes
-        put :update, params: {id: foot_print.to_param, foot_print: invalid_attributes}, session: valid_session
+        footprint = Footprint.create! valid_attributes
+        put :update, params: {id: footprint.to_param, footprint: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested foot_print" do
-      foot_print = FootPrint.create! valid_attributes
+    it "destroys the requested footprint" do
+      footprint = Footprint.create! valid_attributes
       expect {
-        delete :destroy, params: {id: foot_print.to_param}, session: valid_session
-      }.to change(FootPrint, :count).by(-1)
+        delete :destroy, params: {id: footprint.to_param}, session: valid_session
+      }.to change(Footprint, :count).by(-1)
     end
 
-    it "redirects to the foot_prints list" do
-      foot_print = FootPrint.create! valid_attributes
-      delete :destroy, params: {id: foot_print.to_param}, session: valid_session
-      expect(response).to redirect_to(foot_prints_url)
+    it "redirects to the footprints list" do
+      footprint = Footprint.create! valid_attributes
+      delete :destroy, params: {id: footprint.to_param}, session: valid_session
+      expect(response).to redirect_to(footprints_url)
     end
   end
 
