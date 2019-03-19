@@ -30,7 +30,7 @@
     height: 80px;
     border: 4px solid #52796F;
     margin: 10px;
-}
+  } 
 .img-circle:hover{
     border-radius: 50%;
     width: 80px;
@@ -102,7 +102,7 @@
   margin: 0 auto;
 }
 
-input#search-bar{
+/* input#search-bar{
   margin: 0 auto;
   width: 100%;
   height: 50px;
