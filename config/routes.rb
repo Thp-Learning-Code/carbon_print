@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
   resources :user, only: [:show]#, :path => "user/:first_name"
+=======
+  
+  resources :user, only: [:show]
+>>>>>>> development
   devise_for :users
   root to: 'home#index'
   
