@@ -1,11 +1,9 @@
 class User < ApplicationRecord
-
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :town, presence: true
   validates :country, presence: true
   validates :first_name, presence: true
-
 
 
   # Include default devise modules. Others available are:
@@ -18,10 +16,8 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-
   def address
     [town,country].compact.join(', ')
   end
-
 
 end
