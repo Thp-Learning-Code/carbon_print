@@ -84,13 +84,10 @@ puts "There are now #{Type.count} rows in the Type table"
 5.times do |i|
   Product.create!(title: Faker::Name.first_name, description: Faker::WorldCup.team, price: rand(1..30),city: "Londres", country: "Angleterre", type_id: Type.all.sample.id, brand_id: Brand.all.sample.id)
 end
-
 puts "Footprint created"
 
-
-
-User.create(first_name: "admin", last_name:"one" ,   zip_code: 75015, town:"Orleans",     email: "admin1@gmail.com", country: "France" , is_admin: true , password:123456)
-User.create(first_name: "admin", last_name:"two" ,   zip_code: 75015, town:"Paris" ,      email: "admin1@gmail.com", country: "France" , is_admin: true , password:123456)
-User.create(first_name: "admin", last_name:"three",  zip_code: 75015, town:"Lille" ,      email: "admin1@gmail.com", country: "France" , is_admin: true , password:123456)
-User.create(first_name: "admin", last_name:"four",   zip_code: 75015, town:"Marseille" ,  email: "admin1@gmail.com", country: "France" , is_admin: true , password:123456)
-puts "4 user Ceated"
+User.create(first_name: "user1", last_name: "admin", address: nil, zip_code: 75015, town: "Paris",      email: "admin1@gmail.com",country: "France", password:123456, is_admin: true)
+User.create(first_name: "user2", last_name: "admin", address: nil, zip_code: 75012, town: "Marseille",  email: "admin2@gmail.com",country: "France", password:123456, is_admin: true)
+User.create(first_name: "user3", last_name: "admin", address: nil, zip_code: 75018, town: "Lyon",       email: "admin3@gmail.com",country: "France", password:123456, is_admin: true)
+User.create(first_name: "user4", last_name: "admin", address: nil, zip_code: 75015, town: "Paris",      email: "admin4@gmail.com",country: "France", password:123456, is_admin: true)
+puts "5 user Ceated"
