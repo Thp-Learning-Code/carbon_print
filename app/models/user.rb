@@ -9,6 +9,10 @@ class User < ApplicationRecord
    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
 
   validates :password, length: { in: 6..20 }
+  validates :town, presence: true
+  validates :country, presence: true
+
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
