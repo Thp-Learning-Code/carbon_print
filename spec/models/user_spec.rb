@@ -33,9 +33,14 @@ RSpec.describe User, type: :model do
       it { expect(@user).to validate_length_of(:password), minimum: 6 }
     end
   end
+
   context "association" do
     describe "user" do
       it {should have_many(:products).through(:footprints)}
     end
+    describe "user" do
+      it {should have_many(:footprints)}
+    end
   end
+
 end
