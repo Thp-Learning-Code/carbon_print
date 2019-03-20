@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 2019_03_19_135130) do
     t.index ["ratio_id"], name: "index_brands_on_ratio_id"
   end
 
+  create_table "foot_prints", force: :cascade do |t|
+    t.string "delivery_address"
+    t.integer "zip_code"
+    t.string "town"
+    t.string "country"
+    t.float "latitude"
+    t.float "longitude"
+    t.decimal "result"
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_foot_prints_on_product_id"
+    t.index ["user_id"], name: "index_foot_prints_on_user_id"
+  end
+
   create_table "footprints", force: :cascade do |t|
     t.string "delivery_address"
     t.integer "zip_code"
@@ -85,6 +101,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_135130) do
     t.float "latitude"
     t.float "longitude"
     t.string "country"
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -95,6 +112,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_135130) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "foot_prints", "products"
+  add_foreign_key "foot_prints", "users"
   add_foreign_key "footprints", "products"
   add_foreign_key "footprints", "users"
   add_foreign_key "products", "brands"
