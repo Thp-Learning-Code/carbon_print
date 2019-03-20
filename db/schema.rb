@@ -114,7 +114,6 @@ ActiveRecord::Schema.define(version: 2019_03_20_144641) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
   create_table "warehouses", force: :cascade do |t|
     t.string "name"
     t.string "adress"
@@ -126,10 +125,6 @@ ActiveRecord::Schema.define(version: 2019_03_20_144641) do
     t.datetime "updated_at", null: false
   end
 
-=======
-  add_foreign_key "foot_prints", "products"
-  add_foreign_key "foot_prints", "users"
->>>>>>> development
   add_foreign_key "footprints", "products"
   add_foreign_key "footprints", "users"
   add_foreign_key "products", "brands"
