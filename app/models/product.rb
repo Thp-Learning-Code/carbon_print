@@ -1,8 +1,5 @@
 class Product < ApplicationRecord
-  validates :type_id, presence: true
-  validates :brand_id, presence: true
-  validates :city, presence: true
-  validates :country, presence: true
+
   has_many :footprints
   has_many :users, through: :footprints
   belongs_to :type
