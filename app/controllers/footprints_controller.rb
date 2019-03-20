@@ -40,8 +40,10 @@ class FootprintsController < ApplicationController
       @footprint = Footprint.new(footprint_params)
       @footprint.user_id = current_user.id
       @footprint.geocode
+      @warehouse = Warehouse.all
+      @near_city = @warehouse.near(@footprint.town)
       @distance = @footprint.product.distance_to(@footprint).round.to_f * 1.609
-      @footprint.result = @footprint.product.tx_total + @distance * 1.5
+      @footprint.result = @footprint.town.tx_total + @distance * 1.5
       respond_to do |format|
         if @footprint.save
           format.js

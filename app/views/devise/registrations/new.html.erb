@@ -1,12 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-</head>
-
-<body class="signup-page">
+<div class="signup-page">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -76,11 +69,35 @@
                                          <%= f.text_field :first_name,class:"form-control", placeholder:"Prénom"%>
                                         </div>
                                         
-                                        <div class="input-group">
+                                    <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="now-ui-icons users_single-02"></i></span>
                                         </div>
                                         <%= f.text_field :last_name ,class:"form-control", placeholder:"Nom de famille"%>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="now-ui-icons users_single-02"></i></span>
+                                        </div>
+                                        <%= f.text_field :zip_code ,class:"form-control", placeholder:"code postale"%>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="now-ui-icons users_single-02"></i></span>
+                                        <% @cities_france = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille", "Rennes", "Reims", "Le Havre", "Cergy-Pontoise", "Saint-Etienne", "Toulon", "Angers", "Grenoble", "Dijon", "Nimes", "Aix-en-Provence", "Saint-Quentin-en-Yvelines", "Brest", "Le Mans", "Amiens", "Tours", "Limoges", "Clermont-Ferrand", "Villeurbanne", "Besancon", "Orleans", "Metz", "Rouen", "Mulhouse", "Perpignan", "Caen", "Boulogne-Billancourt", "Nancy", "Argenteuil", "Saint-Denis", "Roubaix", "Tourcoing", "Montreuil", "Avignon", "Asnieres-sur-Seine", "Nanterre", "Poitiers", "Versailles", "Courbevoie"] %>
+                                        <%= f.select :town , @cities_france , { class: "form-control" } , style:"width:auto;"%>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group">
+                                        <%# <div class="input-group-prepend"> %>
+                                            <%# <span class="input-group-text"><i class="now-ui-icons users_single-02"></i></span> %>
+                                    <%# </div> %>
+                                        <%# <%= f.text_field :country ,class:"form-control", placeholder:"Nom de famille"%> 
+                                        <%= f.hidden_field :country, value:"France" , class:"form-control"%>
+
                                     </div>
                                     
                                     <div class="input-group">
@@ -138,7 +155,25 @@
         <%end%>
         
     </div>
-</body>
+</div>
+
+
+
+
+<%= javascript_tag do%>
+
+let cities = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille", "Rennes", "Reims", "Le Havre", "Cergy-Pontoise", "Saint-Etienne", "Toulon", "Angers", "Grenoble", "Dijon", "Nimes", "Aix-en-Provence", "Saint-Quentin-en-Yvelines", "Brest", "Le Mans", "Amiens", "Tours", "Limoges", "Clermont-Ferrand", "Villeurbanne", "Besancon", "Orleans", "Metz", "Rouen", "Mulhouse", "Perpignan", "Caen", "Boulogne-Billancourt", "Nancy", "Argenteuil", "Saint-Denis", "Roubaix", "Tourcoing", "Montreuil", "Avignon", "Marseille 13", "Asnieres-sur-Seine", "Nanterre", "Poitiers", "Versailles", "Courbevoie"]
+
+
+<%end%>
+
+
+
+
+
+
+
+
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -161,5 +196,4 @@
 <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
 <script src="../assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
 
-</html>
 
