@@ -17,7 +17,6 @@
 //= require jquery_ujs
 //= require_tree .
 
-
 //= require js/now-ui-kit.js
 //= require js/core/bootstrap.min.js
 //= require js/core/popper.min.js
