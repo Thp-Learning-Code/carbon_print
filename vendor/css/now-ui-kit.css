@@ -24,6 +24,120 @@
  * Copyright 2012-2013 Mattia Larentis
  * http://www.apache.org/licenses/LICENSE-2.0
  */
+ .img-circle{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 4px solid #52796F;
+    margin: 10px;
+  } 
+.img-circle:hover{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #52796F;
+    margin: 10px;
+  }
+#myInput::-moz-placeholder {
+  color: #DDDDDD;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+#myInput:-moz-placeholder {
+  color: #DDDDDD;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+#myInput::-webkit-input-placeholder {
+  color: #52796F;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+#myInput:-ms-input-placeholder {
+  color: #DDDDDD;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+#myInput{
+  height:80px;
+  background-color: #fff;
+  border: 4px solid #52796F;
+  border-radius: 30px;
+  color: black;
+  line-height: normal;
+  font-size: 0.8571em;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+  .has-success #myInput {
+    border-color: #E3E3E3; }
+#myInput:focus {
+  height:80px;
+  background-color: #fff;
+    border: 2px solid #52796F;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 !important;
+    color: #2c2c2c; }
+ #myInput:focus + .input-group-text,
+    #myInput:focus ~ .input-group-text {
+      border: 1px solid #f96332;
+      border-left: none;
+      background-color: transparent; }
+
+ .semi-transparent {
+    opacity: 0.9;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+}
+ .search-container{
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+ #search-form{
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* input#search-bar{
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border-radius: 20px 20px 20px 20px;
+  border: 1px solid #D0CFCE;
+  outline: none;
+  /* &:focus{
+    border: 1px solid #008ABF;
+    transition: 0.35s ease;
+    color: #008ABF;
+    &::-webkit-input-placeholder{
+      transition: opacity 0.45s ease; 
+      opacity: 0;
+     }
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease; 
+      opacity: 0;
+     }
+    &:-ms-placeholder {
+     transition: opacity 0.45s ease; 
+     opacity: 0;
+     }    
+   } */
+ }
+
+.search-icon{
+  position: relative;
+  float: right;
+  width: 75px;
+  height: 75px;
+  top: -62px;
+  right: -15px;
+}
   .footer-distributed{
   background-color: #FFBBC5;
 
@@ -2773,15 +2887,26 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
       .navbar .navbar-nav > a.btn.btn-behance.btn-neutral:focus,
       .navbar .navbar-nav > a.btn.btn-behance.btn-neutral:active {
         color: #367dff; }
+.btn-secondary {
+  background-color: #52796F;
+  color: #FFFFFF; }
+  .btn-secondary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:focus, .btn-primary.active:hover,
+  .show > .btn-primary.dropdown-toggle,
+  .show > .btn-primary.dropdown-toggle:focus,
+  .show > .btn-primary.dropdown-toggle:hover {
+    background-color: #52796F;
+    color: #FFFFFF;
+    -webkit-box-shadow: none;
+            box-shadow: none; }
 
 .btn-primary {
-  background-color: #f96332;
+  background-color: #2F3E46;
   color: #FFFFFF; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:focus, .btn-primary.active:hover,
   .show > .btn-primary.dropdown-toggle,
   .show > .btn-primary.dropdown-toggle:focus,
   .show > .btn-primary.dropdown-toggle:hover {
-    background-color: #fa7a50;
+    background-color: #52796F;
     color: #FFFFFF;
     -webkit-box-shadow: none;
             box-shadow: none; }
@@ -2810,7 +2935,7 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
     color: #f96332; }
     .btn-primary.btn-link:hover, .btn-primary.btn-link:focus, .btn-primary.btn-link:active {
       background-color: transparent;
-      color: #fa7a50;
+      color: #fff;
       text-decoration: none;
       -webkit-box-shadow: none;
               box-shadow: none; }
@@ -4182,7 +4307,10 @@ body {
   background-color: #888888 !important; }
 
 .bg-primary {
-  background-color: #f96332 !important; }
+  background-color: #52796F !important; }
+
+.bg-secondary {
+  background-color: #2F3E46 !important; }
 
 .bg-info {
   background-color: #2CA8FF !important; }
@@ -7018,15 +7146,8 @@ Created using IcoMoon - icomoon.io
     content: ""; }
   .page-header:before {
     background-color: rgba(0, 0, 0, 0.3); }
-  .page-header[filter-color="orange"] {
-    background: rgba(44, 44, 44, 0.2);
-    /* For browsers that do not support gradients */
-    /* For Safari 5.1 to 6.0 */
-    /* For Opera 11.1 to 12.0 */
-    /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(linear, left bottom, left top, from(rgba(44, 44, 44, 0.2)), to(rgba(224, 23, 3, 0.6)));
-    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-    /* Standard syntax */ }
+  
+    /* Standard syntax */ 
 
 .clear-filter:after, .clear-filter:before {
   display: none; }
@@ -8827,13 +8948,13 @@ Created using IcoMoon - icomoon.io
   .page-header:before {
     background-color: rgba(0, 0, 0, 0.3); }
   .page-header[filter-color="orange"] {
-    background: rgba(44, 44, 44, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     /* For browsers that do not support gradients */
     /* For Safari 5.1 to 6.0 */
     /* For Opera 11.1 to 12.0 */
     /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(linear, left bottom, left top, from(rgba(44, 44, 44, 0.2)), to(rgba(224, 23, 3, 0.6)));
-    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.2)), to(rgba(82, 121, 111, 0.6)));
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(82, 121, 111, 0.6));
     /* Standard syntax */ }
 
 .clear-filter:after, .clear-filter:before {

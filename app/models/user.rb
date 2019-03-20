@@ -14,7 +14,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_many :footprints
   has_many :products, through: :footprints
-  
+  geocoded_by :address
+  after_validation :geocode
+
+  def address
+    [town,country].compact.join(', ')
+  end
+
 end

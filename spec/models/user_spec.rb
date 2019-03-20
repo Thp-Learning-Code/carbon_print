@@ -32,38 +32,10 @@ RSpec.describe User, type: :model do
     describe "#password" do
       it { expect(@user).to validate_length_of(:password), minimum: 6 }
     end
-
   end
-
-  # context "associations" do
-
-  #   describe "users" do
-  #     it { should have_many(:products).through(:footprints) }
-  #   end
-
-  # end
-
-
+  context "association" do
+    describe "user" do
+      it {should have_many(:products).through(:footprints)}
+    end
+  end
 end
-
-
-
-
-# RSpec.describe User, type: :model do
-#   it "shouldn't create a user " do 
-#     User.create(first_name: 'bob', zip_code: 75000, town: 'Butte chaumont')
-#     expect(User.count).to eq(0)
-#   end
-#   it "shouldn't create a user " do 
-#     User.create(first_name: 'bob', last_name: 'lenon', town: 'Butte chaumont')
-#     expect(User.count).to eq(0)
-#   end
-#   it "shouldn't create a user " do 
-#     User.create(last_name: 'lenon', zip_code: 75000, town: 'Butte chaumont')
-#     expect(User.count).to eq(0)
-#   end
-#   it "should create a user" do
-#     User.create(first_name: 'bob', last_name: 'lenon', zip_code: 75000, town: 'Butte chaumont', email: "test@gmail.com", password: 123456)
-#     expect(User.count).to eq(1)
-#   end
-# end

@@ -14,7 +14,6 @@ RSpec.describe Product, type: :model do
     end
 
     it "has a valid product" do
-        # teste toujours tes factories pour voir si elles sont valides
         expect(:product).to eq(:product)
     end
 
