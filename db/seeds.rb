@@ -1,17 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
 require 'faker'
 
+Footprint.delete_all
 User.delete_all
 Product.delete_all
-Footprint.delete_all
 Value.delete_all
 Type.delete_all
 Ratio.delete_all
@@ -23,10 +14,18 @@ ActiveRecord::Base.connection.reset_pk_sequence!('values')
 ActiveRecord::Base.connection.reset_pk_sequence!('types')
 ActiveRecord::Base.connection.reset_pk_sequence!('brands')
 
-5.times do |i|
- User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Bank.account_number)
+3.times do |i|
+ User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Paris", zip_code:75018)
 end
+3.times do |i|
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Marseille", zip_code:75018)
+ end
+ 3.times do |i|
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Lyon", zip_code:75018)
+ end
 puts "Users created"
+User.create(first_name: "sjdskdjk", last_name: "jiad", address: nil, zip_code: 75015, town: "Paris",email: "pam@pam.pam",country: "France", is_admin: true)
+
 
 5.times do |i|
   Value.create!(carbon_print: rand(1..30))
@@ -58,3 +57,9 @@ puts "Products created"
   Footprint.create!(delivery_address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, town: "Paris", country: "France", user_id: User.all.sample.id, product_id: Product.all.sample.id)
 end
 puts "Footprint created"
+
+User.create(first_name: "user1", last_name: "admin", address: nil, zip_code: 75015, town: "Paris",      email: "admin1@gmail.com",country: "France", password:123456, is_admin: true)
+User.create(first_name: "user2", last_name: "admin", address: nil, zip_code: 75012, town: "Marseille",  email: "admin2@gmail.com",country: "France", password:123456, is_admin: true)
+User.create(first_name: "user3", last_name: "admin", address: nil, zip_code: 75018, town: "Lyon",       email: "admin3@gmail.com",country: "France", password:123456, is_admin: true)
+User.create(first_name: "user4", last_name: "admin", address: nil, zip_code: 75015, town: "Paris",      email: "admin4@gmail.com",country: "France", password:123456, is_admin: true)
+puts "5 user Ceated"
