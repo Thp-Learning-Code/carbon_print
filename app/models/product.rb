@@ -6,6 +6,9 @@ class Product < ApplicationRecord
   has_many :footprints
   has_many :users, through: :footprints
   belongs_to :type
+
+  belongs_to :warehouse
+
   belongs_to :brand
   geocoded_by :location
   after_validation :geocode
