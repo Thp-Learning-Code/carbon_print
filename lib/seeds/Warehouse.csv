@@ -1,1 +1,10 @@
-Name ;Adresse;Zip code ;Ville;Pays ;lattitude ;longitude BVA1 - Amazon Boves1 Avenue du Superbe Orénoque;;80440;Boves;France;;LIL1 - Amazon Lauwin Planque;1 rue Amazon;59553;Lauwin Planque;France;;LYS1 - Amazon Sevrey;1 Rue Amazon;71100;Distripôle Chalon;France;;MRS1 - Amazon Montelimar;Building II ZAC Les Portes de Provence;26200;Montelimar;France;;ORY1 - Amazon Saran;1401 rue du Champ Rouge;45770;Saran;France;;XFRE - Geodis Logistics Satolas;"Parc des Chênes Nord 135, Rue du Brisson ZI St Quentin Fallavier, Bâtiment ""IDC9""";38290;Satolas-et-Bonce;France;;XFRF - Entrepôt Kuehne & Nagel;Avenue Louis Renault, Bâtiment 3, ZAC du Val Bréon;77610;Châtres en Brie;France;;XFRG - Entrepôt XPO Logistics Artenay;ZAC du Moulin;45410;Artenay,;France;;XFRH - Entrepôt XPO Logistics Moissy Cramayel;Parc d’activité de Chanteloup Bâtiment 8A,;77550;Moissy Cramayel,;France;;
+Name ;Adress;zip_code ;city;country ;lattitude ;longitude 
+BVA1 - Amazon Boves1 Avenue du Superbe OrÔøΩnoque;;80440;Boves;France;;
+LIL1 - Amazon Lauwin Planque;1 rue Amazon;59553;Lauwin Planque;France;;
+LYS1 - Amazon Sevrey;1 Rue Amazon;71100;DistripÔøΩle Chalon;France;;
+MRS1 - Amazon Montelimar;Building II ZAC Les Portes de Provence;26200;Montelimar;France;;
+ORY1 - Amazon Saran;1401 rue du Champ Rouge;45770;Saran;France;;
+XFRE - Geodis Logistics Satolas;"Parc des ChÔøΩnes Nord 135, Rue du Brisson ZI St Quentin Fallavier, BÔøΩtiment ""IDC9""";38290;Satolas-et-Bonce;France;;
+XFRF - EntrepÔøΩt Kuehne & Nagel;Avenue Louis Renault, BÔøΩtiment 3, ZAC du Val BrÔøΩon;77610;ChÔøΩtres en Brie;France;;
+XFRG - EntrepÔøΩt XPO Logistics Artenay;ZAC du Moulin;45410;Artenay,;France;;
+XFRH - EntrepÔøΩt XPO Logistics Moissy Cramayel;Parc dÔøΩactivitÔøΩ de Chanteloup BÔøΩtiment 8A,;77550;Moissy Cramayel,;France;;

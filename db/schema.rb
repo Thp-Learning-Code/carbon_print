@@ -47,10 +47,7 @@ ActiveRecord::Schema.define(version: 2019_03_20_144641) do
     t.datetime "updated_at", null: false
     t.bigint "type_id"
     t.bigint "brand_id"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "city"
-    t.string "country"
+    t.decimal "result"
     t.bigint "warehouse_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"
@@ -100,8 +97,9 @@ ActiveRecord::Schema.define(version: 2019_03_20_144641) do
 
   create_table "warehouses", force: :cascade do |t|
     t.string "name"
-    t.string "adress"
+    t.string "address"
     t.string "country"
+    t.integer "zip_code"
     t.string "city"
     t.float "latitude"
     t.float "longitude"
