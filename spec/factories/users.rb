@@ -5,5 +5,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     zip_code { 75000 }
     password { 123456 }
+    town {"paris"}
+    country {"France"}
   end
 end
