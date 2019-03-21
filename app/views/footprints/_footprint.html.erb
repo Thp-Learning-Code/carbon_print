@@ -62,10 +62,6 @@ var ENV = {
 }
 mapboxgl.accessToken =ENV['MAPBOX_API']
 
-<%# switch layer: next 2 line %>
-var layerList = document.getElementById('menu');
-var inputs = layerList.getElementsByTagName('input');
-
 var map = new mapboxgl.Map({
  container: 'map', // container id
  style: 'mapbox://styles/mapbox/navigation-preview-day-v4', // stylesheet location
@@ -132,12 +128,6 @@ var directions = new MapboxDirections({
 // add to your mapboxgl map
 map.addControl(directions, 'top-left');
 map.addControl(new mapboxgl.NavigationControl());
-
-//Switch layer until the loop
-function switchLayer(layer) {
-var layerId = layer.target.id;
-map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
-}
 
 for (var i = 0; i < inputs.length; i++) {
 inputs[i].onclick = switchLayer;
