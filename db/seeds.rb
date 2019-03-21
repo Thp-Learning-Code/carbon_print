@@ -1,8 +1,17 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
 require 'faker'
 
-Footprint.delete_all
 User.delete_all
 Product.delete_all
+Footprint.delete_all
 Value.delete_all
 Type.delete_all
 Ratio.delete_all
@@ -17,15 +26,9 @@ ActiveRecord::Base.connection.reset_pk_sequence!('brands')
 ActiveRecord::Base.connection.reset_pk_sequence!('ratios')
 ActiveRecord::Base.connection.reset_pk_sequence!('warehouses')
 
-3.times do |i|
- User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Paris", zip_code:75018)
+5.times do |i|
+ User.create!(first_name: Faker::Name.first_name + "fdeees", last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Bank.account_number)
 end
-3.times do |i|
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Marseille", zip_code:75018)
- end
- 3.times do |i|
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Lyon", zip_code:75018)
- end
 puts "Users created"
 
 3.times do |i|
@@ -44,10 +47,11 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'Ratio.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Ratio.new
-  t.carbon_print_for_brand = row
+  t.carbon_print_for_brand = row[0]
   t.save
   puts "Ratio saved"
 end
+puts "Value created"
 
 puts "There are now #{Ratio.count} rows in the Ratio table"
 
@@ -55,36 +59,22 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'Value.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Value.new
-  t.carbon_print = row
+  t.carbon_print = row[0]
   t.save
   puts "Value saved"
 end
+puts "Type created"
 
-puts "There are now #{Value.count} rows in the Value table"
-
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'Brand.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1', :col_sep => ';')
-csv.each do |row|
-  t = Brand.new
-  t.name = row[0]
-  t.ratio_id = row[1]
-  t.save
-  puts "Brand saved"
+5.times do |i|
+  Ratio.create!(carbon_print_for_brand: rand(1..30))
 end
+puts "Ratio created"
 
-puts "There are now #{Brand.count} rows in the Brand table"
-
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'Type.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1', :col_sep => ';')
-csv.each do |row|
-  t = Type.new
-  t.name = row[0]
-  t.value_id = row[1]
-  t.save
-  puts "Type saved"
+5.times do |i|
+  Brand.create!(name: Faker::WorldCup.group, ratio_id: Value.all.sample.id )
 end
+puts "Brand created"
 
-puts "There are now #{Type.count} rows in the Type table"
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Warehouse.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1', :col_sep => ';')
@@ -101,7 +91,11 @@ end
 
 puts "There are now #{Warehouse.count} rows in the Warehouse table"
 
-5.times do |i|
-  Product.create!(title: Faker::Name.first_name, description: Faker::WorldCup.team, price: rand(1..30), type_id: Type.all.sample.id, brand_id: Brand.all.sample.id, warehouse_id: Warehouse.all.sample.id)
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'Product.csv'))
+csv = CSV.parse(csv_text, :headers => true,:encoding => 'ISO-8859-1', :col_sep => ';')
+csv.each do |row|
+  t = Product.create( title: row[0], type_id: row[1], brand_id: row[2], warehouse_id: row[3])
+  puts "Product saved"
 end
-puts "Products created"
+
+puts "There are now #{Product.count} rows in the Product table"

@@ -116,7 +116,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @footprint.user_id %>
+  <%= @footprint.user.first_name %>
 </p>
 
 <p>
@@ -205,11 +205,11 @@ var route = {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= @product.warehouse.longitude %>,<%= @product.warehouse.latitude %>]
+     coordinates: [<%= @footprint.product.warehouse.longitude %>,<%= @footprint.product.warehouse.latitude %>]
    },
    properties: {
      title: '<%= @footprint.product.title %>',
-     description: '<%= @product.title %>,<%= @product.title %>'
+     description: '<%= @footprint.product.title %>,<%= @footprint.product.title %>'
    }
  },
  {
@@ -248,9 +248,16 @@ var directions = new MapboxDirections({
  unit: 'metric',
  profile: 'mapbox/driving',
 
+  container:'directions', // Specify an element thats not the map container.
+  // UI controls
+  controls: {
+    inputs: false,
+    instructions: true
+  }
+
 });
- directions.setOrigin([<%= @product.warehouse.longitude %>,<%= @product.warehouse.latitude %>])
- directions.addWaypoint(0,[<%= @product.warehouse.longitude + 0.1 %>,<%= @product.warehouse.latitude + 0.02 %>])
+ directions.setOrigin([<%= @footprint.product.warehouse.longitude %>,<%= @footprint.product.warehouse.latitude %>])
+ directions.addWaypoint(0,[<%= @footprint.product.warehouse.longitude + 0.1 %>,<%= @footprint.product.warehouse.latitude + 0.02 %>])
  directions.setDestination([<%= @footprint.longitude %>,<%= @footprint.latitude %>])
 
 
@@ -268,10 +275,19 @@ map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
 for (var i = 0; i < inputs.length; i++) {
 inputs[i].onclick = switchLayer;
 }
+
+let hideWhenMouseover =document.querySelector('#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-left > div > div')
+	hideWhenMouseover.addEventListener("mouseover", function(){
+      setInterval(function(){
+      hideWhenMouseover.style.visibility = "hidden"
+    },3000)
+  });
 <%end%>
 
+<% @foot_distance = @footprint.distance_to(@footprint.product.warehouse)*1.609 %>
 <h1>
-   <%# <%= @footprint.product.distance_to(@footprint).round.to_f*1.609%> km %>
+   <%= @foot_distance.to_i %>km
 </h1>
+
 </div>
 </div></div></div></div></div>

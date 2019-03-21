@@ -14,4 +14,5 @@ class ProductController < ApplicationController
     end
     
   end
+  
 end

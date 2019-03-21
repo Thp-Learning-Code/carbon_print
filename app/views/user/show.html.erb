@@ -28,7 +28,12 @@
 <h2>result des tests</h2>
 <h5>
 <hr>
+<%if @foot_print.count == 0  || @foot_print.count == 1%>
+<%= "l'utilisateur a effectué #{@foot_print.count} test" %>
+<%else%>
 <%= "l'utilisateur a effectué #{@foot_print.count} tests" %>
+
+<%end%>
 <hr>
 </h5>
 <% if @foot_print.count > 0 %>
@@ -37,24 +42,25 @@
         <tr>
           <th scope="col">Title</th>
           <th scope="col">result</th>
-          <th scope="col">voir</th>
+        
+
         </tr>
       </thead>
       <tbody>
     
-<% @foot_print.each do |foot| %>
+<% @footprint.each do |foot| %>
         <tr>
           <td> <%= foot.product.title %> </td>
           <td><%= foot.result %></td>
-          <td><%= link_to "a voir", footprint_path(foot.id) %></td>
         </tr>
 <% end %>
         <tr>
       </tbody>
     </table>
-    <%end%>
 <div id="menu">
+<% if user_signed_in? && current_user.id == @user.id %>
 <%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"nav-link"%>
+<%end%>
 </div>
 
 
