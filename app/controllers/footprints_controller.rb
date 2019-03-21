@@ -37,14 +37,18 @@ class FootprintsController < ApplicationController
     # POST /footprints
     # POST /footprints.json
     def create
-      @product = Product.find(params[:product_id])
       @footprint = Footprint.new(footprint_params)
       @footprint.user_id = current_user.id
       @footprint.geocode
       @warehouse = Warehouse.all
       @near_city = @warehouse.near(@footprint.town)
-      # @distance = @footprint.product.distance_to(@footprint).round.to_f * 1.609
-      # @footprint.result = @footprint.town.tx_total + @distance * 1.5
+      @distance = @footprint.product.warehouse.distance_to(@footprint).round.to_f * 1.609
+      @co_by_km = @distance / 2.50
+      
+      @result_before_float = @footprint.product.result + @co_by_km
+
+      @footprint.result = @result_before_float.to_f
+
       respond_to do |format|
         if @footprint.save
           format.js
