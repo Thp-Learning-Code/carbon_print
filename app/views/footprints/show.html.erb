@@ -183,9 +183,6 @@
 
 <%= javascript_tag do %>
 
-console.log("<%= @footprint.town %>")
-console.log("<%= @footprint.product %>")
-
 var ENV = {
  MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
 }
@@ -208,11 +205,11 @@ var route = {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= @footprint.product.longitude %>,<%= @footprint.product.latitude %>]
+     coordinates: [<%= @product.warehouse.longitude %>,<%= @product.warehouse.latitude %>]
    },
    properties: {
      title: '<%= @footprint.product.title %>',
-     description: '<%= @footprint.product.city %>,<%= @footprint.product.country %>'
+     description: '<%= @product.title %>,<%= @product.title %>'
    }
  },
  {
@@ -252,8 +249,8 @@ var directions = new MapboxDirections({
  profile: 'mapbox/driving',
 
 });
- directions.setOrigin([<%= @footprint.product.longitude %>,<%= @footprint.product.latitude %>])
- directions.addWaypoint(0,[<%= @footprint.product.longitude + 0.1 %>,<%= @footprint.product.latitude + 0.02 %>])
+ directions.setOrigin([<%= @product.warehouse.longitude %>,<%= @product.warehouse.latitude %>])
+ directions.addWaypoint(0,[<%= @product.warehouse.longitude + 0.1 %>,<%= @product.warehouse.latitude + 0.02 %>])
  directions.setDestination([<%= @footprint.longitude %>,<%= @footprint.latitude %>])
 
 
@@ -274,7 +271,7 @@ inputs[i].onclick = switchLayer;
 <%end%>
 
 <h1>
-   <%= @footprint.product.distance_to(@footprint).round.to_f*1.609%> km
+   <%# <%= @footprint.product.distance_to(@footprint).round.to_f*1.609%> km %>
 </h1>
 </div>
 </div></div></div></div></div>
