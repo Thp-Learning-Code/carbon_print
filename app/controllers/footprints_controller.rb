@@ -76,7 +76,13 @@ class FootprintsController < ApplicationController
 
     # DELETE /footprints/1
     # DELETE /footprints/1.json
-
+def destroy
+@foot_print = Footprint.find(params[:id])
+if @foot_print.destroy
+  flash[:success]="Foot_Print supprimé"
+  redirect_to user_path(current_user.id)
+end
+end
 
     private
       # Use callbacks to share common setup or constraints between actions.

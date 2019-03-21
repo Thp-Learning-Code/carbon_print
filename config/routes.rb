@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   } 
   
-  resources :footprints, only: [:show, :edit]
+  resources :footprints, only: [:show, :destroy]
   resources :product do
     resources :footprints, only: [:new, :create]
   end

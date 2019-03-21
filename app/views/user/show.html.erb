@@ -42,27 +42,32 @@
         <tr>
           <th scope="col">Title</th>
           <th scope="col">result</th>
-        
-
+           <th scope="col">voir</th>
+          <th scope="col">delete</th>
+            
         </tr>
       </thead>
       <tbody>
-    
-<% @footprint.each do |foot| %>
+  
+<% @foot_print.each do |foot| %>
         <tr>
           <td> <%= foot.product.title %> </td>
           <td><%= foot.result %></td>
+          <td><%= link_to "voir", footprint_path(foot.id)  %></td>
+          <td><%= link_to "Delete", footprint_path(foot.id), method: :delete, data:{confirm: 'Are you sure?'}   %></td>
         </tr>
 <% end %>
         <tr>
       </tbody>
     </table>
+<%end%>
 <div id="menu">
 <% if user_signed_in? && current_user.id == @user.id %>
 <%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"nav-link"%>
+
+
 <%end%>
 </div>
-
 
 
 
