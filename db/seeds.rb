@@ -102,7 +102,7 @@ end
 puts "There are now #{Warehouse.count} rows in the Warehouse table"
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Product.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1', :col_sep => ';')
+csv = CSV.parse(csv_text, :headers => true, :col_sep => ';')
 csv.each do |row|
   t = Product.new
   t.title = row[0]
