@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_03_21_082742) do
 
   # These are extensions that must be enabled in order to support this database
@@ -41,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "title"
+    t.text "title"
     t.decimal "price"
     t.text "description"
     t.datetime "created_at", null: false
@@ -87,7 +86,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.string "country"
     t.string "provider"
     t.string "uid"
-    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -110,10 +108,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
->>>>>>> 28981b886c1c6f44b780abf4576dbaca728184d1
-=======
->>>>>>> development
   add_foreign_key "footprints", "products"
   add_foreign_key "footprints", "users"
   add_foreign_key "products", "brands"
