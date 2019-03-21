@@ -51,16 +51,20 @@
 
 
 <div id='map'></div>
+
 <%= javascript_tag do %>
 
-console.log("<%= footprint.town %>")
-console.log("<%= footprint.product %>")
+console.log("<%= @footprint.town %>")
+console.log("<%= @footprint.product %>")
 
 var ENV = {
  MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
 }
 mapboxgl.accessToken =ENV['MAPBOX_API']
 
+<%# switch layer: next 2 line %>
+var layerList = document.getElementById('menu');
+var inputs = layerList.getElementsByTagName('input');
 
 var map = new mapboxgl.Map({
  container: 'map', // container id
@@ -75,22 +79,22 @@ var route = {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= footprint.product.longitude %>,<%= footprint.product.latitude %>]
+     coordinates: [<%= @product.warehouse.longitude %>,<%= @product.warehouse.latitude %>]
    },
    properties: {
-     title: '<%= footprint.product.title %>',
-     description: '<%= footprint.product.city %>,<%= footprint.product.country %>'
+     title: '<%= @footprint.product.title %>',
+     description: '<%= @product.title %>,<%= @product.title %>'
    }
  },
  {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= footprint.longitude %>,<%= footprint.latitude %>]
+     coordinates: [<%= @footprint.longitude %>,<%= @footprint.latitude %>]
    },
    properties: {
-     title: '<%= footprint.user.first_name %>',
-     description: '<%= footprint.town %>,<%= footprint.country %>'
+     title: '<%= @footprint.user.first_name %>',
+     description: '<%= @footprint.town %>,<%= @footprint.country %>'
    }
  }]
 };
@@ -119,17 +123,29 @@ var directions = new MapboxDirections({
  profile: 'mapbox/driving',
 
 });
- directions.setOrigin([<%= footprint.product.longitude %>,<%= footprint.product.latitude %>])
- directions.addWaypoint(0,[<%= footprint.product.longitude + 0.1 %>,<%= footprint.product.latitude + 0.02 %>])
- directions.setDestination([<%= footprint.longitude %>,<%= footprint.latitude %>])
+ directions.setOrigin([<%= @product.warehouse.longitude %>,<%= @product.warehouse.latitude %>])
+ directions.addWaypoint(0,[<%= @product.warehouse.longitude + 0.1 %>,<%= @product.warehouse.latitude + 0.02 %>])
+ directions.setDestination([<%= @footprint.longitude %>,<%= @footprint.latitude %>])
+
 
 
 // add to your mapboxgl map
 map.addControl(directions, 'top-left');
+map.addControl(new mapboxgl.NavigationControl());
+
+//Switch layer until the loop
+function switchLayer(layer) {
+var layerId = layer.target.id;
+map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+}
+
+for (var i = 0; i < inputs.length; i++) {
+inputs[i].onclick = switchLayer;
+}
 <%end%>
 
 <h1>
 
-   <%= footprint.product.distance_to(footprint).round.to_f*1.609%> km
+   <%# <%= footprint.product.distance_to(footprint).round.to_f*1.609%> km %>
 
 </h1>
