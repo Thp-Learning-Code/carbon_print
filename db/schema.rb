@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 2019_03_19_135130) do
     t.string "address"
     t.integer "zip_code"
     t.string "town"
-    t.string "facebook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -83,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_135130) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "facebook_id"
     t.float "latitude"
     t.float "longitude"
     t.string "country"

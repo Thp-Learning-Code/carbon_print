@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :address
       t.integer :zip_code
       t.string :town
-      t.string :facebook_id
 
       t.timestamps
     end
