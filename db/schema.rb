@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.float "latitude"
     t.float "longitude"
     t.string "country"
-    t.boolean "is_admin", default: false
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -109,10 +108,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
->>>>>>> 28981b886c1c6f44b780abf4576dbaca728184d1
-=======
->>>>>>> development
   add_foreign_key "footprints", "products"
   add_foreign_key "footprints", "users"
   add_foreign_key "products", "brands"
