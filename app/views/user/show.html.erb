@@ -40,19 +40,24 @@
                 <h3 class="title">About me</h3>
                 <h5 class="description text-center"><%= @user.email %></h5>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <h4 class="title text-center">Mes recherches</h4>
-                        </div></div></div></div></div></div>
 
-<div class="container">
+
+
+<br><br><br>
+<h2>result des tests</h2>
+<h5>
+<hr>
+<%= "l'utilisateur a effectué #{@foot_print.count} tests" %>
+<hr>
+</h5>
+<% if @foot_print.count > 0 %>
+
     <table class="table">
       <thead>
         <tr>
           <th scope="col">Title</th>
           <th scope="col">result</th>
-        
-
+          <th scope="col">voir</th>
         </tr>
       </thead>
       <tbody>
@@ -61,11 +66,18 @@
         <tr>
           <td> <%= foot.product.title %> </td>
           <td><%= foot.result %></td>
+          <td><%= link_to "a voir", footprint_path(foot.id) %></td>
         </tr>
 <% end %>
         <tr>
       </tbody>
     </table>
+
+    <%end%>
+<div id="menu">
+<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"nav-link"%>
+</div>
+
 
 </tr></tbody></table></div>
 

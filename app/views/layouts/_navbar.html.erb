@@ -21,8 +21,10 @@
             </div>
             <div class="collapse navbar-collapse" data-nav-image="./assets/img/blurred-image-1.jpg" data-color="orange">
                 <ul class="navbar-nav ml-auto">
+
                  
                 <li class="nav-item ">
+
                   <%= link_to "Voir le profil", user_path(current_user.id),class:"nav-link"%> </li>
                  
                 <li class="nav-item ">
@@ -31,7 +33,7 @@
             </div>
         </div>
     </nav>
-    
+
     <% else %>
 
     <nav class="navbar navbar-expand-lg bg-primary semi-transparent fixed-top " color-on-scroll="5">
@@ -49,12 +51,14 @@
             <div class="collapse navbar-collapse" data-nav-image="./assets/img/blurred-image-1.jpg" data-color="orange">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item " >
-                     
+
                  </li>
                      <li class="nav-item active"> <%= link_to "Connexion", user_session_path , class:"nav-link"%></li>
+                     <li class="nav-item active"> <%= link_to "Connexion via facebook", user_facebook_omniauth_authorize_path , class:"nav-link"%></li>
+
 
                       <li class="nav-item active "> <a class="nav-link "href="/users/sign_up"> S'inscrire</a></li>
-                  
+
                 </ul>
             </div>
         </div>

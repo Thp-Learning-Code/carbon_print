@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
-  resources :user, only: [:show]
-  devise_for :users
+
   root to: 'home#index'
-  resources :foot_prints, only: [:show, :edit]
+
+  resources :user, only: [:show]
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  } 
+  
+  resources :footprints, only: [:show, :edit]
   resources :product do
-    resources :foot_prints, only: [:new, :create]
+    resources :footprints, only: [:new, :create]
   end
 
-  require 'open-uri'
-  resources :api, only: [:index]
+  namespace :admin do
+    root :to=> 'admin#index'
+    resources :users , except: [:new , :create, :edit]
+    resources :products 
+    resources :foot_prints , except: [:edit, :new, :update]
+  end
+
+  # get "*path" => redirect("/")# A decommenter vers la fin
 
 end

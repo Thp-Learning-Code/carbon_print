@@ -1,0 +1,139 @@
+<center>
+<p>
+  <strong>Delivery address:</strong>
+  <%= footprint.delivery_address %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= footprint.zip_code %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= footprint.town %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= footprint.country %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= footprint.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= footprint.longitude %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= footprint.result %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= footprint.user_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= footprint.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_foot_print_path(foot_print.id) %> 
+<%# <%= link_to 'Back', foot_prints_path %> 
+
+
+<br>
+</center>
+<div id='map'></div>
+
+<%= javascript_tag do %>
+
+console.log("<%= @footprint.town %>")
+console.log("<%= @footprint.product %>")
+
+var ENV = {
+ MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
+}
+mapboxgl.accessToken =ENV['MAPBOX_API']
+
+var map = new mapboxgl.Map({
+ container: 'map', // container id
+ style: 'mapbox://styles/mapbox/navigation-preview-day-v4', // stylesheet location
+ center: [2.56123,48.817038], // starting position
+ zoom: 3 // starting zoom
+});
+
+var route = {
+ type: 'FeatureCollection',
+ features: [{
+   type: 'Feature',
+   geometry: {
+     type: 'Point',
+     coordinates: [<%= @product.warehouse.longitude %>,<%= @product.warehouse.latitude %>]
+   },
+   properties: {
+     title: '<%= @footprint.product.title %>',
+     description: '<%= @product.title %>,<%= @product.title %>'
+   }
+ },
+ {
+   type: 'Feature',
+   geometry: {
+     type: 'Point',
+     coordinates: [<%= @footprint.longitude %>,<%= @footprint.latitude %>]
+   },
+   properties: {
+     title: '<%= @footprint.user.first_name %>',
+     description: '<%= @footprint.town %>,<%= @footprint.country %>'
+   }
+ }]
+};
+
+
+// add markers to map
+route.features.forEach(function(marker) {
+
+ // create a HTML element for each feature
+ var el = document.createElement('div');
+ el.className = 'marker';
+
+ new mapboxgl.Marker(el)
+
+ .setLngLat(marker.geometry.coordinates)
+ .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+   .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>')
+   )
+   .addTo(map);
+});
+
+
+var directions = new MapboxDirections({
+ accessToken: ENV['MAPBOX_API'],
+ unit: 'metric',
+ profile: 'mapbox/driving',
+
+});
+ directions.setOrigin([<%= @product.warehouse.longitude %>,<%= @product.warehouse.latitude %>])
+ directions.addWaypoint(0,[<%= @product.warehouse.longitude + 0.1 %>,<%= @product.warehouse.latitude + 0.02 %>])
+ directions.setDestination([<%= @footprint.longitude %>,<%= @footprint.latitude %>])
+
+
+
+// add to your mapboxgl map
+map.addControl(directions, 'top-left');
+map.addControl(new mapboxgl.NavigationControl());
+
+<%end%>
+
+<h1>
+
+   <%# <%= footprint.product.distance_to(footprint).round.to_f*1.609%> km %>
+
+</h1>
+</div>
