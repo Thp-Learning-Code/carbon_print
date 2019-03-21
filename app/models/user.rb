@@ -66,7 +66,5 @@ class User < ApplicationRecord
       end
     end
   end
-
-=======
->>>>>>> development
+  
 end
