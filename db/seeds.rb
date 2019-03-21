@@ -101,7 +101,16 @@ end
 
 puts "There are now #{Warehouse.count} rows in the Warehouse table"
 
-5.times do |i|
-  Product.create!(title: Faker::Name.first_name, description: Faker::WorldCup.team, price: rand(1..30), type_id: Type.all.sample.id, brand_id: Brand.all.sample.id, warehouse_id: Warehouse.all.sample.id)
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'Product.csv'))
+csv = CSV.parse(csv_text, :headers => true, :col_sep => ';')
+csv.each do |row|
+  t = Product.new
+  t.title = row[0]
+  t.type_id = row[1]
+  t.brand_id = row[2]
+  t.warehouse_id = row[3]
+  t.save
+  puts "Product saved"
 end
-puts "Products created"
+
+puts "There are now #{Product.count} rows in the Product table"
