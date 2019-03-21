@@ -22,6 +22,21 @@
       </tbody>
     </table>
 
+
+
+<br><br><br>
+<h2>result des tests</h2>
+<h5>
+<hr>
+<%if @foot_print.count == 0  || @foot_print.count == 1%>
+<%= "l'utilisateur a effectué #{@foot_print.count} test" %>
+<%else%>
+<%= "l'utilisateur a effectué #{@foot_print.count} tests" %>
+
+<%end%>
+<hr>
+</h5>
+<% if @foot_print.count > 0 %>
     <table class="table">
       <thead>
         <tr>
@@ -43,7 +58,9 @@
       </tbody>
     </table>
 <div id="menu">
+<% if user_signed_in? && current_user.id == @user.id %>
 <%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"nav-link"%>
+<%end%>
 </div>
 
 
