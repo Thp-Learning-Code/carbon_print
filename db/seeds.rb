@@ -27,7 +27,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('ratios')
 ActiveRecord::Base.connection.reset_pk_sequence!('warehouses')
 
 5.times do |i|
- User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Bank.account_number)
+ User.create!(first_name: Faker::Name.first_name + "fdeees", last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Bank.account_number)
 end
 puts "Users created"
 
