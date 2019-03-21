@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_03_21_082742) do
 
   # These are extensions that must be enabled in order to support this database
@@ -22,6 +21,22 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ratio_id"], name: "index_brands_on_ratio_id"
+  end
+
+  create_table "foot_prints", force: :cascade do |t|
+    t.string "delivery_address"
+    t.integer "zip_code"
+    t.string "town"
+    t.string "country"
+    t.float "latitude"
+    t.float "longitude"
+    t.decimal "result"
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_foot_prints_on_product_id"
+    t.index ["user_id"], name: "index_foot_prints_on_user_id"
   end
 
   create_table "footprints", force: :cascade do |t|
@@ -48,7 +63,10 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
     t.bigint "type_id"
     t.bigint "brand_id"
-    t.decimal "result"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "city"
+    t.string "country"
     t.bigint "warehouse_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"
@@ -85,9 +103,9 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.float "latitude"
     t.float "longitude"
     t.string "country"
+    t.boolean "is_admin", default: false
     t.string "provider"
     t.string "uid"
-    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -110,6 +128,8 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "foot_prints", "products"
+  add_foreign_key "foot_prints", "users"
   add_foreign_key "footprints", "products"
   add_foreign_key "footprints", "users"
   add_foreign_key "products", "brands"
