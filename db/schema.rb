@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_03_21_082742) do
+=======
+ActiveRecord::Schema.define(version: 2019_03_20_144641) do
+>>>>>>> development
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +51,11 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
     t.bigint "type_id"
     t.bigint "brand_id"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "city"
-    t.string "country"
+    t.decimal "result"
+    t.bigint "warehouse_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"
+    t.index ["warehouse_id"], name: "index_products_on_warehouse_id"
   end
 
   create_table "ratios", force: :cascade do |t|
@@ -85,8 +88,12 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.float "latitude"
     t.float "longitude"
     t.string "country"
+<<<<<<< HEAD
     t.string "provider"
     t.string "uid"
+=======
+    t.boolean "is_admin", default: false
+>>>>>>> development
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -97,8 +104,21 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "warehouses", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "country"
+    t.integer "zip_code"
+    t.string "city"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "footprints", "products"
   add_foreign_key "footprints", "users"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "types"
+  add_foreign_key "products", "warehouses"
 end

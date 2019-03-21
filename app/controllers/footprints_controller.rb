@@ -10,8 +10,8 @@ class FootprintsController < ApplicationController
     # GET /footprints/1
     # GET /footprints/1.json
     def show
-        @distance = @footprint.product.distance_to(@footprint).round.to_f * 1.609
-
+        # @distance = @footprint.product.distance_to(@footprint).round.to_f * 1.609
+        @product = Product.find(params[:id])
         url_city_product = "https://api.airvisual.com/v2/nearest_city?lat=#{@footprint.latitude}&lon=#{@footprint.longitude}&key=BbFES4LurEehNo6PR"
         @response_product = open(url_city_product).read
         @res_product = JSON.parse(@response_product).with_indifferent_access
@@ -37,11 +37,14 @@ class FootprintsController < ApplicationController
     # POST /footprints
     # POST /footprints.json
     def create
+      @product = Product.find(params[:product_id])
       @footprint = Footprint.new(footprint_params)
       @footprint.user_id = current_user.id
       @footprint.geocode
-      @distance = @footprint.product.distance_to(@footprint).round.to_f * 1.609
-      @footprint.result = @footprint.product.tx_total + @distance * 1.5
+      @warehouse = Warehouse.all
+      @near_city = @warehouse.near(@footprint.town)
+      # @distance = @footprint.product.distance_to(@footprint).round.to_f * 1.609
+      # @footprint.result = @footprint.town.tx_total + @distance * 1.5
       respond_to do |format|
         if @footprint.save
           format.js
@@ -74,7 +77,7 @@ class FootprintsController < ApplicationController
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_footprint
-        @footprint = FootPrint.find(params[:id])
+        @footprint = Footprint.find(params[:id])
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.
