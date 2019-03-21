@@ -8,7 +8,7 @@ class ProductController < ApplicationController
     
     if @product.result == nil 
       @product.result = @product.tx_total
-      @product.save
+     
     else 
       @product.result
     end
