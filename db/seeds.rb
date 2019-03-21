@@ -44,7 +44,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'Ratio.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Ratio.new
-  t.carbon_print_for_brand = row
+  t.carbon_print_for_brand = row[0]
   t.save
   puts "Ratio saved"
 end
@@ -55,7 +55,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'Value.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Value.new
-  t.carbon_print = row
+  t.carbon_print = row[0]
   t.save
   puts "Value saved"
 end
@@ -101,7 +101,11 @@ end
 
 puts "There are now #{Warehouse.count} rows in the Warehouse table"
 
-5.times do |i|
-  Product.create!(title: Faker::Name.first_name, description: Faker::WorldCup.team, price: rand(1..30), type_id: Type.all.sample.id, brand_id: Brand.all.sample.id, warehouse_id: Warehouse.all.sample.id)
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'Product.csv'))
+csv = CSV.parse(csv_text, :headers => true,:encoding => 'ISO-8859-1', :col_sep => ';')
+csv.each do |row|
+  t = Product.create( title: row[0], type_id: row[1], brand_id: row[2], warehouse_id: row[3])
+  puts "Product saved"
 end
-puts "Products created"
+
+puts "There are now #{Product.count} rows in the Product table"
