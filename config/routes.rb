@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  
-  resources :user, only: [:show]
-  devise_for :users
+
   root to: 'home#index'
+
+  resources :user, only: [:show]
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  } 
   
   resources :footprints, only: [:show, :edit]
   resources :product do
