@@ -9,8 +9,9 @@ RSpec.describe Product, type: :model do
     type = Type.create(name: "jeans", value_id: value.id)
     ratio = Ratio.create(carbon_print_for_brand: 18)
     brand = Brand.create(name: 'Apple', ratio_id: ratio.id)
-   @product = Product.create(title: "Iphone", brand_id: brand.id, type_id: type.id, price: 18, description: "smartphone Apple", city: "paris", country: "France")
-   expect(Product.count).to eq(1)
+    warehouse = Warehouse.create(name: "Amazon", address: "1 rue Amazon", zip_code: 75001, country: "France", city: "Paris")
+   @product = Product.create(title: "Iphone", brand_id: brand.id, type_id: type.id, price: 18, description: "smartphone Apple", warehouse_id: warehouse.id)
+   expect(@product).to be_a(Product)
     end
 
     it "has a valid product" do
@@ -27,11 +28,8 @@ RSpec.describe Product, type: :model do
         describe "#brand_id" do 
             it { expect(@product).to validate_presence_of(:brand_id) }
         end
-        describe "#city" do 
-            it { expect(@product).to validate_presence_of(:city) }
-        end
-        describe "#country" do 
-            it { expect(@product).to validate_presence_of(:country) }
+        describe "#warehouse_id" do 
+            it { expect(@product).to validate_presence_of(:warehouse_id) }
         end
     end
 
