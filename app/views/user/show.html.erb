@@ -33,12 +33,12 @@
       </thead>
       <tbody>
     
-<% @footprint.each do |foot| %>
+<%# <% @footprint.each do |foot| %> %>
         <tr>
-          <td> <%= foot.product.title %> </td>
-          <td><%= foot.result %></td>
+          <td> <%= @footprint.product.title %> </td>
+          <td><%= @footprint.result %></td>
         </tr>
-<% end %>
+<%# <% end %> %>
         <tr>
       </tbody>
     </table>
