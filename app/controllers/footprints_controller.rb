@@ -37,7 +37,7 @@ class FootprintsController < ApplicationController
     # POST /footprints
     # POST /footprints.json
     def create
-      # @product = Product.find(params[:id])
+      @product = Product.find(params[:product_id])
       @footprint = Footprint.new(footprint_params)
       @footprint.user_id = current_user.id
       @footprint.geocode
