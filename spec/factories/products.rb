@@ -3,5 +3,7 @@ FactoryBot.define do
     title { "MyString" }
     price { "9.99" }
     description { "MyText" }
+    city {"Bali"}
+    country {"France"}
   end
 end
