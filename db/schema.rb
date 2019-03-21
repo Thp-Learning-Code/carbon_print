@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 2019_03_21_082742) do
-=======
-ActiveRecord::Schema.define(version: 2019_03_20_144641) do
->>>>>>> development
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,12 +85,9 @@ ActiveRecord::Schema.define(version: 2019_03_20_144641) do
     t.float "latitude"
     t.float "longitude"
     t.string "country"
-<<<<<<< HEAD
     t.string "provider"
     t.string "uid"
-=======
     t.boolean "is_admin", default: false
->>>>>>> development
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

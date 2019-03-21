@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
-=======
-  
-  resources :user, only: [:show]
-  devise_for :users
->>>>>>> development
   root to: 'home#index'
 
   resources :user, only: [:show]

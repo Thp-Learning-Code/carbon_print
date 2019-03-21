@@ -12,25 +12,19 @@ class User < ApplicationRecord
   validates :town, presence: true
   validates :country, presence: true
 
-<<<<<<< HEAD
   # validates :last_name, presence: true
   # validates :first_name, presence: true
-=======
->>>>>>> development
 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-<<<<<<< HEAD
 
   # devise :omniauthable, omniauth_providers: [:facebook]
   devise :omniauthable, omniauth_providers: %i[facebook]
 
 
-=======
->>>>>>> development
   has_many :footprints
   has_many :products, through: :footprints
   geocoded_by :address
@@ -40,7 +34,6 @@ class User < ApplicationRecord
     [town,country].compact.join(', ')
   end
 
-<<<<<<< HEAD
   # def self.from_facebook(auth)
 
   #   where(facebook_id: auth.uid).first_or_create do |user|
