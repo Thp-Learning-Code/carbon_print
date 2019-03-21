@@ -94,4 +94,6 @@ Rails.application.configure do
     # set the relative root, because we're deploying to /myrailsapp
   # config.action_controller.relative_url_root  = "/myrailsapp"
 
+  config.serve_static_files = true
+
 end

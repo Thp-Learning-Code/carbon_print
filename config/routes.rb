@@ -12,13 +12,7 @@ Rails.application.routes.draw do
     resources :footprints, only: [:new, :create]
   end
 
-  namespace :admin do
-    root :to=> 'admin#index'
-    resources :users , except: [:new , :create, :edit]
-    resources :products 
-    resources :foot_prints , except: [:edit, :new, :update]
-  end
-
-  # get "*path" => redirect("/")# A decommenter vers la fin
+  require 'open-uri'
+  resources :api, only: [:index]
 
 end
