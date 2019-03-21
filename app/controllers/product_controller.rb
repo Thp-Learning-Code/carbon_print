@@ -1,17 +1,15 @@
 class ProductController < ApplicationController
+  
   def index
     @product= Product.all
   end
 
   def show
     @product = Product.find(params[:id])
-    
-    if @product.result == nil 
       total = @product.tx_total
-      @product.attributes = { :result => total}   
-    else 
-      @product.result
-    end
-    
-  end
+      total.round(2)
+  
+
+  end 
+
 end
