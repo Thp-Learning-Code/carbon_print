@@ -111,7 +111,7 @@
 
 <p>
   <strong>Result:</strong>
-  <%= @footprint.result %>
+  <%= @footprint.Result %>
 </p>
 
 <p>
@@ -282,12 +282,12 @@ let hideWhenMouseover =document.querySelector('#map > div.mapboxgl-control-conta
       hideWhenMouseover.style.visibility = "hidden"
     },3000)
   });
-
-
 <%end%>
 
+<% @foot_distance = @footprint.distance_to(@footprint.product.warehouse)*1.609 %>
 <h1>
-   <%# <%= @footprint.product.distance_to(@footprint).round.to_f*1.609%> km %>
+   <%= @foot_distance.to_i %>km
 </h1>
+
 </div>
 </div></div></div></div></div>
