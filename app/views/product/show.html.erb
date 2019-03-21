@@ -22,10 +22,15 @@
                         <br>
                         
                          
-                      
-                    <div id = "new-test">
-                      <%= link_to "Calculer l'empreinte carbone", new_product_foot_print_path(product_id: @product.id), remote: true %>
-                    </div>
+                      <% if user_signed_in? %>
+                            <div id="new-test" >
+                                <%= link_to "Calculer l'empreinte carbone", new_product_footprint_path(product_id: @product.id),
+                                 remote: true %>
+                            </div>
+                            <% else %>
+                            <p class="btn"><%= link_to "connectez vous pour calculer l'empreinte", new_user_session_path %></p>
+                        <%end%>
+                    
                     </div>
                         
                     
@@ -50,14 +55,7 @@
                                 </div>
                             </div>
 
-                        <% if user_signed_in? %>
-                            <div id="new-test" class="row justify-content-end">
-                                <%= link_to "Calculer l'empreinte carbon", new_product_footprint_path(product_id: @product.id),
-                                 remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-secondary mr-7'%>
-                            </div>
-                            <% else %>
-                            <p class="btn"><%= link_to "connectez vous pour calculer l'empreinte", new_user_session_path %></p>
-                        <%end%>
+                        
 
                     </div>
                 </div>
