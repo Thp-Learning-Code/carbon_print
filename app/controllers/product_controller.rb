@@ -7,8 +7,8 @@ class ProductController < ApplicationController
     @product = Product.find(params[:id])
     
     if @product.result == nil 
-      @product.result = @product.tx_total
-     
+      total = @product.tx_total
+      @product.attributes = { :result => total}   
     else 
       @product.result
     end
