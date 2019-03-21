@@ -62,7 +62,10 @@ var ENV = {
 }
 mapboxgl.accessToken =ENV['MAPBOX_API']
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 var map = new mapboxgl.Map({
  container: 'map', // container id
  style: 'mapbox://styles/mapbox/navigation-preview-day-v4', // stylesheet location
@@ -130,6 +133,12 @@ var directions = new MapboxDirections({
 map.addControl(directions, 'top-left');
 map.addControl(new mapboxgl.NavigationControl());
 
+<<<<<<< HEAD
+=======
+for (var i = 0; i < inputs.length; i++) {
+inputs[i].onclick = switchLayer;
+}
+>>>>>>> development
 <%end%>
 
 <h1>
