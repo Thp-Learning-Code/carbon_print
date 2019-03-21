@@ -11,7 +11,7 @@ class FootprintsController < ApplicationController
     # GET /footprints/1.json
     def show
         # @distance = @footprint.product.distance_to(@footprint).round.to_f * 1.609
-        @product = Product.find(params[:id])
+        @footprint = Footprint.find(params[:id])
         url_city_product = "https://api.airvisual.com/v2/nearest_city?lat=#{@footprint.latitude}&lon=#{@footprint.longitude}&key=BbFES4LurEehNo6PR"
         @response_product = open(url_city_product).read
         @res_product = JSON.parse(@response_product).with_indifferent_access
