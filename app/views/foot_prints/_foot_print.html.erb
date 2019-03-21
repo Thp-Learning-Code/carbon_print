@@ -1,6 +1,4 @@
-
-<p id="notice"><%= notice %></p>
-
+<center>
 <p>
   <strong>Delivery address:</strong>
   <%= foot_print.delivery_address %>
@@ -47,10 +45,9 @@
 </p>
 <%= link_to 'Edit', edit_foot_print_path(foot_print.id) %> 
 <%# <%= link_to 'Back', foot_prints_path %> 
-</div>
-<br>
 
-<div class="col-md-8">
+<br>
+</center>
 <div id='map'></div>
 <%= javascript_tag do %>
 
