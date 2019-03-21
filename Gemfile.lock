@@ -309,7 +309,6 @@ DEPENDENCIES
   mapbox-gl-rails
   nokogiri
   nyan-cat-formatter
-  omniauth
   omniauth-facebook
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
