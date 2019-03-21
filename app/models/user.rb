@@ -27,9 +27,9 @@ class User < ApplicationRecord
       # retreive the uid in database or create a new id
       user.email = auth.info.email
       # prefilled this informations which recovered from the facebook method
-      # user.last_name = auth.info.name
+      user.last_name = auth.info.name
       user.password = Devise.friendly_token[0, 20]
-      # user.skip_confirmation!
+      user.skip_confirmation!
       # don't ask confirmation because it's Facebook.
     end
   end

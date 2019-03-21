@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # "event: :authentication ==> create an event which send an errors if the user don't sign_in"
 
     else
-      redirect_to new_user_registration_url
+      redirect_to root_path
     end
   end
 
