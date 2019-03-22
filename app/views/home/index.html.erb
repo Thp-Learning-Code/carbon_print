@@ -110,15 +110,6 @@
 
 <%= javascript_tag do%>
 
-<%unless user_signed_in?%>
-<%puts "$"*90%>
-
-<%puts current_user.touch%> 
-<%puts current_user.updated_at%>
-<% puts current_user.updated_at + 10 %>
-<%puts Time.now.utc%>
-<%puts "$"*90%>
-<%end%>
 
 
 <% unless user_signed_in? &&  current_user.updated_at + 10 == Time.now.utc %>
