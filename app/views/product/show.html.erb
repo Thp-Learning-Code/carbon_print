@@ -27,6 +27,7 @@
                                 <%= link_to "Calculer l'empreinte carbone", new_product_footprint_path(product_id: @product.id),
                                  remote: true %>
                             </div>
+                            
                             <% else %>
                             <p class="btn"><%= link_to "connectez vous pour calculer l'empreinte", new_user_session_path %></p>
                         <%end%>
@@ -43,8 +44,6 @@
                                 <div class="card-header" role="tab" id="headingOne">
 
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Resultat :<%= @product.result %>
-
                                         <i class="now-ui-icons arrows-1_minimal-down"></i>
                                     </a>
                                 </div>
