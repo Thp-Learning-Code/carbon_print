@@ -131,7 +131,7 @@
      opacity: 0;
      }    
    } 
- } */
+ }*/
 
 .search-icon{
   position: relative;
@@ -2945,7 +2945,7 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
 
 .btn-outline-primary {
   border:3px;
-  border-color: ##2F3E46;
+  border-color: #2F3E46;
   
   background-color: transparent;
   color: black; }
@@ -3936,9 +3936,9 @@ small {
   font-size: 60%; }
 
 a {
-  color: #f96332; }
+  color: black; }
   a:hover, a:focus {
-    color: #f96332; }
+    color: #52796F; }
 
 h1, .h1 {
   font-size: 3.5em;

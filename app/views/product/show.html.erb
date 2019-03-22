@@ -18,40 +18,38 @@
                            
                         </div>
                     </div>
-                        <br>
-                        <br>
                         
-                         
                       <% if user_signed_in? %>
                             <div id="new-test" >
-                                <%= link_to "Calculer l'empreinte carbone", new_product_footprint_path(product_id: @product.id),
+                                <%= link_to "Calculez l'empreinte carbone de la livraison", new_product_footprint_path(product_id: @product.id),
                                  remote: true %>
-                            </div>
+                             </div>
+               
+                            
                             <% else %>
-                            <p class="btn"><%= link_to "connectez vous pour calculer l'empreinte", new_user_session_path %></p>
+                            <p class="btn"><%= link_to "connectez vous pour calculer l'empreinte de la livraison", new_user_session_path %></p>
                         <%end%>
                     
                     </div>
                         
                     
-                    <div class="col-md-6 ml-auto mr-auto" style="margin-top: -15%">
-                        <h2 class="title"> <%= @product.title.capitalize %> </h2>
-                        <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
-                        <h2 class="main-price" style=" color:black;" ><%= @product.price %> €</h2>
+                    <div class="col-md-6 ml-auto mr-auto" style="margin-top: -19%">
+                        <h2 class="title" style="color: white;font-size: 300%"> <%= @product.title.capitalize %> </h2>
+                        <h5 class="category" style="color: white;font-size: 200%"> <%= @product.type.name %></h5>
+                        
                         <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
                             <div class="card card-plain">
                                 <div class="card-header" role="tab" id="headingOne">
 
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 
-                                        <i class="now-ui-icons arrows-1_minimal-down"></i>
+                                        <%= @product.tx_total %> de kg de Co2 emit
+
+                                       
+
                                     </a>
                                 </div>
-                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="card-body" style="color:black">
-                                        <%= @product.description %>
-                                    </div>
-                                </div>
+                                
                             </div>
 
                         

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :foot_prints , except: [:edit, :new, :update]
   end
 
+resources :contact , only: [:index]
+resources :methodologie , only: [:index]
+
   # get "*path" => redirect("/")# A decommenter vers la fin
 
 end

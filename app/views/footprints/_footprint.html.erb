@@ -8,11 +8,25 @@
     console.log("owowowo")
   })
 </script> -->
-
+<div class="card  col-lg-12">
 <div class="container" id="not-clickable">
 
 <p id="notice"><%= notice %></p>
 
+<h4 style="color:green;">
+  <strong>Resultat:</strong>
+  <%= footprint.result %> CO2
+</h4>
+
+<p>
+  <strong>Utilisateur:</strong>
+  <%= footprint.user.first_name %><%= footprint.user.last_name %>
+</p>
+
+<p>
+  <strong>Produit:</strong>
+  <%= footprint.product.title %>
+</p>
 
 <p>
   <strong>Adresse de livraison:</strong>
@@ -34,30 +48,12 @@
   <%= footprint.country %>
 </p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= footprint.latitude %>
-</p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= footprint.longitude %>
-</p>
 
-<p>
-  <strong>Resultat:</strong>
-  <%= footprint.result %> CO2
-</p>
 
-<p>
-  <strong>Utilisateur:</strong>
-  <%= footprint.user.first_name %><%= footprint.user.last_name %>
-</p>
 
-<p>
-  <strong>Produit:</strong>
-  <%= footprint.product.title %>
-</p>
+
+
 
 <%= link_to 'Edit', edit_footprint_path(footprint.id) %> 
 <%# <%= link_to 'Back', foot_prints_path %> 
@@ -65,7 +61,7 @@
 <br>
 </div>
 
-
+</div>
 <br>
 </center>
 <div id='map'></div>
