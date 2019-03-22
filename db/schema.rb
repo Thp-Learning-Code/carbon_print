@@ -39,6 +39,22 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.index ["user_id"], name: "index_footprints_on_user_id"
   end
 
+  create_table "footprints", force: :cascade do |t|
+    t.string "delivery_address"
+    t.integer "zip_code"
+    t.string "town"
+    t.string "country"
+    t.float "latitude"
+    t.float "longitude"
+    t.decimal "result"
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_footprints_on_product_id"
+    t.index ["user_id"], name: "index_footprints_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.text "title"
     t.decimal "price"
@@ -108,6 +124,11 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+  add_foreign_key "foot_prints", "products"
+  add_foreign_key "foot_prints", "users"
+=======
+>>>>>>> development
   add_foreign_key "footprints", "products"
   add_foreign_key "footprints", "users"
   add_foreign_key "products", "brands"

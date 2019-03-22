@@ -35,7 +35,7 @@
                 <!--<img class="h1-seo rellax-text" data-rellax-speed="-2" src="./assets/img/logoNom"></img>-->
             </div>
    <%   if user_signed_in? %>
-            <h3 class="h3-description rellax-text" data-rellax-speed="-1">Bonjour <%= current_user.first_name %> ! Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici ::
+            <h3 class="h3-description rellax-text" data-rellax-speed="-1">Bonjour <%= current_user.first_name %> ! Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici :
               <% else %>
               <h3 class="h3-description rellax-text" data-rellax-speed="-1"> Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici :
                 <% end %>
@@ -80,7 +80,8 @@
       <%end%>
       </div>
       <% else%>
-        <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
+      <i style="font-size: 50px;" class="now-ui-icons location_world spin"></i><center>
+        <h3>Connectez vous pour voir la qualité de l'air de votre ville</center></h3>
         </div>
       <%end%>
 </div>
