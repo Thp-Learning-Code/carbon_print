@@ -33,16 +33,21 @@
                 <!--<img class="h1-seo rellax-text" data-rellax-speed="-2" src="./assets/img/logoNom"></img>-->
             </div>
 
-            <h3 class="h3-description rellax-text" data-rellax-speed="-1">Recherche ton produit :
+            <h3 class="h3-description rellax-text" data-rellax-speed="-1"> Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici :
 
                         <%= render 'home/search' %>
             </h3>
 
                       <!--     Button search     -->
-            <h3 class="h2-description rellax-text" style="color:white" class="category category-absolute " data-rellax-speed="-2"><%= @tips %>
+                     
+            <h3 class="h2-description rellax-text" style="color:white" class="category category-absolute " data-rellax-speed="-2"> Quelques conseils pour un monde plus vert (rien que pour toi): <br>"<%= @tips %>"
 
+            
 
             </h3>
+
+            
+            
         </div>
     </div>
         <!--   End Button search     -->
@@ -51,24 +56,25 @@
   <br>
   <br>
     <%   if user_signed_in? && current_user.town != nil %>
-      <div class="card d-flex"
-            <h3>Informations of Air Quality</h3><br><br>
-            <h6><%= "country: #{@country}"%></h6><br>
-            <h6><%= "City: #{@city}" %></h6><br>
-            <h6><%= "State: #{@state}"%></h6><br>
-            <h6><%= "Air Quality Index: #{@aqius} "%></h6>
+      <div class="card d-flex">
+      <br>
+            <h6>Informations sur la qualité de l'air</h6><br><br>
+            <h6><%= "Pays: #{@country}"%></h6><br>
+            <h6><%= "Ville: #{@city}" %></h6><br>
+            <h6><%= "Region: #{@state}"%></h6><br>
+            <h6><%= "Air Qualité index: #{@aqius} "%></h6>
         <div class="progress">
         <% if @aqius <= 50 %>
             <div class="progress-bar bg-success" style="width:100%">
-              Good
+              Bon
             </div>
         <% elsif  @aqius > 51 && @aqius <= 100 %>
           <div class="progress-bar bg-warning" style="width:100%">
-            Moderate
+            Moyen
           </div>
         <% elsif  @aqius >101 %>
           <div class="progress-bar bg-danger" style="width:100%">
-            Unhealthy for Sensitive Groups
+            Mauvais
           </div>
         <br><br>
       <%end%>
