@@ -15,8 +15,8 @@ context "validation" do
     expect(@user).to be_a(User)
   end
 
-  # describe "#first_name" do
-  #   it { expect(@user).to validate_presence_of(:first_name) }
+  # describe "#email" do
+  #   it { expect(@user).to validate_presence_of(:email) }
   # end
 
   # describe "#last_name" do
