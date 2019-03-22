@@ -9,10 +9,7 @@ class HomeController < ApplicationController
     if user_signed_in? && current_user.town != nil
       url = "https://api.airvisual.com/v2/nearest_city?lat=#{current_user.latitude}&lon=#{current_user.longitude}&key=BbFES4LurEehNo6PR"
       url_two ='https://api.airvisual.com/v2/city?city=Paris&state=Ile-de-France&country=France&key=BbFES4LurEehNo6PR'
-      puts @response = open(url).read 
-      puts current_user.latitude
-      puts "*"*90
-      puts current_user.town
+
       @res = JSON.parse(@response).with_indifferent_access
         @aqius = @res[:data][:current][:pollution][:aqius]
         @res[:data][:current][:pollution][:mainus]
