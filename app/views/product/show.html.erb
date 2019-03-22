@@ -18,15 +18,13 @@
                            
                         </div>
                     </div>
-                        <br>
-                        <br>
                         
-                         
                       <% if user_signed_in? %>
                             <div id="new-test" >
                                 <%= link_to "Calculez l'empreinte carbone l'empreinte de la livraison", new_product_footprint_path(product_id: @product.id),
-                                 remote: true %>
-                            </div>
+                                 remote: true, class:"link-disabled" %>
+                             </div>
+               
                             
                             <% else %>
                             <p class="btn"><%= link_to "connectez vous pour calculer l'empreinte de la livraison", new_user_session_path %></p>
