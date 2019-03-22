@@ -21,21 +21,21 @@ RSpec.describe User, type: :model do
       it { expect(@user).to validate_presence_of(:first_name) }
     end
 
-    describe "#last_name" do
-      it { expect(@user).to validate_presence_of(:last_name) }
-    end
+    # describe "#last_name" do
+    #   it { expect(@user).to validate_presence_of(:last_name) }
+    # end
 
-    describe "#zip_code" do
-      it { expect(@user).to validate_length_of(:zip_code), minimum: 5 }
-    end
+    # describe "#zip_code" do
+    #   it { expect(@user).to validate_length_of(:zip_code), minimum: 5 }
+    # end
 
     describe "#password" do
       it { expect(@user).to validate_length_of(:password), minimum: 6 }
     end
   end
-  context "association" do
-    describe "user" do
-      it {should have_many(:products).through(:footprints)}
-    end
-  end
+  # context "association" do
+  #   describe "user" do
+  #     it {should have_many(:products).through(:footprints)}
+  #   end
+  # end
 end

@@ -41,18 +41,6 @@
                 <% end %>
 
 
-            <!--<form class="search-container" method="get" action="">
-                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Quel objet souhaitez vous analyser ?">
-                                    <div class="input-group-append">
-                                        <a href="/" class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></a>
-                                    </div>
-                  </div>     
-                
-              </form>-->
-
-                      <%# <%= p = Product.find_by() %>
-
                         <%= render 'home/search' %>
 
                       <!--     Button search     -->
@@ -62,8 +50,6 @@
     </div>
         <!--   End Button search     -->
 <button id="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
-
-
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-sm">
   <div class="modal-content">
@@ -101,17 +87,13 @@
   </div>
 </div>
 
-
 <%= javascript_tag do%>
-
-
-
-<% unless user_signed_in? &&  current_user.updated_at + 10 == Time.now.utc %>
-window.onload = function(){
-let modal = document.getElementById("modal")
-  modal.click()
-modal.style.display="hidden"
-}
+      <% if user_signed_in? &&  current_user.updated_at + 10 == Time.now.utc %>
+      window.onload = function(){
+      let modal = document.getElementById("modal")
+        modal.click()
+      modal.style.display="hidden"
+      }
 
 <%end%>
 <%end%>
