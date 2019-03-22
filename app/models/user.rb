@@ -27,6 +27,13 @@ class User < ApplicationRecord
 
   has_many :footprints
   has_many :products, through: :footprints
+
+  after_create :welcome_send
+
+    def welcome_send
+      UserMailer.welcome_email(self).deliver_now
+    end
+
   geocoded_by :address
   after_validation :geocode
 
