@@ -1,12 +1,10 @@
-<div class="card bg-dark text-white">
- <img class="card-img" src="https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image">
-
-
 <div class="wrapper">
         <div class="page-header page-header-mini">
             <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/ciel/ciel11') ;">
             </div>
         </div>
+
+
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -22,15 +20,19 @@
                                 <div class="carousel-item active">
                                     <img class="d-block img-raised" src="https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="First slide">
                                 </div>
+
                                 <div class="carousel-item">
                                     <img class="d-block img-raised" src="../assets/img/pp-2.jpg" alt="Second slide">
                                 </div>
+
                                 <div class="carousel-item">
                                     <img class="d-block img-raised" src="../assets/img/pp-3.jpg" alt="Third slide">
                                 </div>
+
                                 <div class="carousel-item">
                                     <img class="d-block img-raised" src="../assets/img/pp-4.jpg" alt="Third slide">
                                 </div>
+
                             </div>
                             <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
                                 <button type="button" class="btn btn-primary btn-icon btn-round btn-sm" name="button">
@@ -50,15 +52,20 @@
                             <small>Kanye West</small>
                         </p>
                     </div>
+
                     <div class="col-md-6 ml-auto mr-auto">
                         <h2 class="title"> <%= @product.title.capitalize %> </h2>
                         <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
-                        <h2 class="main-price"><%= @product.price %> €</h2>
+                        <%if @product.price == nil %>
+                            <h4>Prix non renseigné</h4>
+                          <%else%>
+                            <h2 class="main-price"><%= @product.price %> €</h2>
+                        <%end%>
                         <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
                             <div class="card card-plain">
                                 <div class="card-header" role="tab" id="headingOne">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Resultat :<%= @product.result %>
+                                        Resultat :<%= @product.tx_total %>
                                         <i class="now-ui-icons arrows-1_minimal-down"></i>
                                     </a>
                                 </div>
@@ -68,10 +75,8 @@
                                     </div>
                                 </div>
                             </div>
+                          </div>
 
-                        <div id="new-test" class="row justify-content-end">
-                            <%= link_to "Calculer l'empreinte carbon", new_product_footprint_path(product_id: @product.id), remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-secondary mr-7'%>
-                            </div>
 
                     </div>
                 </div>
@@ -79,15 +84,23 @@
         </div>
     </div>
 
-<!--<div class="card bg-dark text-white">
-  <img class="card-img" src="https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image">
-=======
 <div class="card bg-dark text-white">
   # <img class="card-img" src="https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image">
->>>>>>> development
   <div class="card-img-overlay">
     <h2 class="card-title">Title:    <%= @product.title.capitalize %></h2>
     <h3 class="card-text">Description:  <%= @product.description %></h3>
     <h3 class="card-text">Price:  <%= @product.price %></h3>
   </div>
 </div>-->
+=======
+<div class="container">
+  <% if user_signed_in? %>
+      <div id="new-test" class="row justify-content-end">
+          <%= link_to "Calculer l'empreinte carbon", new_product_footprint_path(product_id: @product.id),
+           remote: true, :style=> 'color:#FFFFFF;', :class => 'btn btn-secondary mr-7'%>
+      </div>
+      <% else %>
+      <p class="btn"><%= link_to "connectez vous pour calculer l'empreinte", new_user_session_path %></p>
+  <%end%>
+</div>
+>>>>>>> development

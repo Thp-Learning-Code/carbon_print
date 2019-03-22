@@ -1,3 +1,4 @@
+
 <div class="wrapper">
         <div class="page-header page-header-mini">
             <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/pp-cov.jpg') ;">
@@ -47,13 +48,9 @@
                         </p>
                     </div>
                     <div class="col-md-6 ml-auto mr-auto">
-                        <h2 class="title"> <%= @footprint.product.title %> </h2>
-                        <h5 class="category"><%= @footprint.product.type.name %></h5>
-                        <% if @footprint.product.price == nil %>
-                        <h3> Prix n'est pas renseigné</h3>
-                        <%else%>
-                          <h2 class="main-price"><%= @footprint.product.price %></h2>
-                        <%end%>
+                        <h2 class="title"> Saint Laurent </h2>
+                        <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
+                        <h2 class="main-price">$3,390</h2>
                         <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
                             <div class="card card-plain">
                                 <div class="card-header" role="tab" id="headingOne">
@@ -68,135 +65,90 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="card card-plain"> -->
-                                <!-- <div class="card-header" role="tab" id="headingTwo">
+                            <div class="card card-plain">
+                                <div class="card-header" role="tab" id="headingTwo">
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         Designer Information
                                         <i class="now-ui-icons arrows-1_minimal-down"></i>
                                     </a>
-                                </div> -->
-                                <!-- <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                </div>
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="card-body">
                                         <p>An infusion of West Coast cool and New York attitude, Rebecca Minkoff is synonymous with It girl style. Minkoff burst on the fashion scene with her best-selling 'Morning After Bag' and later expanded her offering with the Rebecca Minkoff Collection - a range of luxe city staples with a "downtown romantic" theme.</p>
                                     </div>
-                                </div> -->
-                            <!-- </div> -->
+                                </div>
+                            </div>
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Delivery address:</strong>
-  <%= @footprint.delivery_address %>
+  <%= @foot_print.delivery_address %>
 </p>
 
 <p>
   <strong>Zip code:</strong>
-  <%= @footprint.zip_code %>
+  <%= @foot_print.zip_code %>
 </p>
 
 <p>
   <strong>Town:</strong>
-  <%= @footprint.town %>
+  <%= @foot_print.town %>
 </p>
 
 <p>
   <strong>Country:</strong>
-  <%= @footprint.country %>
+  <%= @foot_print.country %>
 </p>
-
-<% @foot_distance = @footprint.distance_to(@footprint.product.warehouse)*1.609 %>
-<p>
-  <strong>Distance:</strong>
-  <%= @foot_distance.to_i %>km
-</p>
-
 
 <p>
   <strong>Latitude:</strong>
-  <%= @footprint.latitude %>
+  <%= @foot_print.latitude %>
 </p>
 
 <p>
   <strong>Longitude:</strong>
-  <%= @footprint.longitude %>
+  <%= @foot_print.longitude %>
 </p>
 
 <p>
-  <strong>Result:</strong>
-  <%= @footprint.result %>
+  <strong>Distance:</strong>
+  <%= @foot_print.product.warehouse.distance_to(@foot_print).round.to_f*1.609%> km
+</p>
+
+<p>
+  <b>Result:</b>
+  <%= @foot_print.result %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @footprint.user_id %>
+  <%= link_to @foot_print.user.first_name+  " " + @foot_print.user.last_name  ,admin_user_path(@foot_print.user.id)  %>
 </p>
 
 <p>
   <strong>Product:</strong>
-  <%= @footprint.product_id %>
+  <%= @foot_print.product_id %>
 </p>
 
-
-
-
-
-<%= link_to 'Edit', edit_footprint_path(@footprint.id) %> |
-
 <br>
-<hr>
-<h3>Information de la ville de produit</h3>
-<h6><%= "country: #{@country_product}"%></h6><br>
-<h6><%= "City: #{@city_product}" %></h6><br>
-<h6><%= "State: #{@state_product}"%></h6><br>
-<h6><%= "Air Quality Index: #{@aqius_product} "%></h6>
-
-<div class="card text-center">
-
-  <div class="progress" >
-    <% if @aqius_product <= 50 %>
-    <div class="progress-bar bg-success"  style="width:100%"">
-      Good
-    </div>
-    <% elsif  @aqius_product > 51 && @aqius_product <= 100 %>
-    <div class="progress-bar bg-warning" style="width:100%">
-      Moderate
-    </div>
-    <% elsif  @aqius_product >101 %>
-    <div class="progress-bar bg-danger" style="width:100%" >
-      Unhealthy for Sensitive Groups
-    </div>
-    <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
-  <% end %>
-  </div>
-</div>
-<hr>
 <div id='map'></div>
-<div id='menu'>
-<%# Switch layer %>
-<input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
-<label for='basic'>basic</label>
-<input id='streets' type='radio' name='rtoggle' value='streets'>
-<label for='streets'>streets</label>
-<input id='bright' type='radio' name='rtoggle' value='bright'>
-<label for='bright'>bright</label>
-<input id='light' type='radio' name='rtoggle' value='light'>
-<label for='light'>light</label>
-<input id='dark' type='radio' name='rtoggle' value='dark'>
-<label for='dark'>dark</label>
-<input id='satellite' type='radio' name='rtoggle' value='satellite'>
-<label for='satellite'>satellite</label>
-</div>
+
+
+
+
+
 
 
 <%= javascript_tag do %>
 
+console.log("<%= @foot_print.town %>")
+console.log("<%= @foot_print.product %>")
+
 var ENV = {
- MAPBOX_API: '<%= ENV['MAPBOX_API'] %>'
+ MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
 }
 mapboxgl.accessToken =ENV['MAPBOX_API']
 
-<%# switch layer: next 2 line %>
-var layerList = document.getElementById('menu');
-var inputs = layerList.getElementsByTagName('input');
 
 var map = new mapboxgl.Map({
  container: 'map', // container id
@@ -211,22 +163,22 @@ var route = {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= @footprint.product.warehouse.longitude %>,<%= @footprint.product.warehouse.latitude %>]
+     coordinates: [<%= @foot_print.product.warehouse.longitude %>,<%= @foot_print.product.warehouse.latitude %>]
    },
    properties: {
-     title: '<%= @footprint.product.title %>',
-     description: '<%= @footprint.product.title %>,<%= @footprint.product.type.name %>'
+     title: '<%= @foot_print.product.title %>',
+     description: '<%= @foot_print.product.brand.name %>,<%= @foot_print.product.warehouse.city %>'
    }
  },
  {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= @footprint.longitude %>,<%= @footprint.latitude %>]
+     coordinates: [<%= @foot_print.longitude %>,<%= @foot_print.latitude %>]
    },
    properties: {
-     title: '<%= @footprint.user.first_name %>',
-     description: '<%= @footprint.town %>,<%= @footprint.country %>'
+     title: '<%= @foot_print.user.first_name %>',
+     description: '<%= @foot_print.town %>,<%= @foot_print.country %>'
    }
  }]
 };
@@ -254,17 +206,10 @@ var directions = new MapboxDirections({
  unit: 'metric',
  profile: 'mapbox/driving',
 
-  container:'directions', // Specify an element thats not the map container.
-  // UI controls
-  controls: {
-    inputs: false,
-    instructions: true
-  }
-
 });
- directions.setOrigin([<%= @footprint.product.warehouse.longitude %>,<%= @footprint.product.warehouse.latitude %>])
- directions.addWaypoint(0,[<%= @footprint.product.warehouse.longitude + 0.1 %>,<%= @footprint.product.warehouse.latitude + 0.02 %>])
- directions.setDestination([<%= @footprint.longitude %>,<%= @footprint.latitude %>])
+ directions.setOrigin([<%= @foot_print.product.warehouse.longitude %>,<%= @foot_print.product.warehouse.latitude %>])
+ directions.addWaypoint(0,[<%= @foot_print.product.warehouse.longitude + 0.1 %>,<%= @foot_print.product.warehouse.latitude + 0.02 %>])
+ directions.setDestination([<%= @foot_print.longitude %>,<%= @foot_print.latitude %>])
 
 
 
@@ -272,24 +217,6 @@ var directions = new MapboxDirections({
 map.addControl(directions, 'top-left');
 map.addControl(new mapboxgl.NavigationControl());
 
-//Switch layer until the loop
-function switchLayer(layer) {
-var layerId = layer.target.id;
-map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
-}
-
-for (var i = 0; i < inputs.length; i++) {
-inputs[i].onclick = switchLayer;
-}
-
-let hideWhenMouseover =document.querySelector('#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-left > div > div')
-	hideWhenMouseover.addEventListener("mouseover", function(){
-      setInterval(function(){
-      hideWhenMouseover.style.visibility = "hidden"
-    },3000)
-  });
 <%end%>
-
-
 </div>
 </div></div></div></div></div>

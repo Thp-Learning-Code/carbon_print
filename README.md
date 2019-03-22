@@ -1,24 +1,15 @@
-# README
+# Carbon Print 
+---
+" Calculez l'empreinte carbone de vos achats en ligne ! " 
+--- 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Liens 
+* Liens du site en production : 
+* Liens du GitHub : 
+### <dt> Associés </dt>
+* Jiad ABDUL
+* Amadou GOLFA
+* Sebastien LIM 
+* Théo MARTIN 
+* Guillaume MULEZI 
+* Maxime PARSIS

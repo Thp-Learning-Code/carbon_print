@@ -1,3 +1,13 @@
+<!-- <script>
+
+  let doNothing = document.getElementById("do-nothing")
+  doNothing.addEventListener("mouseover", function(){
+    console.log("owowowo")
+  })
+</script> -->
+
+<div class="container" id="not-clickable">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -45,12 +55,13 @@
   <%= footprint.product.title %>
 </p>
 <br>
-
+</div>
 
 <div id='map'></div>
 
-<%= javascript_tag do %>
 
+
+<%= javascript_tag do %>
 console.log("<%= @footprint.town %>")
 console.log("<%= @footprint.product %>")
 
@@ -134,3 +145,9 @@ map.addControl(new mapboxgl.NavigationControl());
 <h1>
    <%= @foot_distance.to_i %>km
 </h1>
+
+<script type="text/javascript">
+let notClickable = document.getElementById("not-clickable")
+notClickable.style.pointerEvents="none";
+console.log("not-clickable")
+</script>
