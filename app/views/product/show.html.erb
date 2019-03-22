@@ -21,8 +21,8 @@
                         
                       <% if user_signed_in? %>
                             <div id="new-test" >
-                                <%= link_to "Calculez l'empreinte carbone l'empreinte de la livraison", new_product_footprint_path(product_id: @product.id),
-                                 remote: true, class:"link-disabled" %>
+                                <%= link_to "Calculez l'empreinte carbone de la livraison", new_product_footprint_path(product_id: @product.id),
+                                 remote: true %>
                              </div>
                
                             
