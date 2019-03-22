@@ -18,7 +18,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('ratios')
 ActiveRecord::Base.connection.reset_pk_sequence!('warehouses')
 
 3.times do |i|
- User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Paris", zip_code:75018)
+ User.create!(first_name: Faker::Name.first_name + "fodesse", last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Paris", zip_code:75018)
 end
 3.times do |i|
   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, country:"France" , town:"Marseille", zip_code:75018)

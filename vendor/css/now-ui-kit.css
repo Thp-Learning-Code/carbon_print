@@ -2953,7 +2953,7 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
   .show > .btn-primary.dropdown-toggle,
   .show > .btn-primary.dropdown-toggle:focus,
   .show > .btn-primary.dropdown-toggle:hover {
-    background-color: transparent;
+    background-color: #52796F;
     color: black;
     -webkit-box-shadow: none;
             box-shadow: none; }

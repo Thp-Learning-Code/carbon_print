@@ -44,10 +44,11 @@ class FootprintsController < ApplicationController
       @near_city = @warehouse.near(@footprint.town)
       @distance = @footprint.product.warehouse.distance_to(@footprint).round.to_f * 1.609
       @co_by_km = @distance / 2.50
+      @co_by_km
       
-      @result_before_float = @footprint.product.result + @co_by_km
+      @result_before_float = @footprint.product.tx_total + @co_by_km
 
-      @footprint.result = @result_before_float.to_f
+      @footprint.result = (@result_before_float.to_f).round(2)
 
       respond_to do |format|
         if @footprint.save

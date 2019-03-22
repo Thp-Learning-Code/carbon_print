@@ -112,13 +112,18 @@
 </p>
 
 <p>
-  <strong>Result:</strong>
+  <strong>Distance:</strong>
+  <%= @foot_print.product.warehouse.distance_to(@foot_print).round.to_f*1.609%> km
+</p>
+
+<p>
+  <b>Result:</b>
   <%= @foot_print.result %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @foot_print.user_id %>
+  <%= link_to @foot_print.user.first_name+  " " + @foot_print.user.last_name  ,admin_user_path(@foot_print.user.id)  %>
 </p>
 
 <p>
@@ -129,21 +134,6 @@
 
 <br>
 <div id='map'></div>
-<div id='menu'>
-<%# Switch layer %>
-<input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
-<label for='basic'>basic</label>
-<input id='streets' type='radio' name='rtoggle' value='streets'>
-<label for='streets'>streets</label>
-<input id='bright' type='radio' name='rtoggle' value='bright'>
-<label for='bright'>bright</label>
-<input id='light' type='radio' name='rtoggle' value='light'>
-<label for='light'>light</label>
-<input id='dark' type='radio' name='rtoggle' value='dark'>
-<label for='dark'>dark</label>
-<input id='satellite' type='radio' name='rtoggle' value='satellite'>
-<label for='satellite'>satellite</label>
-</div>
 
 
 
@@ -161,9 +151,6 @@ var ENV = {
 }
 mapboxgl.accessToken =ENV['MAPBOX_API']
 
-<%# switch layer: next 2 line %>
-var layerList = document.getElementById('menu');
-var inputs = layerList.getElementsByTagName('input');
 
 var map = new mapboxgl.Map({
  container: 'map', // container id
@@ -178,11 +165,11 @@ var route = {
    type: 'Feature',
    geometry: {
      type: 'Point',
-     coordinates: [<%= @foot_print.product.longitude %>,<%= @foot_print.product.latitude %>]
+     coordinates: [<%= @foot_print.product.warehouse.longitude %>,<%= @foot_print.product.warehouse.latitude %>]
    },
    properties: {
      title: '<%= @foot_print.product.title %>',
-     description: '<%= @foot_print.product.city %>,<%= @foot_print.product.country %>'
+     description: '<%= @foot_print.product.brand.name %>,<%= @foot_print.product.warehouse.city %>'
    }
  },
  {
@@ -222,8 +209,8 @@ var directions = new MapboxDirections({
  profile: 'mapbox/driving',
 
 });
- directions.setOrigin([<%= @foot_print.product.longitude %>,<%= @foot_print.product.latitude %>])
- directions.addWaypoint(0,[<%= @foot_print.product.longitude + 0.1 %>,<%= @foot_print.product.latitude + 0.02 %>])
+ directions.setOrigin([<%= @foot_print.product.warehouse.longitude %>,<%= @foot_print.product.warehouse.latitude %>])
+ directions.addWaypoint(0,[<%= @foot_print.product.warehouse.longitude + 0.1 %>,<%= @foot_print.product.warehouse.latitude + 0.02 %>])
  directions.setDestination([<%= @foot_print.longitude %>,<%= @foot_print.latitude %>])
 
 
@@ -232,19 +219,6 @@ var directions = new MapboxDirections({
 map.addControl(directions, 'top-left');
 map.addControl(new mapboxgl.NavigationControl());
 
-//Switch layer until the loop
-function switchLayer(layer) {
-var layerId = layer.target.id;
-map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
-}
- 
-for (var i = 0; i < inputs.length; i++) {
-inputs[i].onclick = switchLayer;
-}
 <%end%>
-
-<h1>
-   <%= @foot_print.product.distance_to(@foot_print).round.to_f*1.609%> km
-</h1>
 </div>
 </div></div></div></div></div>

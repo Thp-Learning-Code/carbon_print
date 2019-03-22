@@ -1,3 +1,4 @@
+
 <div class="profile-page">
 <div class="wrapper">
         <div class="page-header page-header-small" filter-color="orange">
@@ -5,34 +6,20 @@
             </div>
             <div class="content-center">
                 
-                <h3 class="title" style="text-transform: uppercase;"><%= @user.first_name %> <%= @user.last_name %></h3>
-                <p class="category">Photographer</p>
-                <div class="content">
-                    <div class="social-description">
-                        <h2>26</h2>
-                        <p>Comments</p>
+                <h1 class="title" style="text-transform: uppercase; font-size: 250%"><%= @user.first_name %> <%= @user.last_name %></h1>
+                
+                <div class="content" >
+                    <div class="social-description" style="font-size: 130%">
+                        <%= "l'utilisateur a effectué #{@foot_print.count} tests" %>
                     </div>
-                    <div class="social-description">
-                        <h2>26</h2>
-                        <p>Comments</p>
-                    </div>
-                    <div class="social-description">
-                        <h2>48</h2>
-                        <p>Bookmarks</p>
-                    </div>
+                    
                 </div>
             </div>
         </div>
         <div class="section">
             <div class="container">
                 <div class="button-container">
-                    <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
-                    <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
-                        <i class="fa fa-instagram"></i>
-                    </a>
+                    
 
 <%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"btn btn-primary btn-round btn-lg"%>
 
@@ -43,7 +30,9 @@
 
 
 
+
 <br><br><br>
+<div class="jumbotron">
 <h2>result des tests</h2>
 <h5>
 <hr>
@@ -61,7 +50,7 @@
         </tr>
       </thead>
       <tbody>
-    
+
 <% @foot_print.each do |foot| %>
         <tr>
           <td> <%= foot.product.title %> </td>
@@ -74,12 +63,13 @@
     </table>
 
     <%end%>
-<div id="menu">
-<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"nav-link"%>
-</div>
+
+    </div>
 
 
-</tr></tbody></table></div>
+
+</tr></tbody></table></div></div></div></div></div>
+
 
 
 
