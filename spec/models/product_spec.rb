@@ -20,15 +20,15 @@ RSpec.describe Product, type: :model do
         it "is valid with valid attributes" do
             expect(@product).to be_a(Product)
           end
-        # describe "#type_id" do 
-        #     it { expect(@product).to validate_presence_of(:type_id) }
-        # end
-        # describe "#brand_id" do 
-        #     it { expect(@product).to validate_presence_of(:brand_id) }
-        # end
-        # describe "#warehouse_id" do 
-        #     it { expect(@product).to validate_presence_of(:warehouse_id) }
-        # end
+        describe "#type_id" do 
+            it { expect(@product).to validate_presence_of(:type_id) }
+        end
+        describe "#brand_id" do 
+            it { expect(@product).to validate_presence_of(:brand_id) }
+        end
+        describe "#warehouse_id" do 
+            it { expect(@product).to validate_presence_of(:warehouse_id) }
+        end
     end
 
 end
