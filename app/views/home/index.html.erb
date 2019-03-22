@@ -50,12 +50,20 @@
   <br>
   <br>
   <br>
+
+
     <%   if user_signed_in? && current_user.town != nil %>
       <div class="card d-flex"
             <h3>Informations of Air Quality</h3><br><br>
+            <img class="card-img-top" src="https://airnow.gov/images/aqilogo1.gif" alt="aqi image">
+
+            <hr>
             <h6><%= "country: #{@country}"%></h6><br>
+            <hr>
             <h6><%= "City: #{@city}" %></h6><br>
+            <hr>
             <h6><%= "State: #{@state}"%></h6><br>
+            <hr>
             <h6><%= "Air Quality Index: #{@aqius} "%></h6>
         <div class="progress">
         <% if @aqius <= 50 %>
@@ -78,3 +86,60 @@
         </div>
       <%end%>
 </div>
+
+
+<button id="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+
+    <%   if user_signed_in? && current_user.town != nil %>
+      <div class="card d-flex"
+            <h3>Informations of Air Quality</h3><br><br>
+            <img class="card-img-top" src="https://airnow.gov/images/aqilogo1.gif" alt="aqi image">
+
+            <hr>
+            <h6><%= "country: #{@country}"%></h6><br>
+            <hr>
+            <h6><%= "City: #{@city}" %></h6><br>
+            <hr>
+            <h6><%= "State: #{@state}"%></h6><br>
+            <hr>
+            <h6><%= "Air Quality Index: #{@aqius} "%></h6>
+        <div class="progress">
+        <% if @aqius <= 50 %>
+            <div class="progress-bar bg-success" style="width:100%">
+              Good
+            </div>
+        <% elsif  @aqius > 51 && @aqius <= 100 %>
+          <div class="progress-bar bg-warning" style="width:100%">
+            Moderate
+          </div>
+        <% elsif  @aqius >101 %>
+          <div class="progress-bar bg-danger" style="width:100%">
+            Unhealthy for Sensitive Groups
+          </div>
+        <br><br>
+      <%end%>
+      </div>
+      <% else%>
+        <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
+        </div>
+      <%end%>
+</div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+
+window.onload = function(){
+  console.log("bhhjbjhbhbj")
+  let modal = document.getElementById("modal")
+       modal.click();
+       modal.style.display="none"
+};
+
+</script>
