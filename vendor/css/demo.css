@@ -1,3 +1,4 @@
+
 .tim-row {
     margin-bottom: 20px;
 }
@@ -617,17 +618,21 @@
 .index-page .rellax-text-container .h1-seo {
     font-size: 16.8em;
     text-transform: uppercase;
-    font-weight: 700;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-family:   Times new roman, serif;
     z-index: 1;
     letter-spacing: -10px;
     text-align: center;
-    background: #ffedea;
-    background: -moz-linear-gradient(top, #FFFFFF 35%, #c38775 100%);
-    background: -webkit-linear-gradient(top, #FFFFFF 35%, #c38775 100%);
-    background: linear-gradient(to bottom, #FFFFFF 35%, #c38775 100%);
+    background: #ABFAA9;
+    background: -moz-linear-gradient(top, #FFFFFF 35%, #ABFAA9 100%);
+    background: -webkit-linear-gradient(top, #FFFFFF 35%, #ABFAA9 100%);
+    background: linear-gradient(to bottom, #2F3E46 35%, #52796F 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
+}
+.index-page .rellax-text-container {
+    top: 20%;
 }
 
 .presentation-page .rellax-text-container .pro,
@@ -666,6 +671,15 @@
     text-align: center;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.71);
 }
+.presentation-page .h2-description,
+.index-page .h2-description {
+    z-index: 3;
+    top: 75%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.71);
+}
 
 .presentation-page .category-absolute,
 .index-page .category-absolute {
@@ -682,12 +696,16 @@
 .presentation-page .rellax-header-sky,
 .index-page .rellax-header-sky {
     z-index: 0;
-    height: 50%;
+    height: 90%;
+    width:100%;
+
 }
 
 .presentation-page .rellax-header-buildings,
 .index-page .rellax-header-buildings {
     z-index: 2;
+    height:95%;
+    width :100%;
 }
 
 .presentation-page [data-background-color="dark-red"],
@@ -700,13 +718,9 @@
     background: #d0aea8;
 }
 
-.index-page .rellax-text-container {
-    top: 22%;
-}
-
 .index-page .rellax-text-container .h1-seo {
     letter-spacing: -3px;
-    font-size: 10.3em;
+    font-size: 9em;
 }
 
 .tim-white-buttons {

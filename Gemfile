@@ -3,7 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 gem 'faker'
+<<<<<<< HEAD
 gem 'therubyracer'
+=======
+gem 'omniauth-facebook'
+gem 'csv'
+>>>>>>> development
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -52,6 +57,7 @@ group :development, :test do
   gem 'table_print'
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -77,4 +83,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'mailjet'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'dotenv-rails'

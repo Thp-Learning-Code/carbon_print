@@ -1,0 +1,162 @@
+
+
+
+<!-- <script>
+
+  let doNothing = document.getElementById("do-nothing")
+  doNothing.addEventListener("mouseover", function(){
+    console.log("owowowo")
+  })
+</script> -->
+<div class="card  col-lg-12">
+<div class="container" id="not-clickable">
+
+<p id="notice"><%= notice %></p>
+
+<h4 style="color:green;">
+  <strong>Resultat:</strong>
+  <%= footprint.result %> CO2
+</h4>
+
+<p>
+  <strong>Utilisateur:</strong>
+  <%= footprint.user.first_name %><%= footprint.user.last_name %>
+</p>
+
+<p>
+  <strong>Produit:</strong>
+  <%= footprint.product.title %>
+</p>
+
+<p>
+  <strong>Adresse de livraison:</strong>
+  <%= footprint.delivery_address %>
+</p>
+
+<p>
+  <strong>Code postal:</strong>
+  <%= footprint.zip_code %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= footprint.town %>
+</p>
+
+<p>
+  <strong>Pays:</strong>
+  <%= footprint.country %>
+</p>
+
+
+
+
+
+
+
+
+<%= link_to 'Edit', edit_footprint_path(footprint.id) %> 
+<%# <%= link_to 'Back', foot_prints_path %> 
+
+<br>
+</div>
+
+</div>
+<br>
+</center>
+<div id='map'></div>
+
+
+
+<%= javascript_tag do %>
+console.log("<%= @footprint.town %>")
+console.log("<%= @footprint.product %>")
+
+var ENV = {
+ MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
+}
+mapboxgl.accessToken =ENV['MAPBOX_API']
+
+var map = new mapboxgl.Map({
+ container: 'map', // container id
+ style: 'mapbox://styles/mapbox/navigation-preview-day-v4', // stylesheet location
+ center: [2.56123,48.817038], // starting position
+ zoom: 3 // starting zoom
+});
+
+var route = {
+ type: 'FeatureCollection',
+ features: [{
+   type: 'Feature',
+   geometry: {
+     type: 'Point',
+     coordinates: [<%= @footprint.product.warehouse.longitude %>,<%= @footprint.product.warehouse.latitude %>]
+   },
+   properties: {
+     title: '<%= @footprint.product.title %>',
+     description: '<%= @footprint.product.title %>,<%= @footprint.product.title %>'
+   }
+ },
+ {
+   type: 'Feature',
+   geometry: {
+     type: 'Point',
+     coordinates: [<%= @footprint.longitude %>,<%= @footprint.latitude %>]
+   },
+   properties: {
+     title: '<%= @footprint.user.first_name %>',
+     description: '<%= @footprint.town %>,<%= @footprint.country %>'
+   }
+ }]
+};
+
+
+// add markers to map
+route.features.forEach(function(marker) {
+
+ // create a HTML element for each feature
+ var el = document.createElement('div');
+ el.className = 'marker';
+
+ new mapboxgl.Marker(el)
+
+ .setLngLat(marker.geometry.coordinates)
+ .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+   .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>')
+   )
+   .addTo(map);
+});
+
+
+var directions = new MapboxDirections({
+ accessToken: ENV['MAPBOX_API'],
+ unit: 'metric',
+ profile: 'mapbox/driving',
+
+});
+ directions.setOrigin([<%= @footprint.product.warehouse.longitude %>,<%= @footprint.product.warehouse.latitude %>])
+ directions.addWaypoint(0,[<%= @footprint.product.warehouse.longitude + 0.1 %>,<%= @footprint.product.warehouse.latitude + 0.02 %>])
+ directions.setDestination([<%= @footprint.longitude %>,<%= @footprint.latitude %>])
+
+
+
+// add to your mapboxgl map
+map.addControl(directions, 'top-left');
+map.addControl(new mapboxgl.NavigationControl());
+
+<%end%>
+
+
+   <% @foot_distance=  footprint.distance_to(footprint.product.warehouse)*1.609 %>
+
+<h1>
+   <%= @foot_distance.to_i %>km
+</h1>
+
+
+<script type="text/javascript">
+let notClickable = document.getElementById("not-clickable")
+notClickable.style.pointerEvents="none";
+console.log("not-clickable")
+</script>
+

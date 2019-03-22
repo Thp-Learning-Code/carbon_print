@@ -1,0 +1,22 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="card text-center d-flex">
+    <%@product.each do |item|%>
+        <div class="card-header">
+          <%= item.title %>
+        </div>
+        <div class="card-body">
+                <h5 class="card-title"><%= item.description  %></h5>
+                <%if item.price == nil %>
+                <p>le prix n'est pas renseigné</p>
+                <%else%>
+                <p class="card-text"><%= item.price %></p>
+                <%end%>
+          <%=link_to "voir plus", product_path(item),class:"btn btn-info" %>
+        </div>
+        <hr>
+  <%end%>
+  </div>
+</div>

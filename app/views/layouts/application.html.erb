@@ -7,39 +7,81 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <%= stylesheet_link_tag 'css/demo.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js'></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css' type='text/css' />
 
-    </head>
+    <meta charset="utf-8" />
+
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+
+<!--   Core JS Files   -->
+
 
   <body>
-    <% if user_signed_in? %>
-    <h6 class="dropdown-item" >Bonjour, <%= current_user.first_name %> !</h6>
 
-    <ul>
-      <li><a href="news.asp">News</a></li>
-      <li><a href="contact.asp">Contact</a></li>
-      <li><a href="default.asp">Connexion</a></li>
-      <!-- <li> <%# <%= link_to "Voir le profil",user_path(current_user),class:"card-link"%> </li> -->
-      <li> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete,class: "btn btn-outline-success" %></li>
-    </ul>
+<%= render 'layouts/navbar' %>
+
+<div>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+</div>
 
 
-    <% else %>
-
-    <ul>
-      <li> <%= link_to "Connexion", user_session_path %></li>
-      <li> <a href="/users/sign_up"> S'inscrire</a></li>
-    </ul>
-
-
-      <%= link_to "Test", user_session_path %>
-
-    <% end %>
-
+<div>
     <%= yield %>
+</div>
+<div>
+<%= render 'layouts/footer' %>
+</div>
+
+<%= javascript_include_tag 'js/core/jquery.3.2.1.min.js', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'js/core/popper.min.js', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'js/core/bootstrap.min.js', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'js/plugins/moment.min.js', 'data-turbolinks-track': 'reload' %>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<%= javascript_include_tag 'js/plugins/bootstrap-switch.js', 'data-turbolinks-track': 'reload' %>
+<!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+<%= javascript_include_tag 'js/plugins/bootstrap-tagsinput.js', 'data-turbolinks-track': 'reload' %>
+<!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+<%= javascript_include_tag 'js/plugins/bootstrap-selectpicker.js', 'data-turbolinks-track': 'reload' %>
+<!--  Google Maps Plugin    -->
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+<!--  Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<%= javascript_include_tag 'js/plugins/jasny-bootstrap.min.js', 'data-turbolinks-track': 'reload' %>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<%= javascript_include_tag 'js/plugins/nouislider.min.js', 'data-turbolinks-track': 'reload' %>
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<%= javascript_include_tag 'js/plugins/bootstrap-datetimepicker.min.js', 'data-turbolinks-track': 'reload' %>
+<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+<%= javascript_include_tag 'js/now-ui-kit.js?v=1.2.0', 'data-turbolinks-track': 'reload' %>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // the body of this function is in assets/js/now-ui-kit.js
+        nowuiKit.initSliders();
+    });
+</script>
+
   </body>
 </html>

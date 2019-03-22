@@ -1,7 +1,27 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :foot_prints
+
   root to: 'home#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :user, only: [:show]
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  } 
+  
+  resources :footprints, only: [:show, :edit]
+  resources :product do
+    resources :footprints, only: [:new, :create]
+  end
+
+  namespace :admin do
+    root :to=> 'admin#index'
+    resources :users , except: [:new , :create, :edit]
+    resources :products 
+    resources :foot_prints , except: [:edit, :new, :update]
+  end
+
+resources :contact , only: [:index]
+resources :methodologie , only: [:index]
+
+  # get "*path" => redirect("/")# A decommenter vers la fin
+
 end

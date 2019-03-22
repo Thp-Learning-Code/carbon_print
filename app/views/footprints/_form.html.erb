@@ -1,0 +1,41 @@
+<div class="form-group">
+
+  <%= form_for [@product , @footprint], remote: true do |form| %>
+
+      <% if footprint.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(footprint.errors.count, "error") %> erreur de sauvegarde</h2>
+              <ul>
+                <% footprint.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              </ul>
+                <% end %>
+          </div>
+      <% end %>
+
+
+  <%= form.hidden_field :product_id, value: @product.id %>
+
+    <div class="form-control">
+      <%= form.label :delivery_address %>
+      <%= form.text_field :delivery_address , class:"form-control", placeholder: "Votre Adresse" %><br />
+    </div>
+
+
+    <div class="form-control">
+      <%= form.label :zip_code %>
+      <%= form.text_field :zip_code , class:"form-control", placeholder: "Votre code Postal" %><br />
+    </div>
+
+
+    <div class="form-control">
+      <%= form.label :town %>
+      <%= form.text_field :town , class:"form-control", placeholder: "Votre Ville" %><br />
+    </div>
+
+    <%= form.hidden_field :country , value:"France"%><br />
+
+    <button type="form.submit" class="btn btn-primary btn-round" >Let's go</button>
+  <% end %>
+
+</div>
