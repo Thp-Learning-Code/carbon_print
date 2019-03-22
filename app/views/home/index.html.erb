@@ -131,15 +131,18 @@
 </div>
   </div>
 </div>
+<%puts "$"*90%>
+<%puts current_user.updated_at%>
+<%puts "$"*90%>
 
-<script type="text/javascript">
+<%=javascript_tag do%>
 
-
+<%if user_signed_in?   %>
 window.onload = function(){
   console.log("bhhjbjhbhbj")
   let modal = document.getElementById("modal")
-       modal.click();
-       modal.style.display="none"
-};
+    modal.click();
+    modal.style.display="none"
+<%end%>
 
-</script>
+<%end%>
