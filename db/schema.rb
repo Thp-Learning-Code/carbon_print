@@ -47,11 +47,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
     t.bigint "type_id"
     t.bigint "brand_id"
-<<<<<<< HEAD
-    t.decimal "result"
-=======
-
->>>>>>> development
     t.bigint "warehouse_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"
