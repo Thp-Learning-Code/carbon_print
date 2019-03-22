@@ -56,17 +56,14 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "title"
+    t.text "title"
     t.decimal "price"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "type_id"
     t.bigint "brand_id"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "city"
-    t.string "country"
+
     t.bigint "warehouse_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"

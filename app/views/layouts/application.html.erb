@@ -11,14 +11,12 @@
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   
+
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <!-- CSS Files -->
-    <%= stylesheet_link_tag 'css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'css/now-ui-kit.css?v=1.2.0', media: 'all', 'data-turbolinks-track': 'reload' %>
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <%= stylesheet_link_tag 'css/demo.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
@@ -28,20 +26,12 @@
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css' type='text/css' />
 
     <meta charset="utf-8" />
-    
+
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  
+
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <%# <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <!-- CSS Files -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="./assets/css/demo.css" rel="stylesheet" />
-    </head> %>
+
 
 <!--   Core JS Files   -->
 
@@ -52,7 +42,9 @@
 
     <%= yield %>
 
-<%= render 'layouts/footer' %> 
+<div>
+<%= render 'layouts/footer' %>
+</div>
 
 <%= javascript_include_tag 'js/core/jquery.3.2.1.min.js', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'js/core/popper.min.js', 'data-turbolinks-track': 'reload' %>
@@ -80,6 +72,6 @@
         nowuiKit.initSliders();
     });
 </script>
-  
+
   </body>
 </html>

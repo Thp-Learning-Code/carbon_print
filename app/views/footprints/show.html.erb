@@ -47,9 +47,13 @@
                         </p>
                     </div>
                     <div class="col-md-6 ml-auto mr-auto">
-                        <h2 class="title"> Saint Laurent </h2>
-                        <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
-                        <h2 class="main-price">$3,390</h2>
+                        <h2 class="title"> <%= @footprint.product.title %> </h2>
+                        <h5 class="category"><%= @footprint.product.type.name %></h5>
+                        <% if @footprint.product.price == nil %>
+                        <h3> Prix n'est pas renseigné</h3>
+                        <%else%>
+                          <h2 class="main-price"><%= @footprint.product.price %></h2>
+                        <%end%>
                         <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
                             <div class="card card-plain">
                                 <div class="card-header" role="tab" id="headingOne">
@@ -64,19 +68,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card card-plain">
-                                <div class="card-header" role="tab" id="headingTwo">
+                            <!-- <div class="card card-plain"> -->
+                                <!-- <div class="card-header" role="tab" id="headingTwo">
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         Designer Information
                                         <i class="now-ui-icons arrows-1_minimal-down"></i>
                                     </a>
-                                </div>
-                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                </div> -->
+                                <!-- <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="card-body">
                                         <p>An infusion of West Coast cool and New York attitude, Rebecca Minkoff is synonymous with It girl style. Minkoff burst on the fashion scene with her best-selling 'Morning After Bag' and later expanded her offering with the Rebecca Minkoff Collection - a range of luxe city staples with a "downtown romantic" theme.</p>
                                     </div>
-                                </div>
-                            </div>
+                                </div> -->
+                            <!-- </div> -->
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -99,6 +103,13 @@
   <%= @footprint.country %>
 </p>
 
+<% @foot_distance = @footprint.distance_to(@footprint.product.warehouse)*1.609 %>
+<p>
+  <strong>Distance:</strong>
+  <%= @foot_distance.to_i %>km
+</p>
+
+
 <p>
   <strong>Latitude:</strong>
   <%= @footprint.latitude %>
@@ -111,7 +122,7 @@
 
 <p>
   <strong>Result:</strong>
-  <%= @footprint.Result %>
+  <%= @footprint.result %>
 </p>
 
 <p>
@@ -140,17 +151,17 @@
 
 <div class="card text-center">
 
-  <div class="progress">
-  <% if @aqius_product <= 50 %>
-    <div class="progress-bar bg-success" style="width:33%">
+  <div class="progress" >
+    <% if @aqius_product <= 50 %>
+    <div class="progress-bar bg-success"  style="width:100%"">
       Good
     </div>
     <% elsif  @aqius_product > 51 && @aqius_product <= 100 %>
-    <div class="progress-bar bg-warning" style="width:33%">
+    <div class="progress-bar bg-warning" style="width:100%">
       Moderate
     </div>
     <% elsif  @aqius_product >101 %>
-    <div class="progress-bar bg-danger" style="width:34%">
+    <div class="progress-bar bg-danger" style="width:100%" >
       Unhealthy for Sensitive Groups
     </div>
     <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
@@ -176,15 +187,10 @@
 </div>
 
 
-
-
-
-
-
 <%= javascript_tag do %>
 
 var ENV = {
- MAPBOX_API: '<%= ENV['MAPBOX_API'] %>',
+ MAPBOX_API: '<%= ENV['MAPBOX_API'] %>'
 }
 mapboxgl.accessToken =ENV['MAPBOX_API']
 
@@ -209,7 +215,7 @@ var route = {
    },
    properties: {
      title: '<%= @footprint.product.title %>',
-     description: '<%= @footprint.product.title %>,<%= @footprint.product.title %>'
+     description: '<%= @footprint.product.title %>,<%= @footprint.product.type.name %>'
    }
  },
  {
@@ -284,10 +290,6 @@ let hideWhenMouseover =document.querySelector('#map > div.mapboxgl-control-conta
   });
 <%end%>
 
-<% @foot_distance = @footprint.distance_to(@footprint.product.warehouse)*1.609 %>
-<h1>
-   <%= @foot_distance.to_i %>km
-</h1>
 
 </div>
 </div></div></div></div></div>
