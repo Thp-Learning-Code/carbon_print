@@ -24,6 +24,11 @@
 
                  
                 <li class="nav-item ">
+                    <a class="nav-link" data-toggle="modal" data-target="#noticeModal">
+                                Qualité de l'air
+                            </a>
+                        </li>
+                        <li class="nav-item">
 
                   <%= link_to "Voir le profil", user_path(current_user.id),class:"nav-link"%> </li>
                  
@@ -64,3 +69,56 @@
         </div>
     </nav>
 <% end %>
+  
+     
+
+
+<div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <%   if user_signed_in? && current_user.town != nil %>
+            <div class="modal-dialog modal-notice">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                        </button>
+                        <h5 class="modal-title" id="myModalLabel">Informations of Air Quality</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="instruction">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h6><%= "country: #{@country}"%></h6><br>
+                                      <h6><%= "City: #{@city}" %></h6><br>
+                                      <h6><%= "State: #{@state}"%></h6><br>
+                                      <h6><%= "Air Quality Index: #{@aqius} "%></h6>
+
+  
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="picture">
+                                        <img src="assets/img/pricing1.jpg" alt="Thumbnail Image" class="rounded img-raised">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    <div class="modal-footer justify-content-center">
+                        <div class="progress">
+  
+
+    <% else%>
+  <h4>Veuillez connecter pour voir la qualité de l'air de votre ville</h4>
+
+<%end%>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</ul>
+</div>
+</div>
+</nav>
+                        
+                 
