@@ -34,49 +34,47 @@
             </div>
 
             <h3 class="h3-description rellax-text" data-rellax-speed="-1">Recherche ton produit :
-           
+
                         <%= render 'home/search' %>
-                    
-              
             </h3>
 
                       <!--     Button search     -->
             <h3 class="h2-description rellax-text" style="color:white" class="category category-absolute " data-rellax-speed="-2"><%= @tips %>
- 
-             
+
+
             </h3>
         </div>
     </div>
         <!--   End Button search     -->
-
-
-
-
-
-<br><br><br>
-<%   if user_signed_in? && current_user.town != nil %>
-<h3>Informations of Air Quality</h3>
-<h6><%= "country: #{@country}"%></h6><br>
-<h6><%= "City: #{@city}" %></h6><br>
-<h6><%= "State: #{@state}"%></h6><br>
-<h6><%= "Air Quality Index: #{@aqius} "%></h6>
-
-  <div class="progress">
-  <% if @aqius <= 50 %>
-    <div class="progress-bar bg-success" style="width:33%">
-      Good
-    </div>
-    <% elsif  @aqius > 51 && @aqius <= 100 %>
-    <div class="progress-bar bg-warning" style="width:33%">
-      Moderate
-    </div>
-    <% elsif  @aqius >101 %>
-    <div class="progress-bar bg-danger" style="width:34%">
-      Unhealthy for Sensitive Groups
-    </div>
-<%end%>
-
-  <% else%>
-  <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
-  </div>
-<%end%>
+<div>
+  <br>
+  <br>
+  <br>
+    <%   if user_signed_in? && current_user.town != nil %>
+      <div class="card d-flex"
+            <h3>Informations of Air Quality</h3><br><br>
+            <h6><%= "country: #{@country}"%></h6><br>
+            <h6><%= "City: #{@city}" %></h6><br>
+            <h6><%= "State: #{@state}"%></h6><br>
+            <h6><%= "Air Quality Index: #{@aqius} "%></h6>
+        <div class="progress">
+        <% if @aqius <= 50 %>
+            <div class="progress-bar bg-success" style="width:100%">
+              Good
+            </div>
+        <% elsif  @aqius > 51 && @aqius <= 100 %>
+          <div class="progress-bar bg-warning" style="width:100%">
+            Moderate
+          </div>
+        <% elsif  @aqius >101 %>
+          <div class="progress-bar bg-danger" style="width:100%">
+            Unhealthy for Sensitive Groups
+          </div>
+        <br><br>
+      <%end%>
+      </div>
+      <% else%>
+        <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
+        </div>
+      <%end%>
+</div>
