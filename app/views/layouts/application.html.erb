@@ -37,15 +37,13 @@
 
 
   <body>
-<div>
-  <%= render 'layouts/navbar' %>
-</div>
 
-<div class="container">
+<%= render 'layouts/navbar' %>
+
+<div>
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
-  <%= debug(params) if Rails.env.development? %>
 </div>
 
 
