@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   require 'open-uri'
   def index
     @product = Product.all
-    page = Nokogiri::HTML(open("https://maconscienceecolo.com/knowledge-base/100-gestes-ecolos/"))
+     page = Nokogiri::HTML(open("https://maconscienceecolo.com/knowledge-base/100-gestes-ecolos/"))
     n = rand(0..99)
     @tips = page.xpath('//*[@id="kb-article-content"]/ol/li')[n].text
     if user_signed_in? && current_user.town != nil
