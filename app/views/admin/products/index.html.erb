@@ -10,8 +10,6 @@
       <th scope="col">Title</th>
       <th scope="col">type</th>
       <th scope="col">brand</th>
-      <th scope="col">country</th>
-      <th scope="col">city</th>
       <th scope="col">more</th>
       <th scope="col">delete</th>
 
@@ -25,8 +23,6 @@
       <td><%= pro.title %></td>
       <td><%= pro.type.name%></td>
       <td><%= pro.brand.name %></td>
-      <td><%= pro.country %></td>
-      <td><%= pro.city %></td>
       <td><%= link_to "more", admin_product_path(pro.id) %></td>
       <td><%= link_to "Delete", admin_product_path(pro.id),data: { :confirm => "Are you sure?"}, :method => :delete %></td>
 
