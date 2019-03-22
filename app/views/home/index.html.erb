@@ -96,7 +96,7 @@
   <div class="modal-content">
 
     <%   if user_signed_in? && current_user.town != nil %>
-      <div class="card d-flex"
+      <div class="card d-flex">
             <h3>Informations of Air Quality</h3><br><br>
             <img class="card-img-top" src="https://airnow.gov/images/aqilogo1.gif" alt="aqi image">
 
@@ -131,18 +131,27 @@
 </div>
   </div>
 </div>
+
+
+<%= javascript_tag do%>
+
+<%unless user_signed_in?%>
 <%puts "$"*90%>
+
+<%puts current_user.touch%> 
 <%puts current_user.updated_at%>
+<% puts current_user.updated_at + 10 %>
+<%puts Time.now.utc%>
 <%puts "$"*90%>
-
-<%=javascript_tag do%>
-
-<%if user_signed_in?   %>
-window.onload = function(){
-  console.log("bhhjbjhbhbj")
-  let modal = document.getElementById("modal")
-    modal.click();
-    modal.style.display="none"
 <%end%>
 
+
+<% unless user_signed_in? &&  current_user.updated_at + 10 == Time.now.utc %>
+window.onload = function(){
+let modal = document.getElementById("modal")
+  modal.click()
+modal.style.display="hidden"
+}
+
+<%end%>
 <%end%>
