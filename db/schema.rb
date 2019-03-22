@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.bigint "type_id"
     t.bigint "brand_id"
     t.bigint "warehouse_id"
+    t.decimal "result"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"
     t.index ["warehouse_id"], name: "index_products_on_warehouse_id"
