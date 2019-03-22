@@ -21,28 +21,52 @@
             <div class="page-header-image" data-parallax="true" style="background-image">
             </div>
             <div class="rellax-header rellax-header-sky" data-rellax-speed="-8">
-                <div class="page-header-image" style="background-image: url('./assets/img/ciel/ciel5')">
+                <div class="page-header-image" style="background-image: url(<%= asset_path '/assets/img/ciel/ciel5' %>)">
                 </div>
             </div>
             <div class="rellax-header rellax-header-buildings" data-rellax-speed="0">
-                <div class="page-header-image page-header-city" style="background-image: url('./assets/img/sol/newyork2')">
+
+                <div class="page-header-image page-header-city" style="background-image: url(<%= asset_path '/assets/img/sol/newyork2' %>)">
+
                 </div>
             </div>
             <div class="rellax-text-container">
                 <h1 class="h1-seo rellax-text" data-rellax-speed="-2">Carbon print</h1>
                 <!--<img class="h1-seo rellax-text" data-rellax-speed="-2" src="./assets/img/logoNom"></img>-->
             </div>
+   <%   if user_signed_in? %>
+            <h3 class="h3-description rellax-text" data-rellax-speed="-1">Bonjour <%= current_user.first_name %> ! Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici ::
+              <% else %>
+              <h3 class="h3-description rellax-text" data-rellax-speed="-1"> Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici :
+                <% end %>
 
-            <h3 class="h3-description rellax-text" data-rellax-speed="-1"> Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici :
+
+            <!--<form class="search-container" method="get" action="">
+                  <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Quel objet souhaitez vous analyser ?">
+                                    <div class="input-group-append">
+                                        <a href="/" class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></a>
+                                    </div>
+                  </div>     
+                           
+                
+              </form>-->
+                                  
+                      <%# <%= p = Product.find_by() %> 
 
                         <%= render 'home/search' %>
-            </h3>
+                    
+              
+
 
                       <!--     Button search     -->
                      
-            <h3 class="h2-description rellax-text" style="color:white" class="category category-absolute " data-rellax-speed="-2"> Quelques conseils pour un monde plus vert (rien que pour toi): <br>"<%= @tips %>"
+            <h3 class="h2-description rellax-text" style="color:white" class="category category-absolute " data-rellax-speed="-2"> Quelques conseils pour un monde plus vert (rien que pour toi): <br><I>"<%= @tips %>"</I>
 
             
+
+
+
 
             </h3>
 
@@ -84,3 +108,4 @@
         </div>
       <%end%>
 </div>
+</h4></h4></div></div></h3></h3></div></div></body></html>
