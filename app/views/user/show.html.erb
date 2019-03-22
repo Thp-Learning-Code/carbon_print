@@ -1,42 +1,50 @@
-<h1>Mon Profil</h1>
 
-<div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Prenom</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Email</th>
-        
+<div class="profile-page">
+<div class="wrapper">
+        <div class="page-header page-header-small" filter-color="orange">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/bg5.jpg') ;">
+            </div>
+            <div class="content-center">
+                
+                <h1 class="title" style="text-transform: uppercase; font-size: 250%"><%= @user.first_name %> <%= @user.last_name %></h1>
+                
+                <div class="content" >
+                    <div class="social-description" style="font-size: 130%">
+                        <%= "l'utilisateur a effectué #{@foot_print.count} tests" %>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="button-container">
+                    
 
-        </tr>
-      </thead>
-      <tbody>
-    
-        <tr>
-          <td><%= @user.first_name %></td>
-          <td><%= @user.last_name %></td>
-          <td><%= @user.email %></td>
-        </tr>
-        <tr>
-      </tbody>
-    </table>
+<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"btn btn-primary btn-round btn-lg"%>
+
+                </div>
+                <h3 class="title">About me</h3>
+                <h5 class="description text-center"><%= @user.email %></h5>
+
+
 
 
 
 <br><br><br>
-<h2>result des tests</h2>
+<div class="jumbotron">
+<h2>resultat des tests</h2>
 <h5>
 <hr>
-<%if @foot_print.count == 0  || @foot_print.count == 1%>
+<%if @foot_print.count == nil or @foot_print.count == 0 %>
 <%= "l'utilisateur a effectué #{@foot_print.count} test" %>
 <%else%>
 <%= "l'utilisateur a effectué #{@foot_print.count} tests" %>
-
 <%end%>
 <hr>
 </h5>
 <% if @foot_print.count > 0 %>
+
     <table class="table">
       <thead>
         <tr>
@@ -47,8 +55,8 @@
         </tr>
       </thead>
       <tbody>
-    
-<% @footprint.each do |foot| %>
+
+<% @foot_print.each do |foot| %>
         <tr>
           <td> <%= foot.product.title %> </td>
           <td><%= foot.result %></td>
@@ -57,11 +65,14 @@
         <tr>
       </tbody>
     </table>
-<div id="menu">
-<% if user_signed_in? && current_user.id == @user.id %>
-<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"nav-link"%>
-<%end%>
-</div>
+
+    <%end%>
+
+    </div>
+
+
+
+</tr></tbody></table></div></div></div></div></div>
 
 
 

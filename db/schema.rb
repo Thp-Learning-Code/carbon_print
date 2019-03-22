@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.datetime "updated_at", null: false
     t.bigint "type_id"
     t.bigint "brand_id"
-    t.decimal "result"
     t.bigint "warehouse_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["type_id"], name: "index_products_on_type_id"
@@ -84,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
     t.float "latitude"
     t.float "longitude"
     t.string "country"
+    t.boolean "is_admin", default: false
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -114,3 +114,4 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
   add_foreign_key "products", "types"
   add_foreign_key "products", "warehouses"
 end
+p

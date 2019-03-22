@@ -10,6 +10,14 @@ class User < ApplicationRecord
   # devise :omniauthable, omniauth_providers: [:facebook]
   devise :omniauthable, omniauth_providers: %i[facebook]
 
+  validates :first_name, length: { minimum: 3 }
+  validates :password, length: { in: 6..20 }
+
+  validates :email,
+    presence: true,
+    uniqueness: true,
+    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
+  end
 
   has_many :footprints
   has_many :products, through: :footprints

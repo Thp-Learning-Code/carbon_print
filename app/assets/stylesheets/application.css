@@ -18,9 +18,6 @@
 
  */
 
-.cp_logo {
-    font-family: 'Coiny', cursive;
-    /* color: #5dc0a6; */
-    font-family: 'Hanalei Fill', cursive;
-    font-size: 76px;
+.navbar{
+  margin-bottom: 500px;
 }
