@@ -8,10 +8,7 @@
                 
                 <h1 class="title" style="text-transform: uppercase; font-size: 250%"><%= @user.first_name %> <%= @user.last_name %></h1>
                 
-                <div class="content" >
-                    <div class="social-description" style="font-size: 130%">
-                        <%= "l'utilisateur a effectué #{@foot_print.count} tests" %>
-                    </div>
+                
                     
                 </div>
             </div>
@@ -21,11 +18,15 @@
                 <div class="button-container">
                     
 
-<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"btn btn-primary btn-round btn-lg"%>
+<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id),:style=>'color:#FFFFFF;',class:"btn btn-primary btn-round btn-lg"%>
 
                 </div>
-                <h3 class="title">About me</h3>
-                <h5 class="description text-center"><%= @user.email %></h5>
+                <h3 class="title">Informations</h3>
+
+                <h5 class="description text-center">
+                  <%= @user.email %>
+                </h5>
+                   
 
 
 
