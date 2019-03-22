@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-<<<<<<< HEAD
 
     before(:each) do
     value = Value.create(carbon_print: 21)
@@ -21,25 +20,15 @@ RSpec.describe Product, type: :model do
         it "is valid with valid attributes" do
             expect(@product).to be_a(Product)
           end
-        describe "#type_id" do 
-            it { expect(@product).to validate_presence_of(:type_id) }
-        end
-        describe "#brand_id" do 
-            it { expect(@product).to validate_presence_of(:brand_id) }
-        end
-        describe "#warehouse_id" do 
-            it { expect(@product).to validate_presence_of(:warehouse_id) }
-        end
+        # describe "#type_id" do 
+        #     it { expect(@product).to validate_presence_of(:type_id) }
+        # end
+        # describe "#brand_id" do 
+        #     it { expect(@product).to validate_presence_of(:brand_id) }
+        # end
+        # describe "#warehouse_id" do 
+        #     it { expect(@product).to validate_presence_of(:warehouse_id) }
+        # end
     end
 
-=======
- it "should create a product" do 
-    Value.create(carbon_print: 21)
-    Type.create(name: "jeans", value_id: 2)
-    Ratio.create(carbon_print_for_brand: 18)
-    Brand.create(name: 'Apple', ratio_id: 1)
-    Product.create(title: "Iphone", brand_id: 1, type_id: 1, price: 18, description: "smartphone Apple")
-    expect(Product.count).to eq(1)
- end
->>>>>>> development
 end
