@@ -106,14 +106,11 @@
 
 <%= javascript_tag do%>
 
-
-
 <% unless user_signed_in? &&  current_user.updated_at + 10 == Time.now.utc %>
 window.onload = function(){
 let modal = document.getElementById("modal")
   modal.click()
-modal.style.display="hidden"
+modal.style.display="none"
 }
-
 <%end%>
 <%end%>
