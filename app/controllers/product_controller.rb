@@ -11,9 +11,4 @@ class ProductController < ApplicationController
 
 
   end
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> development
 end
