@@ -114,4 +114,3 @@ ActiveRecord::Schema.define(version: 2019_03_21_082742) do
   add_foreign_key "products", "types"
   add_foreign_key "products", "warehouses"
 end
-p
