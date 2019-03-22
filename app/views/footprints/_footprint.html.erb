@@ -1,3 +1,6 @@
+
+
+
 <!-- <script>
 
   let doNothing = document.getElementById("do-nothing")
@@ -10,23 +13,24 @@
 
 <p id="notice"><%= notice %></p>
 
+
 <p>
-  <strong>Delivery address:</strong>
+  <strong>Adresse de livraison:</strong>
   <%= footprint.delivery_address %>
 </p>
 
 <p>
-  <strong>Zip code:</strong>
+  <strong>Code postal:</strong>
   <%= footprint.zip_code %>
 </p>
 
 <p>
-  <strong>Town:</strong>
+  <strong>Ville:</strong>
   <%= footprint.town %>
 </p>
 
 <p>
-  <strong>Country:</strong>
+  <strong>Pays:</strong>
   <%= footprint.country %>
 </p>
 
@@ -41,22 +45,29 @@
 </p>
 
 <p>
-  <strong>Result:</strong>
+  <strong>Resultat:</strong>
   <%= footprint.result %> CO2
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Utilisateur:</strong>
   <%= footprint.user.first_name %><%= footprint.user.last_name %>
 </p>
 
 <p>
-  <strong>Product:</strong>
+  <strong>Produit:</strong>
   <%= footprint.product.title %>
 </p>
+
+<%= link_to 'Edit', edit_footprint_path(footprint.id) %> 
+<%# <%= link_to 'Back', foot_prints_path %> 
+
 <br>
 </div>
 
+
+<br>
+</center>
 <div id='map'></div>
 
 
@@ -146,8 +157,10 @@ map.addControl(new mapboxgl.NavigationControl());
    <%= @foot_distance.to_i %>km
 </h1>
 
+
 <script type="text/javascript">
 let notClickable = document.getElementById("not-clickable")
 notClickable.style.pointerEvents="none";
 console.log("not-clickable")
 </script>
+

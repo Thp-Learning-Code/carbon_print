@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <br><br><br><br>
 <div class="container">
   <h5 style="text-align:center">Profile de l'utilisateur</h5>
@@ -13,6 +14,36 @@
     <p><button>Contact</button></p>
   </div>
 </div>
+=======
+
+<div class="profile-page">
+<div class="wrapper">
+        <div class="page-header page-header-small" filter-color="orange">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/bg5.jpg') ;">
+            </div>
+            <div class="content-center">
+                
+                <h1 class="title" style="text-transform: uppercase; font-size: 250%"><%= @user.first_name %> <%= @user.last_name %></h1>
+                
+                <div class="content" >
+                    <div class="social-description" style="font-size: 130%">
+                        <%= "l'utilisateur a effectué #{@foot_print.count} tests" %>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="button-container">
+                    
+
+<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"btn btn-primary btn-round btn-lg"%>
+
+                </div>
+                <h3 class="title">About me</h3>
+                <h5 class="description text-center"><%= @user.email %></h5>
+>>>>>>> development
 
 
 
@@ -31,6 +62,7 @@
 <hr>
 </h5>
 <% if @foot_print.count > 0 %>
+
     <table class="table">
       <thead>
         <tr>
@@ -51,9 +83,17 @@
         <tr>
       </tbody>
     </table>
+
     <%end%>
 
     </div>
-<div id="menu">
-<%= link_to "Modifier le profil", edit_user_registration_path(current_user.id), class:"nav-link"%>
-</div>
+
+
+
+</tr></tbody></table></div></div></div></div></div>
+
+
+
+
+
+

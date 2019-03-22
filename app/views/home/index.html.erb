@@ -18,31 +18,46 @@
 
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: ;">
+            <div class="page-header-image" data-parallax="true" style="background-image">
             </div>
             <div class="rellax-header rellax-header-sky" data-rellax-speed="-8">
-                <div class="page-header-image" style="background-image: url('./assets/img/ciel/ciel5')">
+                <div class="page-header-image" style="background-image: url(<%= asset_path '/assets/img/ciel/ciel5' %>)">
                 </div>
             </div>
             <div class="rellax-header rellax-header-buildings" data-rellax-speed="0">
-                <div class="page-header-image page-header-city" style="background-image: url('./assets/img/sol/newyork2')">
+
+                <div class="page-header-image page-header-city" style="background-image: url(<%= asset_path '/assets/img/sol/newyork2' %>)">
+
                 </div>
             </div>
             <div class="rellax-text-container">
                 <h1 class="h1-seo rellax-text" data-rellax-speed="-2">Carbon print</h1>
                 <!--<img class="h1-seo rellax-text" data-rellax-speed="-2" src="./assets/img/logoNom"></img>-->
             </div>
+   <%   if user_signed_in? %>
+            <h3 class="h3-description rellax-text" data-rellax-speed="-1">Bonjour <%= current_user.first_name %> ! Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici ::
+              <% else %>
+              <h3 class="h3-description rellax-text" data-rellax-speed="-1"> Si tu souhaites connaitre l'impact carbone d'un produit, c'est ici :
+                <% end %>
 
-            <h3 class="h3-description rellax-text" data-rellax-speed="-1">Recherche ton produit :
+
+            <!--<form class="search-container" method="get" action="">
+                  <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Quel objet souhaitez vous analyser ?">
+                                    <div class="input-group-append">
+                                        <a href="/" class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i></a>
+                                    </div>
+                  </div>     
+                
+              </form>-->
+
+                      <%# <%= p = Product.find_by() %>
 
                         <%= render 'home/search' %>
-            </h3>
 
                       <!--     Button search     -->
-            <h3 class="h2-description rellax-text" style="color:white" class="category category-absolute " data-rellax-speed="-2"><%= @tips %>
-
-
-            </h3>
+                     
+            <h3 class="h2-description rellax-text" style="color:white" class="category category-absolute " data-rellax-speed="-2"> Quelques conseils pour un monde plus vert (rien que pour toi): <br><I>"<%= @tips %>"</I></h3>
         </div>
     </div>
         <!--   End Button search     -->
@@ -50,42 +65,6 @@
   <br>
   <br>
   <br>
-
-
-    <%   if user_signed_in? && current_user.town != nil %>
-      <div class="card d-flex"
-            <h3>Informations of Air Quality</h3><br><br>
-            <img class="card-img-top" src="https://airnow.gov/images/aqilogo1.gif" alt="aqi image">
-
-            <hr>
-            <h6><%= "country: #{@country}"%></h6><br>
-            <hr>
-            <h6><%= "City: #{@city}" %></h6><br>
-            <hr>
-            <h6><%= "State: #{@state}"%></h6><br>
-            <hr>
-            <h6><%= "Air Quality Index: #{@aqius} "%></h6>
-        <div class="progress">
-        <% if @aqius <= 50 %>
-            <div class="progress-bar bg-success" style="width:100%">
-              Good
-            </div>
-        <% elsif  @aqius > 51 && @aqius <= 100 %>
-          <div class="progress-bar bg-warning" style="width:100%">
-            Moderate
-          </div>
-        <% elsif  @aqius >101 %>
-          <div class="progress-bar bg-danger" style="width:100%">
-            Unhealthy for Sensitive Groups
-          </div>
-        <br><br>
-      <%end%>
-      </div>
-      <% else%>
-        <h4>Veuillez connecter pour voir la qualité de l'air de votre ville<h4>
-        </div>
-      <%end%>
-</div>
 
 
 <button id="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
@@ -99,27 +78,23 @@
       <div class="card d-flex">
             <h3>Informations of Air Quality</h3><br><br>
             <img class="card-img-top" src="https://airnow.gov/images/aqilogo1.gif" alt="aqi image">
-
-            <hr>
-            <h6><%= "country: #{@country}"%></h6><br>
-            <hr>
-            <h6><%= "City: #{@city}" %></h6><br>
-            <hr>
-            <h6><%= "State: #{@state}"%></h6><br>
-            <hr>
-            <h6><%= "Air Quality Index: #{@aqius} "%></h6>
+            <h6>Informations sur la qualité de l'air</h6><br><br>
+            <h6><%= "Pays: #{@country}"%></h6><br>
+            <h6><%= "Ville: #{@city}" %></h6><br>
+            <h6><%= "Region: #{@state}"%></h6><br>
+            <h6><%= "Air Qualité index: #{@aqius} "%></h6>
         <div class="progress">
         <% if @aqius <= 50 %>
             <div class="progress-bar bg-success" style="width:100%">
-              Good
+              Bon
             </div>
         <% elsif  @aqius > 51 && @aqius <= 100 %>
           <div class="progress-bar bg-warning" style="width:100%">
-            Moderate
+            Moyen
           </div>
         <% elsif  @aqius >101 %>
           <div class="progress-bar bg-danger" style="width:100%">
-            Unhealthy for Sensitive Groups
+            Mauvais
           </div>
         <br><br>
       <%end%>
