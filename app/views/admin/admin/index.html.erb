@@ -33,7 +33,7 @@
       </thead>
       <tbody>
     <hr>
-      <h4>Last <%= @user.count %> user</h4>
+      <h4>Last <%= @user.count %> users</h4>
     <hr>
 <% @user.each do |user| %>
         <tr>
@@ -63,7 +63,11 @@
 
 
     <hr>
-      <h4>Last <%= @foot_print.count %> user</h4>
+    <% if @foot_print.count == nil || @foot_print.count == 0 %>
+    <p>Il n'y a pas de test</p>
+      <%else%>
+      <h4>Last <%= @foot_print.count %> Tests</h4>
+    <% end %>
     <hr>
 <% @foot_print.each do |foot| %>
         <tr>
