@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'methodologie/index'
+  get 'contact/index'
   root to: 'home#index'
 
   resources :user, only: [:show]
@@ -18,6 +20,9 @@ Rails.application.routes.draw do
     resources :products 
     resources :foot_prints , except: [:edit, :new, :update]
   end
+
+resource :contact , only: [:index]
+resource :methodologie , only: [:index]
 
   # get "*path" => redirect("/")# A decommenter vers la fin
 
