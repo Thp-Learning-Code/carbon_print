@@ -41,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bcrypt', '~> 3.1.7'
-gem 'devise', '~> 4.6'
+gem 'devise', '~> 4.7'
 gem 'dotenv-rails'
 gem 'rb-readline', '~> 0.5.5'
 gem 'nokogiri'
